@@ -1,2 +1,4 @@
 docs/
-packages/kit/vendor/lodash.js
+vendor/lodash.js.nyc_output/
+coverage/
+docs/
