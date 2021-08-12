@@ -2,7 +2,7 @@
   "name": "@salesforce/dev-scripts",
   "version": "0.9.18",
   "description": "Standardize package.json scripts and config files for Salesforce projects.",
-  "repository": "https://github.com/forcedotcom/dev-scripts",
+  "repository": "https://github.com/forcedotcom/sfdx-dev-packages",
   "bin": {
     "sf-build": "bin/sf-build.js",
     "sf-ci-docs": "bin/sf-ci-docs.js",
@@ -21,14 +21,6 @@
     "sf-test": "bin/sf-test.js"
   },
   "scripts": {
-    "build": "bin/sf-build.js",
-    "compile": "bin/sf-compile.js",
-    "docs": "sf-docs",
-    "lint-fix": "yarn sf-lint --fix",
-    "lodash": "./scripts/build-lodash.sh",
-    "postcompile": "shx cp -r src/nodash/support.d.ts lib/nodash",
-    "prepack": "sf-prepack",
-    "pretest": "sf-compile-test",
     "format": "prettier --write \"**/*.+(js|json)\"",
     "lint": "eslint \"**/*.js\"",
     "clean": "bin/sf-clean.js",
