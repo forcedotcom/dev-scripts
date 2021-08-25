@@ -21,6 +21,7 @@
     "sf-test": "bin/sf-test.js"
   },
   "scripts": {
+    "build": "echo 'no build necessary'",
     "format": "prettier --write \"**/*.+(js|json)\"",
     "lint": "eslint \"**/*.js\"",
     "clean": "bin/sf-clean.js",
