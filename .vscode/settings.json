@@ -4,7 +4,7 @@
   "json.schemas": [
     {
       "fileMatch": ["/**/.sfdevrc.json"],
-      "url": "./packages/dev-scripts/sfdevrc.schema.json"
+      "url": "./sfdevrc.schema.json"
     }
   ]
 }
