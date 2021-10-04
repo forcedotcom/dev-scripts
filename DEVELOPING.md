@@ -31,9 +31,7 @@ You would only do this once after you cloned the repository.
 
 ## List of Useful commands
 
-_These commands assume that they are executed from the top-level directory.
-Internally, they delegate to `lerna` to call them on each npm module in the
-packages directory._
+_These commands assume that they are executed from the top-level directory._
 
 ### `yarn bootstrap`
 

@@ -10,10 +10,10 @@ const { isMultiPackageProject } = require('../utils/project-type');
 const PackageJson = require('./package-json');
 const { resolveConfig } = require('./sf-config');
 
-module.exports = (projectPath, inLernaProject) => {
+module.exports = (projectPath) => {
   const pjson = new PackageJson(projectPath);
 
-  const config = resolveConfig(projectPath, inLernaProject);
+  const config = resolveConfig(projectPath);
   const dependencies = pjson.get('devDependencies');
 
   const added = [];
@@ -58,15 +58,11 @@ module.exports = (projectPath, inLernaProject) => {
 
   if (Object.keys(config.husky).length > 0) {
     // Only add husky hooks at the root level.
-    if (!inLernaProject) {
-      add('husky');
-      if (config.husky['pre-commit']) {
-        add('pretty-quick');
-      } else {
-        remove('pretty-quick');
-      }
+    add('husky');
+    if (config.husky['pre-commit']) {
+      add('pretty-quick');
     } else {
-      remove('husky');
+      remove('pretty-quick');
     }
   }
 
@@ -74,11 +70,6 @@ module.exports = (projectPath, inLernaProject) => {
     add('prettier');
   } else {
     remove('prettier');
-  }
-
-  // We don't need to install these for root lerna packages. They will be installed for the packages.
-  if (isMultiPackageProject(projectPath) && !inLernaProject) {
-    return;
   }
 
   // ensure all are on the same versions
@@ -110,18 +101,14 @@ module.exports = (projectPath, inLernaProject) => {
 
   const eslintPjson = require('eslint-config-salesforce-typescript/package.json');
   const eslintHeaderPjson = require('eslint-config-salesforce-license/package.json');
-  if (isMultiPackageProject(projectPath)) {
-    // We don't need these at the lerna level
-    Object.keys(eslintPjson.devDependencies).forEach(remove);
-  } else {
-    add('eslint-config-salesforce');
-    add('eslint-config-salesforce-typescript');
-    add('eslint-config-salesforce-license');
-    // eslint and all plugins must be installed on a local bases, regardless of if it uses a shared config.
-    // https://eslint.org/docs/user-guide/getting-started
-    Object.entries(eslintPjson.devDependencies).forEach(([name, version]) => add(name, version));
-    Object.entries(eslintHeaderPjson.devDependencies).forEach(([name, version]) => add(name, version));
-  }
+
+  add('eslint-config-salesforce');
+  add('eslint-config-salesforce-typescript');
+  add('eslint-config-salesforce-license');
+  // eslint and all plugins must be installed on a local bases, regardless of if it uses a shared config.
+  // https://eslint.org/docs/user-guide/getting-started
+  Object.entries(eslintPjson.devDependencies).forEach(([name, version]) => add(name, version));
+  Object.entries(eslintHeaderPjson.devDependencies).forEach(([name, version]) => add(name, version));
 
   if (added.length > 0) {
     pjson.actions.push(`adding required devDependencies ${added.join(', ')}`);

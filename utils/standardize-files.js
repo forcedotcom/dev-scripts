@@ -15,10 +15,6 @@ const { isMultiPackageProject } = require('./project-type');
 
 const FILES_PATH = join(__dirname, '..', 'files');
 
-const FILE_NAME_LICENSE = 'LICENSE.txt';
-const FILE_NAME_GITIGNORE = 'gitignore';
-const FILE_NAME_MOCHARC = 'mocharc.json';
-
 function isDifferent(sourcePath, targetPath) {
   try {
     if (statSync(sourcePath).size !== statSync(targetPath).size) {
@@ -41,49 +37,14 @@ function copyFile(sourcePath, targetPath, override = false) {
   }
 }
 
-function writeLicenseFile(targetDir) {
-  const licenseSourcePath = join(FILES_PATH, FILE_NAME_LICENSE);
-  const licenseTargetPath = join(targetDir, FILE_NAME_LICENSE);
-  // Always keep license file up-to-date
-  return copyFile(licenseSourcePath, licenseTargetPath, true);
-}
-
-function writeGitignore(targetDir) {
-  const gitignoreSourcePath = join(FILES_PATH, FILE_NAME_GITIGNORE);
-  const gitignoreTargetPath = join(targetDir, `.${FILE_NAME_GITIGNORE}`);
-  // Try to copy the default.
-  const copied = copyFile(gitignoreSourcePath, gitignoreTargetPath);
-
-  if (!copied) {
-    if (!readFileSync(gitignoreTargetPath, 'utf-8').includes('# -- CLEAN')) {
-      log(`The .gitignore doesn't contain any clean entries. See ${gitignoreSourcePath} for examples.`);
-    }
-  }
-  return copied;
-}
-
-function writeMocharcJson(targetDir) {
-  const mocharcSourcePath = join(FILES_PATH, FILE_NAME_MOCHARC);
-  const gitignoreTargetPath = join(targetDir, `.${FILE_NAME_MOCHARC}`);
-  // Try to copy the default.
-  return copyFile(mocharcSourcePath, gitignoreTargetPath);
-}
-
 // eslint-disable-next-line complexity
-module.exports = (packageRoot = require('./package-path'), inLernaProject) => {
-  const config = resolveConfig(packageRoot, inLernaProject);
+module.exports = (packageRoot = require('./package-path')) => {
+  const config = resolveConfig(packageRoot);
   const testPath = join(packageRoot, 'test');
   const scripts = config.scripts;
 
   let added = [];
   let removed = [];
-
-  // No need to write these file in lerna package directories.
-  if (isMultiPackageProject(packageRoot) || !inLernaProject) {
-    added.push(writeLicenseFile(packageRoot));
-    added.push(writeGitignore(packageRoot));
-    added.push(writeMocharcJson(packageRoot));
-  }
 
   // We want prettier in the root since that is when the commit format hook runs
   if (isMultiPackageProject(packageRoot) || scripts.format) {
@@ -91,10 +52,6 @@ module.exports = (packageRoot = require('./package-path'), inLernaProject) => {
     const prettierTargetPath = join(packageRoot, '.prettierrc.json');
     // prettier config files can't have the header, so it doesn't use a strict mode, meaning, it won't be overridden
     added.push(copyFile(prettierSourcePath, prettierTargetPath, false));
-  }
-
-  if (isMultiPackageProject(packageRoot)) {
-    return;
   }
 
   // nyc file

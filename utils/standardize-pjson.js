@@ -9,10 +9,9 @@ const { readFileSync } = require('fs');
 const { join } = require('path');
 const { resolveConfig } = require('./sf-config');
 const PackageJson = require('./package-json');
-const { isMultiPackageProject } = require('./project-type');
 
-module.exports = (packageRoot = require('./package-path'), inLernaProject) => {
-  const config = resolveConfig(packageRoot, inLernaProject);
+module.exports = (packageRoot = require('./package-path')) => {
+  const config = resolveConfig(packageRoot);
   const pjson = new PackageJson(packageRoot);
 
   const license = pjson.get('license');
@@ -30,10 +29,6 @@ module.exports = (packageRoot = require('./package-path'), inLernaProject) => {
     const scripts = pjson.get('scripts');
     // eslint-disable-next-line prefer-const
     for (let [scriptName, scriptCommand] of scriptList) {
-      if (isMultiPackageProject(packageRoot)) {
-        scriptCommand = `lerna run ${scriptName}`;
-      }
-
       if (scripts[scriptName] !== scriptCommand) {
         scripts[scriptName] = scriptCommand;
         scriptsChanged.push(scriptName);
@@ -42,35 +37,27 @@ module.exports = (packageRoot = require('./package-path'), inLernaProject) => {
     pjson.actions.push(`standardizing scripts: ${scriptsChanged.join(', ')}`);
   }
 
-  // Husky should only be at the root git project (the lerna project)
-  if (inLernaProject) {
-    if (pjson.contents.husky) {
-      pjson.actions.push('removing husky scripts; they should only be on the lerna package.json');
-      delete pjson.contents.husky;
+  // GENERATE HUSKY
+  const huskyList = Object.keys(config.husky);
+
+  if (huskyList.length > 0) {
+    pjson.actions.push(`standardizing husky: ${huskyList.join(', ')}`);
+
+    const husky = pjson.get('husky');
+
+    if (!husky.hooks) {
+      husky.hooks = {};
     }
-  } else {
-    // GENERATE HUSKY
-    const huskyList = Object.keys(config.husky);
 
-    if (huskyList.length > 0) {
-      pjson.actions.push(`standardizing husky: ${huskyList.join(', ')}`);
-
-      const husky = pjson.get('husky');
-
-      if (!husky.hooks) {
-        husky.hooks = {};
+    const standardizedHuskyScripts = [];
+    for (const [hookName, huskyScript] of Object.entries(config.husky)) {
+      if (husky.hooks[hookName] !== huskyScript) {
+        husky.hooks[hookName] = huskyScript;
+        standardizedHuskyScripts.push(hookName);
       }
-
-      const standardizedHuskyScripts = [];
-      for (const [hookName, huskyScript] of Object.entries(config.husky)) {
-        if (husky.hooks[hookName] !== huskyScript) {
-          husky.hooks[hookName] = huskyScript;
-          standardizedHuskyScripts.push(hookName);
-        }
-      }
-      if (standardizedHuskyScripts.length > 0) {
-        pjson.actions.push(`standardize husky scripts ${standardizedHuskyScripts.join(', ')}`);
-      }
+    }
+    if (standardizedHuskyScripts.length > 0) {
+      pjson.actions.push(`standardize husky scripts ${standardizedHuskyScripts.join(', ')}`);
     }
   }
 

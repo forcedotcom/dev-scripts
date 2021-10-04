@@ -7,9 +7,8 @@
  */
 
 const { readdirSync, readFileSync, statSync, writeFileSync } = require('fs');
-const { basename, join, resolve } = require('path');
+const { join, resolve } = require('path');
 const shell = require('../utils/shelljs');
-const loadRootPath = require('../utils/load-root-path');
 const packageRoot = require('../utils/package-path');
 const { isMultiPackageProject } = require('../utils/project-type');
 const typedoc = require.resolve('typedoc/bin/typedoc');
@@ -26,20 +25,9 @@ try {
 
 let outDir = 'docs';
 
-if (isMultiPackageProject(packageRoot)) {
-  try {
-    const lernaPath = loadRootPath('lerna.json');
-    outDir = join(lernaPath, outDir, basename(packageRoot));
-    // clean docs _after_ resolving outDir in multi-package projects
-    shell.rm('-rf', `${outDir}/*`);
-  } catch (e) {
-    /* do nothing */
-  }
-} else {
-  // clean docs _before_ resolving tmp outDir in multi-package projects
-  shell.rm('-rf', `${outDir}/*`);
-  outDir = join(packageRoot, outDir, 'tmp');
-}
+// clean docs _before_ resolving tmp outDir in multi-package projects
+shell.rm('-rf', `${outDir}/*`);
+outDir = join(packageRoot, outDir, 'tmp');
 
 let command = `${typedoc} --out ${outDir}`;
 

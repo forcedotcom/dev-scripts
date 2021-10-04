@@ -7,7 +7,6 @@
 
 const { dirname } = require('path');
 const { cosmiconfigSync } = require('cosmiconfig');
-const { isMultiPackageProject } = require('./project-type');
 
 const PACKAGE_DEFAULTS = {
   scripts: {
@@ -30,44 +29,10 @@ const PACKAGE_DEFAULTS = {
   },
 };
 
-const LERNA_DEFAULTS = {
-  scripts: {
-    build: 'lerna build',
-    clean: 'lerna clean',
-    'clean-all': 'lerna sf-clean all',
-    compile: 'lerna compile',
-    docs: 'lerna docs',
-    format: 'lerna format',
-    test: 'lerna test',
-    lint: 'lerna lint',
-  },
-  husky: {
-    'commit-msg': 'sf-husky-commit-msg',
-    'pre-commit': 'sf-husky-pre-commit',
-    'pre-push': 'sf-husky-pre-push',
-  },
-};
-
-const LERNA_PACKAGE_DEFAULTS = {
-  scripts: {
-    build: 'sf-build',
-    clean: 'sf-clean',
-    'clean-all': 'sf-clean all',
-    compile: 'sf-compile',
-    docs: 'sf-docs',
-    format: 'sf-format',
-    // Cleaner errors than ts-node through tests
-    pretest: 'sf-compile-test',
-    test: 'sf-test',
-    lint: 'sf-lint',
-    prepack: 'sf-build',
-  },
-};
-
 // Path to resolved config object.
 const resolvedConfigs = {};
 
-const resolveConfig = (path, inLernaProject) => {
+const resolveConfig = (path) => {
   if (path && resolvedConfigs[path]) {
     return resolvedConfigs[path];
   }
@@ -79,13 +44,7 @@ const resolveConfig = (path, inLernaProject) => {
     path = dirname(result.filepath);
   }
 
-  let defaults = PACKAGE_DEFAULTS;
-
-  if (path && isMultiPackageProject(path)) {
-    defaults = LERNA_DEFAULTS;
-  } else if (inLernaProject) {
-    defaults = LERNA_PACKAGE_DEFAULTS;
-  }
+  const defaults = PACKAGE_DEFAULTS;
 
   const configFromFile = (result && result.config) || {};
 
