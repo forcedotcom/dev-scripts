@@ -56,18 +56,11 @@ module.exports = (projectPath, inLernaProject) => {
 
   const scripts = config.scripts;
 
-  if (Object.keys(config.husky).length > 0) {
-    // Only add husky hooks at the root level.
-    if (!inLernaProject) {
-      add('husky');
-      if (config.husky['pre-commit']) {
-        add('pretty-quick');
-      } else {
-        remove('pretty-quick');
-      }
-    } else {
-      remove('husky');
-    }
+  if (!inLernaProject) {
+    add('husky');
+    add('pretty-quick');
+  } else {
+    remove('husky');
   }
 
   if (scripts.format) {
