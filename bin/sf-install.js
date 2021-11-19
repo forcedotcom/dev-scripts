@@ -8,7 +8,6 @@
 
 const chalk = require('chalk');
 const changed = require('../utils/write-dependencies')();
-const shell = require('../utils/shelljs');
 
 if (changed) {
   const errorHeader = chalk.red('ERROR: ');
