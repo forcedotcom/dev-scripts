@@ -71,7 +71,16 @@ module.exports = (projectPath, inLernaProject) => {
 
   // We don't need to install these for root lerna packages. They will be installed for the packages.
   if (isMultiPackageProject(projectPath) && !inLernaProject) {
-    return;
+    if (added.length > 0) {
+      pjson.actions.push(`adding required devDependencies ${added.join(', ')}`);
+    }
+
+    if (removed.length >= 0) {
+      pjson.actions.push('removed devDependencies controlled by dev-scripts');
+    }
+
+    pjson.write();
+    return added.length > 0;
   }
 
   // ensure all are on the same versions
