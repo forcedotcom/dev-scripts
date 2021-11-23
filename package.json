@@ -19,8 +19,8 @@
   },
   "scripts": {
     "build": "echo 'no build necessary'",
-    "format": "prettier --write \"**/*.+(js|json)\"",
-    "lint": "eslint \"**/*.js\"",
+    "format": "prettier --write \"{files,test,utils,bin}/**/*.+(js|json)\"",
+    "lint": "eslint \"{files,test,utils,bin}/**/*.js\"",
     "clean": "bin/sf-clean.js",
     "clean-all": "bin/sf-clean.js all",
     "test": "nyc mocha test/**/*.test.js",
