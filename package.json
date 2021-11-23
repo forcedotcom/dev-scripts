@@ -23,7 +23,8 @@
     "lint": "eslint \"**/*.js\"",
     "clean": "bin/sf-clean.js",
     "clean-all": "bin/sf-clean.js all",
-    "test": "nyc mocha test/**/*.test.js"
+    "test": "nyc mocha test/**/*.test.js",
+    "prepare": "husky install"
   },
   "keywords": [
     "sfdx"
