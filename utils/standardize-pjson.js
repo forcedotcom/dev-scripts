@@ -42,37 +42,13 @@ module.exports = (packageRoot = require('./package-path'), inLernaProject) => {
     pjson.actions.push(`standardizing scripts: ${scriptsChanged.join(', ')}`);
   }
 
-  // Husky should only be at the root git project (the lerna project)
-  if (inLernaProject) {
-    if (pjson.contents.husky) {
-      pjson.actions.push('removing husky scripts; they should only be on the lerna package.json');
-      delete pjson.contents.husky;
-    }
-  } else {
-    // GENERATE HUSKY
-    const huskyList = Object.keys(config.husky);
-
-    if (huskyList.length > 0) {
-      pjson.actions.push(`standardizing husky: ${huskyList.join(', ')}`);
-
-      const husky = pjson.get('husky');
-
-      if (!husky.hooks) {
-        husky.hooks = {};
-      }
-
-      const standardizedHuskyScripts = [];
-      for (const [hookName, huskyScript] of Object.entries(config.husky)) {
-        if (husky.hooks[hookName] !== huskyScript) {
-          husky.hooks[hookName] = huskyScript;
-          standardizedHuskyScripts.push(hookName);
-        }
-      }
-      if (standardizedHuskyScripts.length > 0) {
-        pjson.actions.push(`standardize husky scripts ${standardizedHuskyScripts.join(', ')}`);
-      }
-    }
+  // TODO: REMOVE IN NEXT MAJOR VERSION BUMP
+  // Remove old `husky` field from package.json (husky v7)
+  if (pjson.contents.husky) {
+    pjson.actions.push("removing husky scripts; defining hooks in package.json isn't supported anymore");
+    delete pjson.contents.husky;
   }
+  // END REMOVE
 
   try {
     const tsconfig = readFileSync(join(packageRoot, 'tsconfig.json')).toString();

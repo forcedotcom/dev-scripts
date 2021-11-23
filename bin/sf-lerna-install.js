@@ -28,6 +28,9 @@ if (changed) {
   const standardizeFiles = require('../utils/standardize-files');
   const standardizePjson = require('../utils/standardize-pjson');
 
+  // Only install husky in the lerna project
+  require('../utils/husky-init')();
+
   // Standardize package.json for lerna project, but not files
   log(`Standardize package.json for the lerna project`);
   standardizePjson();
