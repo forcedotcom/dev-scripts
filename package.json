@@ -1,6 +1,6 @@
 {
   "name": "@salesforce/dev-scripts",
-  "version": "0.9.18",
+  "version": "1.0.0",
   "description": "Standardize package.json scripts and config files for Salesforce projects.",
   "repository": "forcedotcom/dev-scripts",
   "bin": {
@@ -11,9 +11,6 @@
     "sf-compile-test": "bin/sf-compile-test.js",
     "sf-docs": "bin/sf-docs.js",
     "sf-format": "bin/sf-format.js",
-    "sf-husky-commit-msg": "bin/sf-husky-commit-msg.js",
-    "sf-husky-pre-commit": "bin/sf-husky-pre-commit.js",
-    "sf-husky-pre-push": "bin/sf-husky-pre-push.js",
     "sf-install": "bin/sf-install.js",
     "sf-lerna-install": "bin/sf-lerna-install.js",
     "sf-lint": "bin/sf-lint.js",
@@ -22,11 +19,12 @@
   },
   "scripts": {
     "build": "echo 'no build necessary'",
-    "format": "prettier --write \"**/*.+(js|json)\"",
-    "lint": "eslint \"**/*.js\"",
+    "format": "prettier --write \"{files,test,utils,bin}/**/*.+(js|json)\"",
+    "lint": "eslint \"{files,test,utils,bin}/**/*.js\"",
     "clean": "bin/sf-clean.js",
     "clean-all": "bin/sf-clean.js all",
-    "test": "nyc mocha test/**/*.test.js"
+    "test": "nyc mocha test/**/*.test.js",
+    "prepare": "husky install"
   },
   "keywords": [
     "sfdx"
@@ -48,7 +46,7 @@
     "@types/chai": "^4.2.11",
     "@types/mocha": "^8.2.2",
     "@types/node": "^15.6.1",
-    "@types/sinon": "10.0.4",
+    "@types/sinon": "10.0.6",
     "chai": "^4.2.0",
     "chalk": "^4.0.0",
     "cosmiconfig": "^7.0.0",
@@ -58,11 +56,11 @@
     "eslint-config-salesforce-license": "^0.1.6",
     "eslint-config-salesforce-typescript": "^0.2.7",
     "eslint-plugin-header": "^3.0.0",
-    "eslint-plugin-import": "2.23.4",
+    "eslint-plugin-import": "2.25.2",
     "eslint-plugin-jsdoc": "^35.1.2",
     "eslint-plugin-prefer-arrow": "^1.2.1",
     "eslint-plugin-prettier": "^3.1.3",
-    "husky": "^4.3.8",
+    "husky": "^7.0.4",
     "mocha": "^8.4.0",
     "nyc": "^15.1.0",
     "prettier": "^2.0.5",
