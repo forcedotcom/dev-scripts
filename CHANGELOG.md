@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.1](https://github.com/forcedotcom/dev-scripts/compare/v1.0.0...v1.0.1) (2021-11-29)
+
+### Bug Fixes
+
+- insert current year into license ([#35](https://github.com/forcedotcom/dev-scripts/issues/35)) ([1efbbef](https://github.com/forcedotcom/dev-scripts/commit/1efbbefc9da5d6177e5917ab677e75e49842906d))
+
 ## 1.0.0 (2021-11-23)
 
 ### ⚠ BREAKING CHANGES
