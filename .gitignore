@@ -24,6 +24,9 @@ coverage
 # generated docs
 docs
 
+# tmp files
+files/LICENSE.txt.tmp
+
 # -- CLEAN ALL
 node_modules
 
