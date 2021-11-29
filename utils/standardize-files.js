@@ -43,13 +43,17 @@ function copyFile(sourcePath, targetPath, override = false) {
 
 function writeLicenseFile(targetDir) {
   const licenseSourcePath = join(FILES_PATH, FILE_NAME_LICENSE);
+  const licenseSourceTmpPath = join(FILES_PATH, `${FILE_NAME_LICENSE}.tmp`);
   const licenseTargetPath = join(targetDir, FILE_NAME_LICENSE);
 
   const license = readFileSync(licenseSourcePath, 'utf-8');
   const licenseWithYear = license.replace('REPLACE_YEAR', new Date().getFullYear());
 
+  // Hacky: create a tmp file to copy from to utilize existing checks and logging in copyFile()
+  writeFileSync(licenseSourceTmpPath, licenseWithYear);
+
   // Always keep license file up-to-date
-  return writeFileSync(licenseTargetPath, licenseWithYear);
+  return copyFile(licenseSourceTmpPath, licenseTargetPath, true);
 }
 
 function writeGitignore(targetDir) {
