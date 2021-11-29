@@ -57,33 +57,6 @@
       "description": "choose which package.json scripts to exclude from the default list",
       "type": "array"
     },
-    "husky": {
-      "description": "The list of husky hooks to generate.",
-      "additionalProperties": { "type": "string" },
-      "type": "object",
-      "properties": {
-        "commit-msg": {
-          "description": "script to validate git commit message",
-          "type": "string"
-        },
-        "pre-commit": {
-          "description": "script to run before git commit",
-          "type": "string"
-        },
-        "pre-push": {
-          "description": "script to run before git push",
-          "type": "string"
-        }
-      }
-    },
-    "only-husky": {
-      "description": "choose which husky scripts to include from the default list",
-      "type": "array"
-    },
-    "exclude-husky": {
-      "description": "choose which husky scripts to exclude from the default list",
-      "type": "array"
-    },
     "lint": {
       "description": "Options for the lint script.",
       "type": "object",

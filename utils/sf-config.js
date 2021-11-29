@@ -23,11 +23,6 @@ const PACKAGE_DEFAULTS = {
     lint: 'sf-lint',
     prepack: 'sf-prepack',
   },
-  husky: {
-    'commit-msg': 'sf-husky-commit-msg',
-    'pre-commit': 'sf-husky-pre-commit',
-    'pre-push': 'sf-husky-pre-push',
-  },
 };
 
 const LERNA_DEFAULTS = {
@@ -40,11 +35,6 @@ const LERNA_DEFAULTS = {
     format: 'lerna format',
     test: 'lerna test',
     lint: 'lerna lint',
-  },
-  husky: {
-    'commit-msg': 'sf-husky-commit-msg',
-    'pre-commit': 'sf-husky-pre-commit',
-    'pre-push': 'sf-husky-pre-push',
   },
 };
 
@@ -92,11 +82,9 @@ const resolveConfig = (path, inLernaProject) => {
   // Allow users to override certain scripts
   const config = Object.assign({}, defaults, configFromFile, {
     scripts: Object.assign({}, defaults.scripts || {}, configFromFile.script || {}),
-    husky: Object.assign({}, defaults.husky || {}, configFromFile.husky || {}),
   });
 
   let excludeScripts = config['exclude-scripts'] || [];
-  let excludeHusky = config['exclude-husky'] || [];
 
   // Only keep specified scripts
   if (config['only-scripts'] && config['only-scripts'].length > 0) {
@@ -105,19 +93,10 @@ const resolveConfig = (path, inLernaProject) => {
       ...Object.keys(config.scripts).filter((scriptName) => !config['only-scripts'].includes(scriptName)),
     ];
   }
-  if (config['only-husky'] && config['only-husky'].length > 0) {
-    excludeHusky = [
-      ...excludeHusky,
-      ...Object.keys(config.husky).filter((scriptName) => !config['only-husky'].includes(scriptName)),
-    ];
-  }
 
   // Remove excluded items
   excludeScripts.forEach((scriptName) => {
     delete config.scripts[scriptName];
-  });
-  excludeHusky.forEach((scriptName) => {
-    delete config.husky[scriptName];
   });
 
   resolvedConfigs[path] = config;
