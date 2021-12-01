@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.2](https://github.com/forcedotcom/dev-scripts/compare/v1.0.1...v1.0.2) (2021-12-01)
+
+### Bug Fixes
+
+- only install husky if `.git` folder exists ([d8f5f2b](https://github.com/forcedotcom/dev-scripts/commit/d8f5f2b655bfded51fa48c57bbc7884b708c6e26))
+- same for lerna monorepos ([f8cb84d](https://github.com/forcedotcom/dev-scripts/commit/f8cb84d0211fca9f852e2312ab7082947694a1ef))
+
 ### [1.0.1](https://github.com/forcedotcom/dev-scripts/compare/v1.0.0...v1.0.1) (2021-11-29)
 
 ### Bug Fixes
