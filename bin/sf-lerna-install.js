@@ -8,6 +8,7 @@
 
 const chalk = require('chalk');
 const log = require('../utils/log');
+const exists = require('../utils/exists');
 const writeDeps = require('../utils/write-dependencies');
 const packageRoot = require('../utils/package-path');
 
@@ -28,8 +29,10 @@ if (changed) {
   const standardizeFiles = require('../utils/standardize-files');
   const standardizePjson = require('../utils/standardize-pjson');
 
-  // Only install husky in the lerna project
-  require('../utils/husky-init')();
+  if (exists('.git')) {
+    // Only install husky in the lerna project
+    require('../utils/husky-init')();
+  }
 
   // Standardize package.json for lerna project, but not files
   log(`Standardize package.json for the lerna project`);
