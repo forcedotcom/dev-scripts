@@ -23,7 +23,7 @@ function initializeHusky() {
     if (localGitHooks.length === 0) {
       shell.exec("yarn husky add .husky/commit-msg 'yarn commitlint --edit'");
       shell.exec("yarn husky add .husky/pre-commit 'yarn lint && yarn pretty-quick --staged'");
-      shell.exec("yarn husky add .husky/pre-push 'yarn build && yarn test'");
+      shell.exec("yarn husky add .husky/pre-push 'yarn build && yarn test --forbid-only'");
     }
   } catch (err) {
     if (err.code === 'ENOENT') {
