@@ -97,7 +97,6 @@ module.exports = (projectPath, inLernaProject) => {
   remove('@commitlint/cli');
   remove('@commitlint/config-conventional');
   remove('source-map-support');
-  remove('xunit-file');
   remove('@types/chai');
   remove('@types/mocha');
   remove('@types/node');
