@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.3](https://github.com/forcedotcom/dev-scripts/compare/v1.0.2...v1.0.3) (2021-12-16)
+
+### Bug Fixes
+
+- remove xunit-file ([19ad227](https://github.com/forcedotcom/dev-scripts/commit/19ad2278cf410f6df4418af3f5ac9998d2c6f0fa))
+
 ### [1.0.2](https://github.com/forcedotcom/dev-scripts/compare/v1.0.1...v1.0.2) (2021-12-01)
 
 ### Bug Fixes
