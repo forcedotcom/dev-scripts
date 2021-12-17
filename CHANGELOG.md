@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0](https://github.com/forcedotcom/dev-scripts/compare/v1.0.4...v2.0.0) (2021-12-17)
+
+### ⚠ BREAKING CHANGES
+
+- typedoc v0.20.0 introduced a lot of breaking changes,
+  see https://github.com/TypeStrong/typedoc/releases/tag/v0.20.0
+
+- bump typedoc to 0.22.6 ([c6b0fbe](https://github.com/forcedotcom/dev-scripts/commit/c6b0fbe4fd1b9a7ef6d7b6913ba87ff9aafe53c3))
+
 ### [1.0.4](https://github.com/forcedotcom/dev-scripts/compare/v1.0.3...v1.0.4) (2021-12-17)
 
 ### Bug Fixes
