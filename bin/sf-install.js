@@ -8,6 +8,7 @@
 
 const chalk = require('chalk');
 const changed = require('../utils/write-dependencies')();
+const exists = require('../utils/exists');
 
 if (changed) {
   const errorHeader = chalk.red('ERROR: ');
@@ -18,5 +19,7 @@ if (changed) {
 } else {
   require('../utils/standardize-pjson')();
   require('../utils/standardize-files')();
-  require('../utils/husky-init')();
+  if (exists('.git')) {
+    require('../utils/husky-init')();
+  }
 }
