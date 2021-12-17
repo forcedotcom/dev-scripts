@@ -1,13 +1,4 @@
 {
-  "nyc": {
-      "extends": "@salesforce/dev-config/nyc",
-      "check-coverage": true,
-      "lines": 90,
-      "statements": 90,
-      "functions": 90,
-      "branches": 90,
-      "reporter": ["lcov", "text"],
-      "extension": [".js"],
-      "exclude": ["bin/**/*.js", "**/*.test.js"]
-  }
+  "extends": "@salesforce/dev-config/nyc",
+  "exclude": ["bin/**/*.js", "**/*.test.js"]
 }
