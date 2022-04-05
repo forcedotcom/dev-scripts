@@ -12,7 +12,7 @@ const exec = require('../utils/shelljs').exec;
 const writeDeps = require('../utils/write-dependencies');
 
 exec('npx -y yarn-deduplicate');
-writeDeps();
+const changed = writeDeps();
 
 if (changed) {
   const errorHeader = chalk.red('ERROR: ');
