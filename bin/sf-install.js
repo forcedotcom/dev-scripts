@@ -7,8 +7,12 @@
  */
 
 const chalk = require('chalk');
-const changed = require('../utils/write-dependencies')();
 const exists = require('../utils/exists');
+const exec = require('../utils/shelljs').exec;
+const writeDeps = require('../utils/write-dependencies');
+
+exec('npx -y yarn-deduplicate');
+writeDeps();
 
 if (changed) {
   const errorHeader = chalk.red('ERROR: ');
