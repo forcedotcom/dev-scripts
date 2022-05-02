@@ -1,6 +1,6 @@
 {
   "name": "@salesforce/dev-scripts",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Standardize package.json scripts and config files for Salesforce projects.",
   "repository": "forcedotcom/dev-scripts",
   "bin": {
@@ -69,7 +69,7 @@
     "sinon": "10.0.0",
     "source-map-support": "~0.5.19",
     "ts-node": "^10.0.0",
-    "typedoc": "0.22.13",
+    "typedoc": "0.22.15",
     "typedoc-plugin-missing-exports": "0.22.6",
     "typescript": "^4.1.3"
   },
