@@ -6,7 +6,7 @@
  */
 
 const { join } = require('path');
-const { readFileSync, unlinkSync, copyFileSync, statSync, writeFileSync } = require('fs');
+const { readFileSync, unlinkSync, copyFileSync, writeFileSync } = require('fs');
 const log = require('./log');
 const exists = require('./exists');
 const { resolveConfig } = require('./sf-config');
@@ -21,10 +21,13 @@ const FILE_NAME_MOCHARC = 'mocharc.json';
 
 function isDifferent(sourcePath, targetPath) {
   try {
-    if (statSync(sourcePath).size !== statSync(targetPath).size) {
-      return true;
-    }
-    return readFileSync(sourcePath, 'utf8') !== readFileSync(targetPath, 'utf8');
+    // Using .replace() to normalize line endings across operating systems.
+    // eslint-disable-next-line no-control-regex
+    const sourceFile = readFileSync(sourcePath, 'utf8').replace(new RegExp('\r\n', 'g'), '\n');
+    // eslint-disable-next-line no-control-regex
+    const targetFile = readFileSync(targetPath, 'utf8').replace(new RegExp('\r\n', 'g'), '\n');
+
+    return sourceFile !== targetFile;
   } catch (error) {
     /* do nothing */
   }
