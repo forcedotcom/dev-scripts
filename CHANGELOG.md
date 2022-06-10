@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.0.3](https://github.com/forcedotcom/dev-scripts/compare/v2.0.0...v2.0.3) (2022-06-10)
+
+### Bug Fixes
+
+- allows files to be correctly compared across operating systems ([9c6c478](https://github.com/forcedotcom/dev-scripts/commit/9c6c47844b66415b50abea3d8347c095bf0d9105))
+- force new release ([53fa458](https://github.com/forcedotcom/dev-scripts/commit/53fa45852a68fd87899838ae9bc4d6ef91244948))
+
 ## [2.0.0](https://github.com/forcedotcom/dev-scripts/compare/v1.0.4...v2.0.0) (2021-12-17)
 
 ### ⚠ BREAKING CHANGES
