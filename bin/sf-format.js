@@ -9,5 +9,4 @@
 const shell = require('../utils/shelljs');
 
 // Simple one line command. If it needs to be customized, override script in sfdevrc file.
-shell.exec('prettier --write "+(src|test|schemas)/**/*.+(ts|js|json)"');
-shell.exec('prettier --write "command-snapshot.json"');
+shell.exec('prettier --write "+(src|test|schemas)/**/*.+(ts|js|json)|command-snapshot.json"');
