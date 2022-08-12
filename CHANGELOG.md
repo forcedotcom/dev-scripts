@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.0.0](https://github.com/forcedotcom/dev-scripts/compare/v2.0.0...v3.0.0) (2022-08-12)
+
+### Features
+
+- change to prettier config ([ac728bc](https://github.com/forcedotcom/dev-scripts/commit/ac728bc3c5aa76b2daee1b59f3474554f0713fbe))
+- removes the eslint plugin if found ([f2974ba](https://github.com/forcedotcom/dev-scripts/commit/f2974baa377442f032a5f887266b3bcd41c6e18a))
+
+### Bug Fixes
+
+- allows files to be correctly compared across operating systems ([9c6c478](https://github.com/forcedotcom/dev-scripts/commit/9c6c47844b66415b50abea3d8347c095bf0d9105))
+- bump depedencies ([71ad4d4](https://github.com/forcedotcom/dev-scripts/commit/71ad4d4e78c03b78bbb41f13b57644870ec0ca6b))
+- force new release ([53fa458](https://github.com/forcedotcom/dev-scripts/commit/53fa45852a68fd87899838ae9bc4d6ef91244948))
+- force release ([0f97273](https://github.com/forcedotcom/dev-scripts/commit/0f972736c19a64a52f3e94d262d0ffe34423ac88))
+- format plugin schemas and snapshots ([62eecac](https://github.com/forcedotcom/dev-scripts/commit/62eecac8f49bf42ea9d558b680021949c047983e))
+- use a single execution of prettier ([9512ebe](https://github.com/forcedotcom/dev-scripts/commit/9512ebea2a2ebc2781fc04cabcd21d5ff1be9105))
+
 ## [2.0.0](https://github.com/forcedotcom/dev-scripts/compare/v1.0.4...v2.0.0) (2021-12-17)
 
 ### ⚠ BREAKING CHANGES
