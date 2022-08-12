@@ -103,7 +103,7 @@ module.exports = (projectPath, inLernaProject) => {
   remove('@types/sinon');
   remove('typedoc');
   remove('typedoc-plugin-missing-exports');
-
+  remove('eslint-plugin-prettier');
   // We use eslint now
   remove('tslint');
 
