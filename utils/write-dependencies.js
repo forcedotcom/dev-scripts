@@ -104,6 +104,8 @@ module.exports = (projectPath, inLernaProject) => {
   remove('typedoc');
   remove('typedoc-plugin-missing-exports');
   remove('eslint-plugin-prettier');
+  remove('lint-staged');
+  remove('cz-conventional-changelog');
   // We use eslint now
   remove('tslint');
 
