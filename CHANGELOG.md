@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0](https://github.com/forcedotcom/dev-scripts/compare/v1.0.4...v2.0.0) (2021-12-17)
+
+### ⚠ BREAKING CHANGES
+
+- typedoc v0.20.0 introduced a lot of breaking changes,
+  see https://github.com/TypeStrong/typedoc/releases/tag/v0.20.0
+
+- bump typedoc to 0.22.6 ([c6b0fbe](https://github.com/forcedotcom/dev-scripts/commit/c6b0fbe4fd1b9a7ef6d7b6913ba87ff9aafe53c3))
+
+### [1.0.4](https://github.com/forcedotcom/dev-scripts/compare/v1.0.3...v1.0.4) (2021-12-17)
+
+### Bug Fixes
+
+- add --forbid-only to husky hook, fix nyc file ([#47](https://github.com/forcedotcom/dev-scripts/issues/47)) ([d3826e9](https://github.com/forcedotcom/dev-scripts/commit/d3826e9009c250f4e990b4ca83d378b686f63534))
+
 ### [1.0.3](https://github.com/forcedotcom/dev-scripts/compare/v1.0.2...v1.0.3) (2021-12-16)
 
 ### Bug Fixes

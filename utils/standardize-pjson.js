@@ -52,7 +52,7 @@ module.exports = (packageRoot = require('./package-path'), inLernaProject) => {
 
   try {
     const tsconfig = readFileSync(join(packageRoot, 'tsconfig.json')).toString();
-    const engineVersion = '>=12.0.0';
+    const engineVersion = '>=14.0.0';
     // Don't control for non dev-config projects, or projects that don't specify an engine already.
     if (
       tsconfig.match(/"extends"\s*:\s*".*@salesforce\/dev-config/) &&
