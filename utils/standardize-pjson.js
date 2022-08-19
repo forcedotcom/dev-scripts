@@ -48,6 +48,11 @@ module.exports = (packageRoot = require('./package-path'), inLernaProject) => {
     pjson.actions.push("removing husky scripts; defining hooks in package.json isn't supported anymore");
     delete pjson.contents.husky;
   }
+
+  if (pjson.contents.config) {
+    pjson.actions.push('removing commitizen config');
+    delete pjson.contents.config.commitizen;
+  }
   // END REMOVE
 
   try {
