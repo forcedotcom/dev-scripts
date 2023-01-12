@@ -9,7 +9,6 @@
 const path = require('path');
 const shell = require('../utils/shelljs');
 const packageRoot = require('../utils/package-path');
-const { isMultiPackageProject } = require('../utils/project-type');
 
 shell.set('-e');
 
@@ -21,10 +20,6 @@ shell.exec('git worktree prune');
 shell.exec('git fetch origin gh-pages:gh-pages');
 shell.exec('git worktree add docs gh-pages');
 shell.exec('yarn docs');
-
-if (isMultiPackageProject(packageRoot)) {
-  shell.exec('cp README.md docs');
-}
 
 shell.set('+e');
 

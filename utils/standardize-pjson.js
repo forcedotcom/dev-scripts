@@ -9,10 +9,9 @@ const { readFileSync } = require('fs');
 const { join } = require('path');
 const { resolveConfig } = require('./sf-config');
 const PackageJson = require('./package-json');
-const { isMultiPackageProject } = require('./project-type');
 
-module.exports = (packageRoot = require('./package-path'), inLernaProject) => {
-  const config = resolveConfig(packageRoot, inLernaProject);
+module.exports = (packageRoot = require('./package-path')) => {
+  const config = resolveConfig(packageRoot);
   const pjson = new PackageJson(packageRoot);
 
   const license = pjson.get('license');
@@ -23,6 +22,7 @@ module.exports = (packageRoot = require('./package-path'), inLernaProject) => {
 
   // GENERATE SCRIPTS
   const scriptList = Object.entries(config.scripts);
+  const wireitList = Object.entries(config.wireit);
 
   if (scriptList.length > 0) {
     const scriptsChanged = [];
@@ -30,30 +30,22 @@ module.exports = (packageRoot = require('./package-path'), inLernaProject) => {
     const scripts = pjson.get('scripts');
     // eslint-disable-next-line prefer-const
     for (let [scriptName, scriptCommand] of scriptList) {
-      if (isMultiPackageProject(packageRoot)) {
-        scriptCommand = `lerna run ${scriptName}`;
-      }
-
       if (scripts[scriptName] !== scriptCommand) {
         scripts[scriptName] = scriptCommand;
         scriptsChanged.push(scriptName);
       }
     }
     pjson.actions.push(`standardizing scripts: ${scriptsChanged.join(', ')}`);
+    if (wireitList.length > 0) {
+      const wireit = pjson.get('wireit');
+      for (const [scriptName, scriptCommand] of wireitList) {
+        if (wireit[scriptName] !== scriptCommand) {
+          wireit[scriptName] = scriptCommand;
+          scriptsChanged.push(scriptName);
+        }
+      }
+    }
   }
-
-  // TODO: REMOVE IN NEXT MAJOR VERSION BUMP
-  // Remove old `husky` field from package.json (husky v7)
-  if (pjson.contents.husky) {
-    pjson.actions.push("removing husky scripts; defining hooks in package.json isn't supported anymore");
-    delete pjson.contents.husky;
-  }
-
-  if (pjson.contents.config) {
-    pjson.actions.push('removing commitizen config');
-    delete pjson.contents.config.commitizen;
-  }
-  // END REMOVE
 
   try {
     const tsconfig = readFileSync(join(packageRoot, 'tsconfig.json')).toString();

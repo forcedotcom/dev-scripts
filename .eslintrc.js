@@ -7,4 +7,7 @@
 
 module.exports = {
   extends: ['eslint-config-salesforce', 'eslint-config-salesforce-license'],
+  parserOptions: {
+    ecmaVersion: 12,
+  },
 };
