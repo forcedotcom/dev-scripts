@@ -87,8 +87,7 @@ const PLUGIN_DEFAULTS = {
     },
     'test:json-schema': {
       command: './bin/dev schema:compare',
-      files: ['src/**/*.ts'],
-      output: ['schemas'],
+      files: ['src/**/*.ts', 'schemas'],
     },
     test: {
       dependencies: ['test-only', 'test:command-reference', 'test:deprecation-policy', 'lint', 'test:json-schema'],
