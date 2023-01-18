@@ -71,7 +71,7 @@ function writeGitignore(targetDir) {
     } else {
       // Add the default clean-all entries if they don't exist.
       let needsWrite = false;
-      for (const entry of ['.wireit', '.eslintcache', '.tsbuildinfo']) {
+      for (const entry of ['.wireit', '.eslintcache', '*.tsbuildinfo']) {
         if (!original.includes(entry)) {
           original = original.replace('# -- CLEAN ALL', `# -- CLEAN ALL\n${entry}`);
           needsWrite = true;

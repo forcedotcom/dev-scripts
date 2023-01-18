@@ -27,7 +27,7 @@ docs
 node_modules
 .wireit
 .eslintcache
-.tsbuildinfo
+*.tsbuildinfo
 
 # --
 # put files here you don't want cleaned with sf-clean

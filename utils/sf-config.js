@@ -34,7 +34,7 @@ const PACKAGE_DEFAULTS = {
     compile: {
       command: 'tsc --build --pretty ',
       files: ['src/**/*.ts', 'tsconfig.json'],
-      output: ['lib/**', '.tsbuildinfo'],
+      output: ['lib/**', '*.tsbuildinfo'],
       clean: 'if-file-deleted',
     },
     format: {
