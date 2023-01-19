@@ -75,18 +75,18 @@ const PLUGIN_DEFAULTS = {
   wireit: {
     ...PACKAGE_DEFAULTS.wireit,
     'test:command-reference': {
-      command: './bin/dev commandreference:generate --erroronwarnings',
+      command: `"./bin/dev" commandreference:generate --erroronwarnings`,
       files: ['src/**/*.ts', 'messages'],
       output: ['tmp/root'],
     },
     'test:deprecation-policy': {
-      command: './bin/dev snapshot:compare',
+      command: '"./bin/dev" snapshot:compare',
       files: ['src/**/*.ts'],
       output: [],
       dependencies: ['compile'],
     },
     'test:json-schema': {
-      command: './bin/dev schema:compare',
+      command: '"./bin/dev" schema:compare',
       files: ['src/**/*.ts', 'schemas'],
     },
     test: {
