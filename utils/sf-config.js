@@ -21,9 +21,8 @@ const PACKAGE_DEFAULTS = {
     pretest: undefined,
     posttest: undefined,
     test: 'wireit',
-    'test-compile': 'wireit',
-    'test-only': 'wireit',
-    'test:one': 'wireit',
+    'test:compile': 'wireit',
+    'test:only': 'wireit',
     lint: 'wireit',
     prepack: 'sf-prepack',
   },
@@ -45,20 +44,16 @@ const PACKAGE_DEFAULTS = {
       files: ['src/**/*.ts', 'test/**/*.ts', '.eslintignore', '.eslintrc.js'],
       output: [],
     },
-    'test-compile': {
+    'test:compile': {
       command: 'tsc -p ./test --pretty',
       files: ['test/**/*.ts', 'tsconfig.json', 'test/tsconfig.json'],
       output: [],
     },
-    'test:one': {
-      command: 'mocha',
-    },
     test: {
-      dependencies: ['test-only'],
+      dependencies: ['test:only', 'test:compile'],
     },
-    'test-only': {
+    'test:only': {
       command: 'nyc mocha test/**/*.test.ts',
-      dependencies: ['test-compile'],
       files: ['test/**/*.ts', 'src/**/*.ts', 'tsconfig.json', 'test/tsconfig.json'],
       output: [],
     },
@@ -88,9 +83,17 @@ const PLUGIN_DEFAULTS = {
     'test:json-schema': {
       command: '"./bin/dev" schema:compare',
       files: ['src/**/*.ts', 'schemas'],
+      output: [],
     },
     test: {
-      dependencies: ['test-only', 'test:command-reference', 'test:deprecation-policy', 'lint', 'test:json-schema'],
+      dependencies: [
+        'test:compile',
+        'test:only',
+        'test:command-reference',
+        'test:deprecation-policy',
+        'lint',
+        'test:json-schema',
+      ],
     },
   },
 };
