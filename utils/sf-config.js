@@ -31,7 +31,7 @@ const PACKAGE_DEFAULTS = {
       dependencies: ['compile', 'lint'],
     },
     compile: {
-      command: 'tsc --build --pretty ',
+      command: 'tsc -p . --pretty --incremental',
       files: ['src/**/*.ts', 'tsconfig.json'],
       output: ['lib/**', '*.tsbuildinfo'],
       clean: 'if-file-deleted',
@@ -45,7 +45,7 @@ const PACKAGE_DEFAULTS = {
       output: [],
     },
     'test:compile': {
-      command: 'tsc -p ./test --pretty',
+      command: 'tsc -p "./test" --pretty',
       files: ['test/**/*.ts', 'tsconfig.json', 'test/tsconfig.json'],
       output: [],
     },
@@ -53,7 +53,7 @@ const PACKAGE_DEFAULTS = {
       dependencies: ['test:only', 'test:compile'],
     },
     'test:only': {
-      command: 'nyc mocha test/**/*.test.ts',
+      command: 'nyc mocha "test/**/*.test.ts"',
       files: ['test/**/*.ts', 'src/**/*.ts', 'tsconfig.json', 'test/tsconfig.json'],
       output: [],
     },
