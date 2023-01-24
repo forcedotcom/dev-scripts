@@ -32,7 +32,7 @@ const PACKAGE_DEFAULTS = {
     },
     compile: {
       command: 'tsc -p . --pretty --incremental',
-      files: ['src/**/*.ts', 'tsconfig.json'],
+      files: ['src/**/*.ts', 'tsconfig.json', 'messages/**'],
       output: ['lib/**', '*.tsbuildinfo'],
       clean: 'if-file-deleted',
     },
@@ -71,7 +71,7 @@ const PLUGIN_DEFAULTS = {
     ...PACKAGE_DEFAULTS.wireit,
     'test:command-reference': {
       command: `"./bin/dev" commandreference:generate --erroronwarnings`,
-      files: ['src/**/*.ts', 'messages'],
+      files: ['src/**/*.ts', 'messages/**'],
       output: ['tmp/root'],
     },
     'test:deprecation-policy': {
