@@ -117,9 +117,14 @@ const resolveConfig = (path) => {
 
   const configFromFile = (result && result.config) || {};
 
+  if (configFromFile.test?.testsPath) {
+    defaults.wireit['test:only'].command = `nyc mocha "${configFromFile.test.testsPath}"`;
+  }
+
   // Allow users to override certain scripts
   const config = Object.assign({}, defaults, configFromFile, {
-    scripts: Object.assign({}, defaults.scripts || {}, configFromFile.script || {}),
+    scripts: Object.assign({}, defaults.scripts || {}, configFromFile.scripts || {}),
+    wireit: Object.assign({}, defaults.wireit || {}, configFromFile.wireit || {}),
   });
 
   let excludeScripts = config['exclude-scripts'] || [];
