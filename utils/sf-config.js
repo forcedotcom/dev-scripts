@@ -41,7 +41,7 @@ const PACKAGE_DEFAULTS = {
     },
     lint: {
       command: 'eslint src test --color --cache --cache-location .eslintcache',
-      files: ['src/**/*.ts', 'test/**/*.ts', '.eslintignore', '.eslintrc.js'],
+      files: ['src/**/*.ts', 'test/**/*.ts', 'messages/**', '.eslintignore', '.eslintrc.js'],
       output: [],
     },
     'test:compile': {
