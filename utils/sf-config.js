@@ -40,7 +40,7 @@ const PACKAGE_DEFAULTS = {
       command: 'prettier --write "+(src|test|schemas)/**/*.+(ts|js|json)|command-snapshot.json"',
     },
     lint: {
-      command: 'eslint --color --cache --cache-location .eslintcache',
+      command: 'eslint src test --color --cache --cache-location .eslintcache',
       files: ['src/**/*.ts', 'test/**/*.ts', '.eslintignore', '.eslintrc.js'],
       output: [],
     },
