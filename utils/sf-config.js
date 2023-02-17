@@ -21,7 +21,7 @@ const PACKAGE_DEFAULTS = {
     pretest: undefined,
     posttest: undefined,
     test: 'wireit',
-    'test:compile': 'wireit',
+    'test:compile': undefined,
     'test:only': 'wireit',
     lint: 'wireit',
     prepack: 'sf-prepack',
@@ -38,12 +38,15 @@ const PACKAGE_DEFAULTS = {
     },
     format: {
       command: 'prettier --write "+(src|test|schemas)/**/*.+(ts|js|json)|command-snapshot.json"',
+      files: ['src/**/*.ts', 'test/**/*.ts', 'schemas/**/*.json', 'command-snapshot.json', '.prettier*'],
+      output: ['src/**/*.ts', 'test/**/*.ts', 'schemas/**/*.json', 'command-snapshot.json'],
     },
     lint: {
       command: 'eslint src test --color --cache --cache-location .eslintcache',
-      files: ['src/**/*.ts', 'test/**/*.ts', 'messages/**', '.eslintignore', '.eslintrc.js'],
+      files: ['src/**/*.ts', 'test/**/*.ts', 'messages/**', '.eslint*'],
       output: [],
     },
+    // compiles all test files, including NUTs
     'test:compile': {
       command: 'tsc -p "./test" --pretty',
       files: ['test/**/*.ts', 'tsconfig.json', 'test/tsconfig.json'],
@@ -54,7 +57,7 @@ const PACKAGE_DEFAULTS = {
     },
     'test:only': {
       command: 'nyc mocha "test/**/*.test.ts"',
-      files: ['test/**/*.ts', 'src/**/*.ts', 'tsconfig.json', 'test/tsconfig.json'],
+      files: ['test/**/*.ts', 'src/**/*.ts', 'tsconfig.json', '.mocha*', 'test/tsconfig.json', '!*.nut.ts'],
       output: [],
     },
   },
@@ -63,15 +66,18 @@ const PACKAGE_DEFAULTS = {
 const PLUGIN_DEFAULTS = {
   scripts: {
     ...PACKAGE_DEFAULTS.scripts,
-    'test:command-reference': 'wireit',
-    'test:deprecation-policy': 'wireit',
-    'test:json-schema': 'wireit',
+    // wireit scripts don't need an entry in pjson scripts.
+    // remove these from scripts and let wireit handle them (just repeat running yarn test)
+    // https://github.com/google/wireit/blob/main/CHANGELOG.md#094---2023-01-30
+    'test:command-reference': undefined,
+    'test:deprecation-policy': undefined,
+    'test:json-schema': undefined,
   },
   wireit: {
     ...PACKAGE_DEFAULTS.wireit,
     'test:command-reference': {
       command: `"./bin/dev" commandreference:generate --erroronwarnings`,
-      files: ['src/**/*.ts', 'messages/**'],
+      files: ['src/**/*.ts', 'messages/**', 'package.json'],
       output: ['tmp/root'],
     },
     'test:deprecation-policy': {
