@@ -57,7 +57,7 @@ const PACKAGE_DEFAULTS = {
     },
     'test:only': {
       command: 'nyc mocha "test/**/*.test.ts"',
-      files: ['test/**/*.ts', 'src/**/*.ts', 'tsconfig.json', '.mocha*', 'test/tsconfig.json', '!*.nut.ts'],
+      files: ['test/**/*.ts', 'src/**/*.ts', 'tsconfig.json', '.mocha*', 'test/tsconfig.json', '!*.nut.ts', '.nycrc'],
       output: [],
     },
   },
