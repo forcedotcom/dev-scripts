@@ -17,7 +17,6 @@ const cleanAll = process.argv[2] === 'all';
 let toClean = ['lib'];
 let toCleanAll = ['node_modules'];
 
-// Look for the gitignore in case we are in a lerna project
 const gitignorePath = loadRootPath('.gitignore');
 
 if (gitignorePath) {

@@ -7,57 +7,107 @@
 
 const { dirname } = require('path');
 const { cosmiconfigSync } = require('cosmiconfig');
-const { isMultiPackageProject } = require('./project-type');
+const { isPlugin } = require('./project-type');
 
 const PACKAGE_DEFAULTS = {
   scripts: {
-    build: 'sf-build',
+    build: 'wireit',
     clean: 'sf-clean',
     'clean-all': 'sf-clean all',
-    compile: 'sf-compile',
+    compile: 'wireit',
     docs: 'sf-docs',
-    format: 'sf-format',
-    // Cleaner errors than ts-node through tests
-    pretest: 'sf-compile-test',
-    test: 'sf-test',
-    lint: 'sf-lint',
+    format: 'wireit',
+    // this will be removed
+    pretest: undefined,
+    posttest: undefined,
+    test: 'wireit',
+    'test:compile': undefined,
+    'test:only': 'wireit',
+    lint: 'wireit',
     prepack: 'sf-prepack',
   },
-};
-
-const LERNA_DEFAULTS = {
-  scripts: {
-    build: 'lerna build',
-    clean: 'lerna clean',
-    'clean-all': 'lerna sf-clean all',
-    compile: 'lerna compile',
-    docs: 'lerna docs',
-    format: 'lerna format',
-    test: 'lerna test',
-    lint: 'lerna lint',
+  wireit: {
+    build: {
+      dependencies: ['compile', 'lint'],
+    },
+    compile: {
+      command: 'tsc -p . --pretty --incremental',
+      files: ['src/**/*.ts', 'tsconfig.json', 'messages/**'],
+      output: ['lib/**', '*.tsbuildinfo'],
+      clean: 'if-file-deleted',
+    },
+    format: {
+      command: 'prettier --write "+(src|test|schemas)/**/*.+(ts|js|json)|command-snapshot.json"',
+      files: ['src/**/*.ts', 'test/**/*.ts', 'schemas/**/*.json', 'command-snapshot.json', '.prettier*'],
+      output: [],
+    },
+    lint: {
+      command: 'eslint src test --color --cache --cache-location .eslintcache',
+      files: ['src/**/*.ts', 'test/**/*.ts', 'messages/**', '.eslint*'],
+      output: [],
+    },
+    // compiles all test files, including NUTs
+    'test:compile': {
+      command: 'tsc -p "./test" --pretty',
+      files: ['test/**/*.ts', 'tsconfig.json', 'test/tsconfig.json'],
+      output: [],
+    },
+    test: {
+      dependencies: ['test:only', 'test:compile'],
+    },
+    'test:only': {
+      command: 'nyc mocha "test/**/*.test.ts"',
+      files: ['test/**/*.ts', 'src/**/*.ts', 'tsconfig.json', '.mocha*', 'test/tsconfig.json', '!*.nut.ts', '.nycrc'],
+      output: [],
+    },
   },
 };
 
-const LERNA_PACKAGE_DEFAULTS = {
+const PLUGIN_DEFAULTS = {
   scripts: {
-    build: 'sf-build',
-    clean: 'sf-clean',
-    'clean-all': 'sf-clean all',
-    compile: 'sf-compile',
-    docs: 'sf-docs',
-    format: 'sf-format',
-    // Cleaner errors than ts-node through tests
-    pretest: 'sf-compile-test',
-    test: 'sf-test',
-    lint: 'sf-lint',
-    prepack: 'sf-build',
+    ...PACKAGE_DEFAULTS.scripts,
+    // wireit scripts don't need an entry in pjson scripts.
+    // remove these from scripts and let wireit handle them (just repeat running yarn test)
+    // https://github.com/google/wireit/blob/main/CHANGELOG.md#094---2023-01-30
+    'test:command-reference': undefined,
+    'test:deprecation-policy': undefined,
+    'test:json-schema': undefined,
+  },
+  wireit: {
+    ...PACKAGE_DEFAULTS.wireit,
+    'test:command-reference': {
+      command: `"./bin/dev" commandreference:generate --erroronwarnings`,
+      files: ['src/**/*.ts', 'messages/**', 'package.json'],
+      output: ['tmp/root'],
+    },
+    'test:deprecation-policy': {
+      command: '"./bin/dev" snapshot:compare',
+      files: ['src/**/*.ts'],
+      output: [],
+      dependencies: ['compile'],
+    },
+    'test:json-schema': {
+      command: '"./bin/dev" schema:compare',
+      files: ['src/**/*.ts', 'schemas'],
+      output: [],
+    },
+    test: {
+      dependencies: [
+        'test:compile',
+        'test:only',
+        'test:command-reference',
+        'test:deprecation-policy',
+        'lint',
+        'test:json-schema',
+      ],
+    },
   },
 };
 
 // Path to resolved config object.
 const resolvedConfigs = {};
 
-const resolveConfig = (path, inLernaProject) => {
+const resolveConfig = (path) => {
   if (path && resolvedConfigs[path]) {
     return resolvedConfigs[path];
   }
@@ -69,19 +119,18 @@ const resolveConfig = (path, inLernaProject) => {
     path = dirname(result.filepath);
   }
 
-  let defaults = PACKAGE_DEFAULTS;
-
-  if (path && isMultiPackageProject(path)) {
-    defaults = LERNA_DEFAULTS;
-  } else if (inLernaProject) {
-    defaults = LERNA_PACKAGE_DEFAULTS;
-  }
+  const defaults = path && isPlugin(path) ? PLUGIN_DEFAULTS : PACKAGE_DEFAULTS;
 
   const configFromFile = (result && result.config) || {};
 
+  if (configFromFile.test?.testsPath) {
+    defaults.wireit['test:only'].command = `nyc mocha "${configFromFile.test.testsPath}"`;
+  }
+
   // Allow users to override certain scripts
   const config = Object.assign({}, defaults, configFromFile, {
-    scripts: Object.assign({}, defaults.scripts || {}, configFromFile.script || {}),
+    scripts: Object.assign({}, defaults.scripts || {}, configFromFile.scripts || {}),
+    wireit: Object.assign({}, defaults.wireit || {}, configFromFile.wireit || {}),
   });
 
   let excludeScripts = config['exclude-scripts'] || [];
