@@ -1,3 +1,12 @@
+## [4.1.2](https://github.com/forcedotcom/dev-scripts/compare/4.1.1...4.1.2) (2023-03-01)
+
+
+### Bug Fixes
+
+* force color output on things that use chalk ([#142](https://github.com/forcedotcom/dev-scripts/issues/142)) ([6a0097f](https://github.com/forcedotcom/dev-scripts/commit/6a0097f4859b3bc91ab0266e3d9545b2ad785a40))
+
+
+
 ## [4.1.1](https://github.com/forcedotcom/dev-scripts/compare/4.1.0...4.1.1) (2023-02-23)
 
 
