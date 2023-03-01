@@ -57,6 +57,11 @@ const PACKAGE_DEFAULTS = {
     },
     'test:only': {
       command: 'nyc mocha "test/**/*.test.ts"',
+      // things that use `chalk` might not output colors with how wireit uses spawn and gha treats that as non-tty
+      // see https://github.com/chalk/supports-color/issues/106
+      env: {
+        FORCE_COLOR: '2',
+      },
       files: ['test/**/*.ts', 'src/**/*.ts', 'tsconfig.json', '.mocha*', 'test/tsconfig.json', '!*.nut.ts', '.nycrc'],
       output: [],
     },
