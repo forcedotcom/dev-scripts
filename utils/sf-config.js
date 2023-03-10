@@ -32,7 +32,7 @@ const PACKAGE_DEFAULTS = {
     },
     compile: {
       command: 'tsc -p . --pretty --incremental',
-      files: ['src/**/*.ts', 'tsconfig.json', 'messages/**'],
+      files: ['src/**/*.ts', '**/tsconfig.json', 'messages/**'],
       output: ['lib/**', '*.tsbuildinfo'],
       clean: 'if-file-deleted',
     },
@@ -43,13 +43,13 @@ const PACKAGE_DEFAULTS = {
     },
     lint: {
       command: 'eslint src test --color --cache --cache-location .eslintcache',
-      files: ['src/**/*.ts', 'test/**/*.ts', 'messages/**', '.eslint*'],
+      files: ['src/**/*.ts', 'test/**/*.ts', 'messages/**', '**/.eslint*', '**/tsconfig.json'],
       output: [],
     },
     // compiles all test files, including NUTs
     'test:compile': {
       command: 'tsc -p "./test" --pretty',
-      files: ['test/**/*.ts', 'tsconfig.json', 'test/tsconfig.json'],
+      files: ['test/**/*.ts', '**/tsconfig.json'],
       output: [],
     },
     test: {
@@ -62,7 +62,7 @@ const PACKAGE_DEFAULTS = {
       env: {
         FORCE_COLOR: '2',
       },
-      files: ['test/**/*.ts', 'src/**/*.ts', 'tsconfig.json', '.mocha*', 'test/tsconfig.json', '!*.nut.ts', '.nycrc'],
+      files: ['test/**/*.ts', 'src/**/*.ts', '**/tsconfig.json', '.mocha*', '!*.nut.ts', '.nycrc'],
       output: [],
     },
   },
