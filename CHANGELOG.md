@@ -1,3 +1,12 @@
+## [4.1.3](https://github.com/forcedotcom/dev-scripts/compare/4.1.2...4.1.3) (2023-03-16)
+
+
+### Bug Fixes
+
+* eslint should drop cache when tsconfig changes ([4d15b39](https://github.com/forcedotcom/dev-scripts/commit/4d15b39ad1c64781fb5ed27fdf56dc4103f70ab4))
+
+
+
 ## [4.1.2](https://github.com/forcedotcom/dev-scripts/compare/4.1.1...4.1.2) (2023-03-01)
 
 
