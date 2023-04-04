@@ -42,7 +42,7 @@
     "chai": "^4.2.0",
     "chalk": "^4.0.0",
     "cosmiconfig": "^7.0.0",
-    "eslint": "^8.32.0",
+    "eslint": "^8.37.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-config-salesforce": "^1.1.0",
     "eslint-config-salesforce-license": "^0.1.6",
