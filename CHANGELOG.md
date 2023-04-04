@@ -1,3 +1,12 @@
+# [4.3.0](https://github.com/forcedotcom/dev-scripts/compare/4.2.0...4.3.0) (2023-04-04)
+
+
+### Features
+
+* don't try to delete top-level ([5dd91e9](https://github.com/forcedotcom/dev-scripts/commit/5dd91e9be7dab9d7123e50a83c05726427afadb7))
+
+
+
 # [4.2.0](https://github.com/forcedotcom/dev-scripts/compare/4.1.3...4.2.0) (2023-04-04)
 
 
