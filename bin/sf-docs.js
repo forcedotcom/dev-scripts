@@ -23,7 +23,7 @@ try {
 let outDir = 'docs';
 
 // preserve perf test files, which are also stored in gh-pages
-shell.exec(`find ./${outDir} -not -path './${outDir}/perf*' -delete`);
+shell.exec(`find ./${outDir}/* -not -path './${outDir}/perf*' -delete`);
 
 outDir = join(packageRoot, outDir, 'tmp');
 
