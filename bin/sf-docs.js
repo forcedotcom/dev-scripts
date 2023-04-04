@@ -22,7 +22,9 @@ try {
 
 let outDir = 'docs';
 
-shell.rm('-rf', `${outDir}/*`);
+// preserve perf test files, which are also stored in gh-pages
+shell.exec(`find ./${outDir} -not -path './${outDir}/perf*' -delete`);
+
 outDir = join(packageRoot, outDir, 'tmp');
 
 let command = `yarn typedoc --out ${outDir}`;
