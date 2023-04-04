@@ -1,3 +1,12 @@
+# [4.2.0](https://github.com/forcedotcom/dev-scripts/compare/4.1.3...4.2.0) (2023-04-04)
+
+
+### Features
+
+* don't nuke the entire docs directory ([a260c46](https://github.com/forcedotcom/dev-scripts/commit/a260c460a0d5195083e4e14a51b991ccb8e849dc))
+
+
+
 ## [4.1.3](https://github.com/forcedotcom/dev-scripts/compare/4.1.2...4.1.3) (2023-03-16)
 
 
