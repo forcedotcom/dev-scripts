@@ -2203,10 +2203,10 @@ eslint-config-salesforce-typescript@^1.1.1:
   resolved "https://registry.npmjs.org/eslint-config-salesforce-typescript/-/eslint-config-salesforce-typescript-1.1.1.tgz#fb038f6423c5472d6439e9f780184b00ebcd2685"
   integrity sha512-cjj2tU5wkushOUynecjg0JQtb/y61pWSjtOKKnNzWEdtbZEs7pe1/w5hsaZ79urdeFFUHQW2mr3qpzsWzUjgxQ==
 
-eslint-config-salesforce@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.npmjs.org/eslint-config-salesforce/-/eslint-config-salesforce-1.1.0.tgz#8f33e7cacd417f202727ae8e2b2fab27a81c0dc7"
-  integrity sha512-83foPo1Z8QoKc+APlZ7lN4uSRx4o2uicFMumi8n68Fx1/vPmBBMx86m15lOmEsAY7Gv97DneInVRotlc4+JaQw==
+eslint-config-salesforce@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.npmjs.org/eslint-config-salesforce/-/eslint-config-salesforce-1.2.0.tgz#f01ccd42ec3cfffbc44dd7d6646a0d110c68becb"
+  integrity sha512-iWqxkKuq4FVIm14oAlknHyUI/xqmb3+dvTHyJdOu1nAPMQDUzyNSeMCdG2NodLPsn9o0+DjTU5bn36n+qTsWhw==
 
 eslint-import-resolver-node@^0.3.6:
   version "0.3.6"
