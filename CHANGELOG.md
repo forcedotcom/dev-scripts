@@ -1,3 +1,12 @@
+## [4.3.1](https://github.com/forcedotcom/dev-scripts/compare/4.3.0...4.3.1) (2023-04-28)
+
+
+### Bug Fixes
+
+* bump oclif for type updates ([be8dd72](https://github.com/forcedotcom/dev-scripts/commit/be8dd72feda5fd4fd5d4209c2fc659e47a284bfd))
+
+
+
 # [4.3.0](https://github.com/forcedotcom/dev-scripts/compare/4.2.0...4.3.0) (2023-04-04)
 
 
