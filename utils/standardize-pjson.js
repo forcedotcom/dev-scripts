@@ -49,7 +49,7 @@ module.exports = (packageRoot = require('./package-path')) => {
 
   try {
     const tsconfig = readFileSync(join(packageRoot, 'tsconfig.json')).toString();
-    const engineVersion = '>=14.0.0';
+    const engineVersion = '>=16.0.0';
     // Don't control for non dev-config projects, or projects that don't specify an engine already.
     if (
       tsconfig.match(/"extends"\s*:\s*".*@salesforce\/dev-config/) &&
@@ -58,8 +58,6 @@ module.exports = (packageRoot = require('./package-path')) => {
       pjson.contents.engines.node !== engineVersion
     ) {
       pjson.actions.push('updating node engine');
-      // Because tsconfig in dev-config compiles to 2017, it should require node >= 8.0. However
-      // we require 8.4 to match other repos. We will bump this if we compile to 2018.
       pjson.contents.engines.node = engineVersion;
     }
   } catch (err) {
