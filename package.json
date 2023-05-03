@@ -1,6 +1,6 @@
 {
   "name": "@salesforce/dev-scripts",
-  "version": "4.3.1",
+  "version": "5.0.0",
   "description": "Standardize package.json scripts and config files for Salesforce projects.",
   "repository": "forcedotcom/dev-scripts",
   "bin": {
@@ -33,7 +33,7 @@
   "dependencies": {
     "@commitlint/cli": "^17.1.2",
     "@commitlint/config-conventional": "^17.1.0",
-    "@salesforce/dev-config": "^3.0.0",
+    "@salesforce/dev-config": "^4.0.1",
     "@salesforce/prettier-config": "^0.0.2",
     "@types/chai": "^4.2.11",
     "@types/mocha": "^9.0.0",
@@ -44,12 +44,12 @@
     "cosmiconfig": "^7.0.0",
     "eslint": "^8.32.0",
     "eslint-config-prettier": "^8.5.0",
-    "eslint-config-salesforce": "^1.1.0",
+    "eslint-config-salesforce": "^2.0.1",
     "eslint-config-salesforce-license": "^0.1.6",
     "eslint-config-salesforce-typescript": "^1.1.1",
     "eslint-plugin-header": "^3.0.0",
     "eslint-plugin-import": "2.26.0",
-    "eslint-plugin-jsdoc": "^35.1.2",
+    "eslint-plugin-jsdoc": "^43.0.5",
     "eslint-plugin-prefer-arrow": "^1.2.1",
     "husky": "^7.0.4",
     "mocha": "^9.1.3",
