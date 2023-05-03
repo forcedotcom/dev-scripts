@@ -31,7 +31,7 @@
     "sfdevrc.schema.json"
   ],
   "dependencies": {
-    "@commitlint/cli": "^17.1.2",
+    "@commitlint/cli": "^17.6.1",
     "@commitlint/config-conventional": "^17.1.0",
     "@salesforce/dev-config": "^4.0.1",
     "@salesforce/prettier-config": "^0.0.2",
