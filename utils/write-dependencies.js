@@ -9,6 +9,22 @@ const { join } = require('path');
 const PackageJson = require('./package-json');
 const { resolveConfig } = require('./sf-config');
 
+/**
+ * These are not part of dev-scripts pjson because they depend on dev-scripts and would create a circular dependency
+ * But, if the target repo has the dep, we want to make sure it meets the minimum version.
+ */
+const nonPjsonDependencyMinimums = new Map([
+  ['@salesforce/sf-plugins-core', '^2.4.2'],
+  ['@salesforce/core', '^3.36.0'],
+  ['@salesforce/kit', '^3.0.0'],
+  ['@salesforce/ts-types', '^2.0.1'],
+  ['@oclif/core', '^2.8.2'],
+  ['@salesforce/cli-plugins-testkit', '^3.3.4'],
+  ['@salesforce/plugin-command-reference', '^2.2.8'],
+  ['@oclif/plugin-command-snapshot', '^3.3.13'],
+  ['eslint-plugin-sf-plugin', '^1.15.1'],
+]);
+
 module.exports = (projectPath) => {
   const pjson = new PackageJson(projectPath);
 
@@ -22,7 +38,7 @@ module.exports = (projectPath) => {
   const meetsMinimumVersion = (pjsonDepVersion, devScriptsDepVersion) => {
     // First remove any carets and tildas
     const pVersion = getVersionNum(pjsonDepVersion);
-    const dsVersion = getVersionNum(devScriptsDepVersion);
+    const dsVersion = getVersionNum(devScriptsDepVersion) ?? nonPjsonDependencyMinimums.get(pjsonDepVersion);
     // Compare the version in package.json with the dev scripts version.
     // result === -1 means the version in package.json < dev scripts version
     // result === 0 means they match
@@ -99,7 +115,7 @@ module.exports = (projectPath) => {
   add('eslint-config-salesforce');
   add('eslint-config-salesforce-typescript');
   add('eslint-config-salesforce-license');
-  // eslint and all plugins must be installed on a local bases, regardless of if it uses a shared config.
+  // eslint and all plugins must be installed on a local basis, regardless of if it uses a shared config.
   // https://eslint.org/docs/user-guide/getting-started
   Object.entries(eslintPjson.devDependencies).forEach(([name, version]) => add(name, version));
   Object.entries(eslintHeaderPjson.devDependencies).forEach(([name, version]) => add(name, version));
