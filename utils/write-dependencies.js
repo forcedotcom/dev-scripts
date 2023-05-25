@@ -28,7 +28,7 @@ const nonPjsonDependencyMinimums = new Map([
 
 const getVersionNum = (ver) => (ver.startsWith('^') || ver.startsWith('~') ? ver.slice(1) : ver);
 const meetsMinimumVersion = (pjsonDepVersion, devScriptsDepVersion) => {
-  // First remove any carets and tildas
+  // First remove any carets and tildes
   const pVersion = getVersionNum(pjsonDepVersion);
   const dsVersion = getVersionNum(devScriptsDepVersion) ?? nonPjsonDependencyMinimums.get(pjsonDepVersion);
   // Compare the version in package.json with the dev scripts version.
@@ -48,8 +48,8 @@ module.exports = (projectPath) => {
   const removed = [];
 
   const devScriptsVersion = (name) =>
-    devScriptsPjson.dependencies?.[name] ||
-    devScriptsPjson.devDependencies?.[name] ||
+    devScriptsPjson.dependencies?.[name] ??
+    devScriptsPjson.devDependencies?.[name] ??
     nonPjsonDependencyMinimums.get(name);
 
   const devScriptsPjson = require(join(__dirname, '..', 'package.json'));
