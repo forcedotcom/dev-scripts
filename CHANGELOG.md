@@ -1,3 +1,16 @@
+# [5.1.0](https://github.com/forcedotcom/dev-scripts/compare/5.0.1...5.1.0) (2023-05-25)
+
+
+### Features
+
+* min versions outside of pjson ([8f5f62f](https://github.com/forcedotcom/dev-scripts/commit/8f5f62ff52dfda177d0142000e89be208ab707a4))
+
+
+
+## [5.0.1](https://github.com/forcedotcom/dev-scripts/compare/4.3.1...5.0.1) (2023-05-03)
+
+
+
 ## [4.3.1](https://github.com/forcedotcom/dev-scripts/compare/4.3.0...4.3.1) (2023-04-28)
 
 
