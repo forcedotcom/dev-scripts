@@ -20,7 +20,7 @@ const nonPjsonDependencyMinimums = new Map([
   ['@salesforce/ts-types', '^2.0.2'],
   ['@oclif/core', '^2.8.2'],
   ['@salesforce/cli-plugins-testkit', '^3.3.4'],
-  ['@salesforce/plugin-command-reference', '^2.2.8'],
+  ['@salesforce/plugin-command-reference', '^3.0.1'],
   ['@oclif/plugin-command-snapshot', '^3.3.13'],
   ['eslint-plugin-sf-plugin', '^1.15.5'],
   ['oclif', '^3.9.0'],
