@@ -1,3 +1,12 @@
+# [5.3.0](https://github.com/forcedotcom/dev-scripts/compare/5.2.0...5.3.0) (2023-05-30)
+
+
+### Features
+
+* sf-plugins-core with core4 ([fd305ee](https://github.com/forcedotcom/dev-scripts/commit/fd305ee2afd4917248f87963940321bae09d3535))
+
+
+
 # [5.2.0](https://github.com/forcedotcom/dev-scripts/compare/5.1.1...5.2.0) (2023-05-30)
 
 
