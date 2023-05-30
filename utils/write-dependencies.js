@@ -15,15 +15,15 @@ const { resolveConfig } = require('./sf-config');
  */
 const nonPjsonDependencyMinimums = new Map([
   ['@salesforce/sf-plugins-core', '^2.4.2'],
-  ['@salesforce/core', '^3.36.0'],
-  ['@salesforce/kit', '^3.0.0'],
-  ['@salesforce/ts-types', '^2.0.1'],
+  ['@salesforce/core', '^4.0.1'],
+  ['@salesforce/kit', '^3.0.2'],
+  ['@salesforce/ts-types', '^2.0.2'],
   ['@oclif/core', '^2.8.2'],
   ['@salesforce/cli-plugins-testkit', '^3.3.4'],
   ['@salesforce/plugin-command-reference', '^2.2.8'],
   ['@oclif/plugin-command-snapshot', '^3.3.13'],
-  ['eslint-plugin-sf-plugin', '^1.15.1'],
-  ['oclif', '^3.8.2'],
+  ['eslint-plugin-sf-plugin', '^1.15.5'],
+  ['oclif', '^3.9.0'],
 ]);
 
 const getVersionNum = (ver) => (ver.startsWith('^') || ver.startsWith('~') ? ver.slice(1) : ver);
