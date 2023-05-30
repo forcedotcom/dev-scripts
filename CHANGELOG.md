@@ -1,3 +1,12 @@
+## [5.4.1](https://github.com/forcedotcom/dev-scripts/compare/5.4.0...5.4.1) (2023-05-30)
+
+
+### Bug Fixes
+
+* bump command-ref ([891d058](https://github.com/forcedotcom/dev-scripts/commit/891d0588cadffa4e3a10b269f0f236b1a7f5aa78))
+
+
+
 # [5.4.0](https://github.com/forcedotcom/dev-scripts/compare/5.3.0...5.4.0) (2023-05-30)
 
 
