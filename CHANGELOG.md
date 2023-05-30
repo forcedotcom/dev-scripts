@@ -1,3 +1,12 @@
+# [5.2.0](https://github.com/forcedotcom/dev-scripts/compare/5.1.1...5.2.0) (2023-05-30)
+
+
+### Features
+
+* bump non-pjson deps ([3171da6](https://github.com/forcedotcom/dev-scripts/commit/3171da63e4fff78f045b98f8db8e4de14656ebb2))
+
+
+
 ## [5.1.1](https://github.com/forcedotcom/dev-scripts/compare/5.1.0...5.1.1) (2023-05-30)
 
 
