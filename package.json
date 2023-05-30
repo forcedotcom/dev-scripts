@@ -34,7 +34,7 @@
     "@commitlint/cli": "^17.1.2",
     "@commitlint/config-conventional": "^17.1.0",
     "@salesforce/dev-config": "^4.0.1",
-    "@salesforce/prettier-config": "^0.0.2",
+    "@salesforce/prettier-config": "^0.0.3",
     "@types/chai": "^4.2.11",
     "@types/mocha": "^9.0.0",
     "@types/node": "^15.6.1",
