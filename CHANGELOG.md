@@ -1,3 +1,12 @@
+# [5.4.0](https://github.com/forcedotcom/dev-scripts/compare/5.3.0...5.4.0) (2023-05-30)
+
+
+### Features
+
+* bump command-ref to v3 ([3c7c386](https://github.com/forcedotcom/dev-scripts/commit/3c7c3863a095aad7485f14c05daaf1c82562a716))
+
+
+
 # [5.3.0](https://github.com/forcedotcom/dev-scripts/compare/5.2.0...5.3.0) (2023-05-30)
 
 
