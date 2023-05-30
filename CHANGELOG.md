@@ -1,3 +1,12 @@
+## [5.1.1](https://github.com/forcedotcom/dev-scripts/compare/5.1.0...5.1.1) (2023-05-30)
+
+
+### Bug Fixes
+
+* use version, not name for minimum versioning ([3936033](https://github.com/forcedotcom/dev-scripts/commit/3936033bacd7bb4d169967ef81d7c339821ad23f))
+
+
+
 # [5.1.0](https://github.com/forcedotcom/dev-scripts/compare/5.0.1...5.1.0) (2023-05-25)
 
 
