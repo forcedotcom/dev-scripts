@@ -30,7 +30,8 @@ const getVersionNum = (ver) => (ver.startsWith('^') || ver.startsWith('~') ? ver
 const meetsMinimumVersion = (pjsonDepVersion, devScriptsDepVersion) => {
   // First remove any carets and tildes
   const pVersion = getVersionNum(pjsonDepVersion);
-  const dsVersion = getVersionNum(devScriptsDepVersion) ?? nonPjsonDependencyMinimums.get(pjsonDepVersion);
+  const dsVersion =
+    getVersionNum(devScriptsDepVersion) ?? getVersionNum(nonPjsonDependencyMinimums.get(pjsonDepVersion));
   // Compare the version in package.json with the dev scripts version.
   // result === -1 means the version in package.json < dev scripts version
   // result === 0 means they match
@@ -134,10 +135,10 @@ module.exports = (projectPath) => {
 
   // update any non-devDeps to their minimum versions if devScripts specifies one
   const dependencies = pjson.get('dependencies');
-  Object.keys(dependencies).forEach((dep) => {
+  Object.entries(dependencies).forEach(([dep, depVersion]) => {
     if (nonPjsonDependencyMinimums.has(dep)) {
       const minVersion = nonPjsonDependencyMinimums.get(dep);
-      if (!meetsMinimumVersion(dep, minVersion)) {
+      if (!meetsMinimumVersion(depVersion, minVersion)) {
         pjson.actions.push(`updating ${dep} to ${minVersion}`);
         dependencies[dep] = minVersion;
       }
