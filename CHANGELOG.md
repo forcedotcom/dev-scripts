@@ -1,3 +1,12 @@
+## [5.4.2](https://github.com/forcedotcom/dev-scripts/compare/5.4.1...5.4.2) (2023-05-31)
+
+
+### Bug Fixes
+
+* **deps:** bump dev-dep items ([dac8ff4](https://github.com/forcedotcom/dev-scripts/commit/dac8ff488e3abeaabaf0bf0414bf9175155bc73f))
+
+
+
 ## [5.4.1](https://github.com/forcedotcom/dev-scripts/compare/5.4.0...5.4.1) (2023-05-30)
 
 
