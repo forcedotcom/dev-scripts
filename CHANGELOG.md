@@ -1,3 +1,12 @@
+## [5.4.3](https://github.com/forcedotcom/dev-scripts/compare/5.4.2...5.4.3) (2023-07-14)
+
+
+### Bug Fixes
+
+* pass extra arg to wireit script in git hook ([76e44d8](https://github.com/forcedotcom/dev-scripts/commit/76e44d82b9486dc56d108922bdba12a97ade3832))
+
+
+
 ## [5.4.2](https://github.com/forcedotcom/dev-scripts/compare/5.4.1...5.4.2) (2023-05-31)
 
 
