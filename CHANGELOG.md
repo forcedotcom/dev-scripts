@@ -1,3 +1,12 @@
+# [5.7.0](https://github.com/forcedotcom/dev-scripts/compare/5.6.0...5.7.0) (2023-08-07)
+
+
+### Features
+
+* stl/cmd-ref ([ee8d638](https://github.com/forcedotcom/dev-scripts/commit/ee8d638265e4278075d93d451d482beef428efc3))
+
+
+
 # [5.6.0](https://github.com/forcedotcom/dev-scripts/compare/5.5.0...5.6.0) (2023-08-07)
 
 
