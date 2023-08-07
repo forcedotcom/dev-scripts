@@ -1,3 +1,12 @@
+# [5.6.0](https://github.com/forcedotcom/dev-scripts/compare/5.5.0...5.6.0) (2023-08-07)
+
+
+### Features
+
+* newer testkit/sdr ([0f621da](https://github.com/forcedotcom/dev-scripts/commit/0f621daf238e7ba692b96ff3ac470c1d7a23d157))
+
+
+
 # [5.5.0](https://github.com/forcedotcom/dev-scripts/compare/5.4.3...5.5.0) (2023-08-07)
 
 
