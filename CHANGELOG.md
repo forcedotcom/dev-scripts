@@ -1,3 +1,12 @@
+# [5.5.0](https://github.com/forcedotcom/dev-scripts/compare/5.4.3...5.5.0) (2023-08-07)
+
+
+### Features
+
+* core 5 ([adb95d8](https://github.com/forcedotcom/dev-scripts/commit/adb95d85838643d59f1f4e5a9f6d111fb68eae42))
+
+
+
 ## [5.4.3](https://github.com/forcedotcom/dev-scripts/compare/5.4.2...5.4.3) (2023-07-14)
 
 
