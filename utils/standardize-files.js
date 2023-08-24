@@ -92,6 +92,14 @@ function writeMocharcJson(targetDir) {
   return copyFile(mocharcSourcePath, gitignoreTargetPath);
 }
 
+function replaceInFile(filePath, replaceFn) {
+  const contents = readFileSync(filePath, 'utf8');
+  const newContents = replaceFn(contents);
+  if (newContents !== contents) {
+    writeFileSync(filePath, newContents);
+  }
+}
+
 // eslint-disable-next-line complexity
 module.exports = (packageRoot = require('./package-path')) => {
   const config = resolveConfig(packageRoot);
@@ -126,13 +134,31 @@ module.exports = (packageRoot = require('./package-path')) => {
     const lintConfig = config.lint || {};
     const strict = config.strict || lintConfig.strict;
 
-    const eslintSourcePath = join(FILES_PATH, strict ? 'eslintrc-strict.js' : 'eslintrc.js');
-    const eslintTargetPath = join(packageRoot, '.eslintrc.js');
+    const eslintJsTargetPath = join(packageRoot, '.eslintrc.js');
+    // if .eslintrc.js exists, copy it to .eslintrc.cjs and remove .eslintrc.js
+    if (exists(eslintJsTargetPath)) {
+      replaceInFile(eslintJsTargetPath, (contents) => contents.replace(/eslintrc.js/, 'eslintrc.cjs'));
+      added.push(copyFile(eslintJsTargetPath, eslintJsTargetPath.replace('.js', '.cjs'), strict));
+      unlinkSync(eslintJsTargetPath);
+      removed.push(eslintJsTargetPath);
+    }
+
+    const eslintSourcePath = join(FILES_PATH, strict ? 'eslintrc-strict.cjs' : 'eslintrc.cjs');
+    const eslintTargetPath = join(packageRoot, '.eslintrc.cjs');
     added.push(copyFile(eslintSourcePath, eslintTargetPath, strict));
 
     if (exists(testPath)) {
-      const eslintTestSourcePath = join(FILES_PATH, strict ? 'eslintrc-test-strict.js' : 'eslintrc-test.js');
-      const eslintTestTargetPath = join(testPath, '.eslintrc.js');
+      const eslintJsTestTargetPath = join(testPath, '.eslintrc.js');
+      // if .eslintrc.js exists, copy it to .eslintrc.cjs and remove .eslintrc.js
+      if (exists(eslintJsTestTargetPath)) {
+        replaceInFile(eslintJsTestTargetPath, (contents) => contents.replace(/eslintrc.js/, 'eslintrc.cjs'));
+        added.push(copyFile(eslintJsTestTargetPath, eslintJsTestTargetPath.replace('.js', '.cjs'), strict));
+        unlinkSync(eslintJsTestTargetPath);
+        removed.push(eslintJsTestTargetPath);
+      }
+
+      const eslintTestSourcePath = join(FILES_PATH, strict ? 'eslintrc-test-strict.cjs' : 'eslintrc-test.cjs');
+      const eslintTestTargetPath = join(testPath, '.eslintrc.cjs');
       added.push(copyFile(eslintTestSourcePath, eslintTestTargetPath, strict));
     }
 
