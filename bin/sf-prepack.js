@@ -16,7 +16,10 @@ shell.exec('yarn build');
 if (isPlugin(packageRoot)) {
   if (shell.which('oclif')) {
     shell.exec('oclif manifest .');
+    shell.exec('oclif lock');
   } else if (shell.which('oclif-dev')) {
+    // eslint-disable-next-line no-console
+    console.log(chalk.yellow('Warning:'), 'oclif-dev is deprecated. Please use oclif instead.');
     shell.exec('oclif-dev manifest');
   } else {
     // eslint-disable-next-line no-console
