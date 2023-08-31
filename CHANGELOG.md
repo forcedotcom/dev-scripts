@@ -1,3 +1,16 @@
+# [5.8.0](https://github.com/forcedotcom/dev-scripts/compare/5.7.1-qa.0...5.8.0) (2023-08-31)
+
+
+
+## [5.7.1-qa.0](https://github.com/forcedotcom/dev-scripts/compare/5.7.0...5.7.1-qa.0) (2023-08-31)
+
+
+### Features
+
+* replace .eslintrc.js with .eslintrc.cjs ([dbf8b28](https://github.com/forcedotcom/dev-scripts/commit/dbf8b280946844ee15eb938476a2b7783ab78dad))
+
+
+
 # [5.7.0](https://github.com/forcedotcom/dev-scripts/compare/5.6.0...5.7.0) (2023-08-07)
 
 
