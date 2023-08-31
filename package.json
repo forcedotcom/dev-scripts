@@ -1,6 +1,6 @@
 {
   "name": "@salesforce/dev-scripts",
-  "version": "5.7.0",
+  "version": "5.7.1-qa.0",
   "description": "Standardize package.json scripts and config files for Salesforce projects.",
   "repository": "forcedotcom/dev-scripts",
   "bin": {
