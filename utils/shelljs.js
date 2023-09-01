@@ -28,7 +28,7 @@ shell.exec = function (command, ...args) {
   // eslint-disable-next-line no-console
   console.error(chalk.blue(command));
   try {
-    origExec.call(shell, command, ...args);
+    return origExec.call(shell, command, ...args);
   } catch (err) {
     // Setting -e will throw an error. We are already displaying the command
     // output above which has information on the problem, so don't show the
