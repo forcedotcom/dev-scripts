@@ -13,10 +13,35 @@ const packageRoot = require('../utils/package-path');
 
 shell.exec('yarn build');
 
+const semverIsLessThan = (version, target) => {
+  const [major, minor, patch] = version.split('.').map((v) => parseInt(v, 10));
+  const [targetMajor, targetMinor, targetPatch] = target.split('.').map((v) => parseInt(v, 10));
+  if (major < targetMajor) {
+    return true;
+  }
+  if (major === targetMajor && minor < targetMinor) {
+    return true;
+  }
+  if (major === targetMajor && minor === targetMinor && patch < targetPatch) {
+    return true;
+  }
+  return false;
+};
+
 if (isPlugin(packageRoot)) {
   if (shell.which('oclif')) {
     shell.exec('oclif manifest .');
-    shell.exec('oclif lock');
+    const version = shell.exec('oclif --version', { silent: true }).stdout.trim().replace('oclif/', '').split(' ')[0];
+    if (semverIsLessThan(version, '3.14.0')) {
+      // eslint-disable-next-line no-console
+      console.log(
+        chalk.yellow('Warning:'),
+        // eslint-disable-next-line max-len
+        `oclif version ${version} is less than 3.14.0. Please upgrade to 3.14.0 or higher to use generate oclif.lock file.`
+      );
+    } else {
+      shell.exec('oclif lock');
+    }
   } else if (shell.which('oclif-dev')) {
     // eslint-disable-next-line no-console
     console.log(chalk.yellow('Warning:'), 'oclif-dev is deprecated. Please use oclif instead.');
