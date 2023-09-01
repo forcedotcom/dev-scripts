@@ -1,3 +1,17 @@
+# [5.9.0](https://github.com/forcedotcom/dev-scripts/compare/5.8.0...5.9.0) (2023-09-01)
+
+
+### Bug Fixes
+
+* remove ignore-node-engine option ([e941359](https://github.com/forcedotcom/dev-scripts/commit/e9413594e5cc37cb4cd6d4465ead1d62e517221b))
+
+
+### Features
+
+* apply exlude-scripts to wireit ([62c6363](https://github.com/forcedotcom/dev-scripts/commit/62c636318a1f1f72013857e0293fc6676a64fd33))
+
+
+
 # [5.8.0](https://github.com/forcedotcom/dev-scripts/compare/5.7.1-qa.0...5.8.0) (2023-08-31)
 
 
