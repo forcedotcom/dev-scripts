@@ -145,12 +145,14 @@ const resolveConfig = (path) => {
     excludeScripts = [
       ...excludeScripts,
       ...Object.keys(config.scripts).filter((scriptName) => !config['only-scripts'].includes(scriptName)),
+      ...Object.keys(config.wireit).filter((scriptName) => !config['only-scripts'].includes(scriptName)),
     ];
   }
 
   // Remove excluded items
   excludeScripts.forEach((scriptName) => {
     delete config.scripts[scriptName];
+    delete config.wireit[scriptName];
   });
 
   resolvedConfigs[path] = config;

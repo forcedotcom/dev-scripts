@@ -87,6 +87,11 @@
           "default": "**/*.test.ts"
         }
       }
+    },
+    "ignore-node-engine": {
+      "description": "Ignore the preferred node version for engines.node in package.json",
+      "type": "boolean",
+      "default": false
     }
   }
 }
