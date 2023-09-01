@@ -1,3 +1,13 @@
+## [5.9.1](https://github.com/forcedotcom/dev-scripts/compare/5.9.0...5.9.1) (2023-09-01)
+
+
+### Bug Fixes
+
+* check oclif version before running lock command ([357e113](https://github.com/forcedotcom/dev-scripts/commit/357e113fd5fe0d3a17710eab8c1f9b0efe9074f3))
+* run oclif lock during prepack ([6822dd9](https://github.com/forcedotcom/dev-scripts/commit/6822dd9e6b859c458f1c81eb42e7e02fe797c051))
+
+
+
 # [5.9.0](https://github.com/forcedotcom/dev-scripts/compare/5.8.0...5.9.0) (2023-09-01)
 
 
