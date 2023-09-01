@@ -1,3 +1,12 @@
+# [5.10.0](https://github.com/forcedotcom/dev-scripts/compare/5.9.1...5.10.0) (2023-09-01)
+
+
+### Features
+
+* update dep minimums ([c0cf4b7](https://github.com/forcedotcom/dev-scripts/commit/c0cf4b71c3dd98c3ee5513045d01c77908a57ce8))
+
+
+
 ## [5.9.1](https://github.com/forcedotcom/dev-scripts/compare/5.9.0...5.9.1) (2023-09-01)
 
 
