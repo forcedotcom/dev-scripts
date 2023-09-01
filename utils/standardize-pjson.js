@@ -52,7 +52,6 @@ module.exports = (packageRoot = require('./package-path')) => {
     const engineVersion = '>=16.0.0';
     // Don't control for non dev-config projects, or projects that don't specify an engine already.
     if (
-      !config['ignore-node-engine'] &&
       tsconfig.match(/"extends"\s*:\s*".*@salesforce\/dev-config/) &&
       pjson.contents.engines &&
       pjson.contents.engines.node &&
