@@ -10,23 +10,9 @@ const chalk = require('chalk');
 const shell = require('../utils/shelljs');
 const { isPlugin } = require('../utils/project-type');
 const packageRoot = require('../utils/package-path');
+const { semverIsLessThan } = require('../utils/semver');
 
 shell.exec('yarn build');
-
-const semverIsLessThan = (version, target) => {
-  const [major, minor, patch] = version.split('.').map((v) => parseInt(v, 10));
-  const [targetMajor, targetMinor, targetPatch] = target.split('.').map((v) => parseInt(v, 10));
-  if (major < targetMajor) {
-    return true;
-  }
-  if (major === targetMajor && minor < targetMinor) {
-    return true;
-  }
-  if (major === targetMajor && minor === targetMinor && patch < targetPatch) {
-    return true;
-  }
-  return false;
-};
 
 if (isPlugin(packageRoot)) {
   if (shell.which('oclif')) {
