@@ -8,6 +8,8 @@
 const { readFileSync } = require('fs');
 const { join } = require('path');
 const { resolveConfig } = require('./sf-config');
+const { semverIsLessThan } = require('./semver');
+
 const PackageJson = require('./package-json');
 
 module.exports = (packageRoot = require('./package-path')) => {
@@ -55,7 +57,8 @@ module.exports = (packageRoot = require('./package-path')) => {
       tsconfig.match(/"extends"\s*:\s*".*@salesforce\/dev-config/) &&
       pjson.contents.engines &&
       pjson.contents.engines.node &&
-      pjson.contents.engines.node !== engineVersion
+      pjson.contents.engines.node !== engineVersion &&
+      semverIsLessThan(pjson.contents.engines.node.replace('>=', ''), engineVersion.replace('>=', ''))
     ) {
       pjson.actions.push('updating node engine');
       pjson.contents.engines.node = engineVersion;
