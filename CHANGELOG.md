@@ -1,3 +1,18 @@
+# [5.11.0](https://github.com/forcedotcom/dev-scripts/compare/5.10.0...5.11.0) (2023-10-09)
+
+
+### Bug Fixes
+
+* don't try to publish a readme for this repo ([9ba8fdc](https://github.com/forcedotcom/dev-scripts/commit/9ba8fdc2f666fb9ce9b6efb60f8a93480fffd55e))
+* semver strip >= ([1349a95](https://github.com/forcedotcom/dev-scripts/commit/1349a95ce194e20058c1e5f2558c02e632bf6929))
+
+
+### Features
+
+* don't downgrade engines if already higher ([6758da0](https://github.com/forcedotcom/dev-scripts/commit/6758da088be0d10fd4ff416f71e4913b5a9141ea))
+
+
+
 # [5.10.0](https://github.com/forcedotcom/dev-scripts/compare/5.9.1...5.10.0) (2023-09-01)
 
 
