@@ -58,7 +58,7 @@ module.exports = (packageRoot = require('./package-path')) => {
       pjson.contents.engines &&
       pjson.contents.engines.node &&
       pjson.contents.engines.node !== engineVersion &&
-      semverIsLessThan(pjson.contents.engines.node, engineVersion)
+      semverIsLessThan(pjson.contents.engines.node.replace('>=', ''), engineVersion.replace('>=', ''))
     ) {
       pjson.actions.push('updating node engine');
       pjson.contents.engines.node = engineVersion;
