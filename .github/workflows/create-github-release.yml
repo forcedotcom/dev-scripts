@@ -15,11 +15,10 @@ on:
 
 jobs:
   release:
-    uses: salesforcecli/github-workflows/.github/workflows/create-github-release.yml@main
+    uses: salesforcecli/github-workflows/.github/workflows/create-github-release.yml@ew/oclif-readme-check
     secrets: inherit
     with:
       prerelease: ${{ inputs.prerelease }}
-      generate-readme: false
       # If this is a push event, we want to skip the release if there are no semantic commits
       # However, if this is a manual release (workflow_dispatch), then we want to disable skip-on-empty
       # This helps recover from forgetting to add semantic commits ('fix:', 'feat:', etc.)
