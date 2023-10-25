@@ -76,7 +76,7 @@ const resolveConfig = (path, options = {}) => {
     return resolvedConfigs[path];
   }
 
-  const dev = options.jsBinScripts ? 'yarn ts-node ./bin/dev.js' : './bin/dev';
+  const dev = options.jsBinScripts ? 'ts-node "./bin/dev.js"' : '"./bin/dev"';
   const PLUGIN_DEFAULTS = {
     scripts: {
       ...PACKAGE_DEFAULTS.scripts,
@@ -90,18 +90,18 @@ const resolveConfig = (path, options = {}) => {
     wireit: {
       ...PACKAGE_DEFAULTS.wireit,
       'test:command-reference': {
-        command: `"${dev}" commandreference:generate --erroronwarnings`,
+        command: `${dev} commandreference:generate --erroronwarnings`,
         files: ['src/**/*.ts', 'messages/**', 'package.json'],
         output: ['tmp/root'],
       },
       'test:deprecation-policy': {
-        command: `"${dev}" snapshot:compare`,
+        command: `${dev} snapshot:compare`,
         files: ['src/**/*.ts'],
         output: [],
         dependencies: ['compile'],
       },
       'test:json-schema': {
-        command: `"${dev}" schema:compare`,
+        command: `${dev} schema:compare`,
         files: ['src/**/*.ts', 'schemas'],
         output: [],
       },
