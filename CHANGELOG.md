@@ -1,3 +1,12 @@
+## [5.11.1](https://github.com/forcedotcom/dev-scripts/compare/5.11.0...5.11.1) (2023-10-25)
+
+
+### Bug Fixes
+
+* allow dev.js in wireit scripts ([3ebca53](https://github.com/forcedotcom/dev-scripts/commit/3ebca5381a38018bb33c4ef8551afd9a56dd5bd4))
+
+
+
 # [5.11.0](https://github.com/forcedotcom/dev-scripts/compare/5.10.0...5.11.0) (2023-10-09)
 
 
