@@ -68,54 +68,55 @@ const PACKAGE_DEFAULTS = {
   },
 };
 
-const PLUGIN_DEFAULTS = {
-  scripts: {
-    ...PACKAGE_DEFAULTS.scripts,
-    // wireit scripts don't need an entry in pjson scripts.
-    // remove these from scripts and let wireit handle them (just repeat running yarn test)
-    // https://github.com/google/wireit/blob/main/CHANGELOG.md#094---2023-01-30
-    'test:command-reference': undefined,
-    'test:deprecation-policy': undefined,
-    'test:json-schema': undefined,
-  },
-  wireit: {
-    ...PACKAGE_DEFAULTS.wireit,
-    'test:command-reference': {
-      command: `"./bin/dev" commandreference:generate --erroronwarnings`,
-      files: ['src/**/*.ts', 'messages/**', 'package.json'],
-      output: ['tmp/root'],
-    },
-    'test:deprecation-policy': {
-      command: '"./bin/dev" snapshot:compare',
-      files: ['src/**/*.ts'],
-      output: [],
-      dependencies: ['compile'],
-    },
-    'test:json-schema': {
-      command: '"./bin/dev" schema:compare',
-      files: ['src/**/*.ts', 'schemas'],
-      output: [],
-    },
-    test: {
-      dependencies: [
-        'test:compile',
-        'test:only',
-        'test:command-reference',
-        'test:deprecation-policy',
-        'lint',
-        'test:json-schema',
-      ],
-    },
-  },
-};
-
 // Path to resolved config object.
 const resolvedConfigs = {};
 
-const resolveConfig = (path) => {
+const resolveConfig = (path, options = {}) => {
   if (path && resolvedConfigs[path]) {
     return resolvedConfigs[path];
   }
+
+  const dev = options.jsBinScripts ? 'dev.js' : 'dev';
+  const PLUGIN_DEFAULTS = {
+    scripts: {
+      ...PACKAGE_DEFAULTS.scripts,
+      // wireit scripts don't need an entry in pjson scripts.
+      // remove these from scripts and let wireit handle them (just repeat running yarn test)
+      // https://github.com/google/wireit/blob/main/CHANGELOG.md#094---2023-01-30
+      'test:command-reference': undefined,
+      'test:deprecation-policy': undefined,
+      'test:json-schema': undefined,
+    },
+    wireit: {
+      ...PACKAGE_DEFAULTS.wireit,
+      'test:command-reference': {
+        command: `"./bin/${dev}" commandreference:generate --erroronwarnings`,
+        files: ['src/**/*.ts', 'messages/**', 'package.json'],
+        output: ['tmp/root'],
+      },
+      'test:deprecation-policy': {
+        command: `"./bin/${dev}" snapshot:compare`,
+        files: ['src/**/*.ts'],
+        output: [],
+        dependencies: ['compile'],
+      },
+      'test:json-schema': {
+        command: `"./bin/${dev}" schema:compare`,
+        files: ['src/**/*.ts', 'schemas'],
+        output: [],
+      },
+      test: {
+        dependencies: [
+          'test:compile',
+          'test:only',
+          'test:command-reference',
+          'test:deprecation-policy',
+          'lint',
+          'test:json-schema',
+        ],
+      },
+    },
+  };
 
   const explorerSync = cosmiconfigSync('sfdev');
   const result = explorerSync.search(path);

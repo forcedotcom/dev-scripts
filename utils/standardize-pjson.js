@@ -5,15 +5,22 @@
  * For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
 
-const { readFileSync } = require('fs');
+const { readFileSync, existsSync } = require('fs');
 const { join } = require('path');
 const { resolveConfig } = require('./sf-config');
 const { semverIsLessThan } = require('./semver');
 
 const PackageJson = require('./package-json');
 
+function usesJsBinScripts(packageRoot) {
+  return existsSync(join(packageRoot, 'bin', 'dev.js'));
+}
+
 module.exports = (packageRoot = require('./package-path')) => {
-  const config = resolveConfig(packageRoot);
+  const options = {
+    jsBinScripts: usesJsBinScripts(packageRoot),
+  };
+  const config = resolveConfig(packageRoot, options);
   const pjson = new PackageJson(packageRoot);
 
   const license = pjson.get('license');
