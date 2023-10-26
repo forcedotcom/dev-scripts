@@ -5,7 +5,8 @@
  * For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
 
-const { dirname } = require('path');
+const { existsSync } = require('fs');
+const { dirname, join } = require('path');
 const { cosmiconfigSync } = require('cosmiconfig');
 const { isPlugin } = require('./project-type');
 
@@ -71,13 +72,20 @@ const PACKAGE_DEFAULTS = {
 // Path to resolved config object.
 const resolvedConfigs = {};
 
-const resolveConfig = (path, options = {}) => {
+const resolveConfig = (path) => {
   if (path && resolvedConfigs[path]) {
     return resolvedConfigs[path];
   }
+  const explorerSync = cosmiconfigSync('sfdev');
+  const result = explorerSync.search(path);
 
-  const dev = options.jsBinScripts ? 'ts-node "./bin/dev.js"' : '"./bin/dev"';
-  const PLUGIN_DEFAULTS = {
+  if (!path && result) {
+    path = dirname(result.filepath);
+  }
+
+  const usesJsBinScripts = existsSync(join(path, 'bin', 'dev.js'));
+  const dev = usesJsBinScripts ? 'ts-node "./bin/dev.js"' : '"./bin/dev"';
+  const pluginDefaults = {
     scripts: {
       ...PACKAGE_DEFAULTS.scripts,
       // wireit scripts don't need an entry in pjson scripts.
@@ -118,14 +126,7 @@ const resolveConfig = (path, options = {}) => {
     },
   };
 
-  const explorerSync = cosmiconfigSync('sfdev');
-  const result = explorerSync.search(path);
-
-  if (!path && result) {
-    path = dirname(result.filepath);
-  }
-
-  const defaults = path && isPlugin(path) ? PLUGIN_DEFAULTS : PACKAGE_DEFAULTS;
+  const defaults = path && isPlugin(path) ? pluginDefaults : PACKAGE_DEFAULTS;
 
   const configFromFile = (result && result.config) || {};
 
