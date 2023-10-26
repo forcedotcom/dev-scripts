@@ -1,3 +1,12 @@
+## [5.12.2](https://github.com/forcedotcom/dev-scripts/compare/5.12.1...5.12.2) (2023-10-26)
+
+
+### Bug Fixes
+
+* fix null path ([29fc6e8](https://github.com/forcedotcom/dev-scripts/commit/29fc6e82bbfdf3f8eb3c1e9d273ceec67c0fb280))
+
+
+
 ## [5.12.1](https://github.com/forcedotcom/dev-scripts/compare/5.12.0...5.12.1) (2023-10-26)
 
 
