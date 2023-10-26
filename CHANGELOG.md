@@ -1,3 +1,12 @@
+# [5.12.0](https://github.com/forcedotcom/dev-scripts/compare/5.11.2...5.12.0) (2023-10-26)
+
+
+### Features
+
+* upgrade deps ([0674651](https://github.com/forcedotcom/dev-scripts/commit/067465150445d7ac8b4d0c180e96d825de292f38))
+
+
+
 ## [5.11.2](https://github.com/forcedotcom/dev-scripts/compare/5.11.2-dev.1...5.11.2) (2023-10-26)
 
 
