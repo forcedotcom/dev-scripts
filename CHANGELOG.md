@@ -1,3 +1,12 @@
+## [5.12.1](https://github.com/forcedotcom/dev-scripts/compare/5.12.0...5.12.1) (2023-10-26)
+
+
+### Bug Fixes
+
+* improve bin/dev.js check ([caafbca](https://github.com/forcedotcom/dev-scripts/commit/caafbca5ce919982ee2c8c80e3cc99e154212bcf))
+
+
+
 # [5.12.0](https://github.com/forcedotcom/dev-scripts/compare/5.11.2...5.12.0) (2023-10-26)
 
 
