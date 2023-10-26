@@ -1,3 +1,25 @@
+## [5.11.2](https://github.com/forcedotcom/dev-scripts/compare/5.11.2-dev.1...5.11.2) (2023-10-26)
+
+
+
+## [5.11.2-dev.1](https://github.com/forcedotcom/dev-scripts/compare/5.11.2-dev.0...5.11.2-dev.1) (2023-10-25)
+
+
+### Bug Fixes
+
+* quotes ([9099c5f](https://github.com/forcedotcom/dev-scripts/commit/9099c5f05d4c9655eb86532765b18896f24a0587))
+
+
+
+## [5.11.2-dev.0](https://github.com/forcedotcom/dev-scripts/compare/5.11.1...5.11.2-dev.0) (2023-10-25)
+
+
+### Bug Fixes
+
+* use ts-node to execute bin/dev.js ([a115626](https://github.com/forcedotcom/dev-scripts/commit/a115626b3977b76a8212db22c8a7e614924c230f))
+
+
+
 ## [5.11.1](https://github.com/forcedotcom/dev-scripts/compare/5.11.0...5.11.1) (2023-10-25)
 
 
