@@ -79,9 +79,20 @@ module.exports = (projectPath) => {
   };
 
   const scripts = config.scripts;
+  const eslintConfigSfTsPjson = require('eslint-config-salesforce-typescript/package.json');
 
   /** devDeps that *should* be in every repo dev-scripts touches.  */
-  const requiredDeps = [
+  const requiredDeps = [].concat(scripts.format ? ['prettier', '@salesforce/prettier-config'] : []);
+
+  /** These packages are provided to orgs via devScripts.  They should not be in the pjson of the consumer
+   * If you don't like the devScripts version, you can specify your own in sf-dev-rc.json in the dependencies section.
+   */
+  const providedByDevScripts = [
+    '@commitlint/cli',
+    '@commitlint/config-conventional',
+    'typedoc-plugin-missing-exports',
+    'source-map-support',
+    'typedoc',
     'husky',
     'pretty-quick',
     'nyc',
@@ -90,32 +101,27 @@ module.exports = (projectPath) => {
     'sinon',
     'chai',
     'wireit',
-    'eslint-config-salesforce',
-    'eslint-config-salesforce-typescript',
-    'eslint-config-salesforce-license',
-  ].concat(scripts.format ? ['prettier', '@salesforce/prettier-config'] : []);
-
-  /**
-   * if dev-scripts sees these in devDeps, they'll be removed
-   * some of these are in the devScripts Deps, but we don't want them in the target's devDeps (controlled by devScripts)
-   */
-  const bannedDeps = [
-    '@commitlint/cli',
-    '@commitlint/config-conventional',
-    'source-map-support',
-    'typedoc',
-    'cz-conventional-changelog',
-    'lint-staged',
-    'tslint',
     '@types/chai',
     '@types/mocha',
     '@types/node',
     '@types/sinon',
-    'typedoc-plugin-missing-exports',
-    'eslint-plugin-prettier',
-  ].concat(scripts.format ? [] : ['prettier', '@salesforce/prettier-config']);
+    // this repo manages all things eslint.  Its dependencies are in dev-scripts and therefore should be omitted
+    'eslint-config-salesforce-typescript',
+    ...Object.keys(eslintConfigSfTsPjson.devDependencies),
+
+    // leave these along if the project has them
+  ].filter((dep) => !new Set(config.devDepOverrides).has(dep));
+  /**
+   * We don't want these in any repo.  This is a good way to clean up things en masse
+   */
+  const bannedDeps = ['cz-conventional-changelog', 'lint-staged', 'tslint', 'eslint-plugin-prettier'].concat(
+    scripts.format ? [] : ['prettier', '@salesforce/prettier-config']
+  );
+
   // removes go before adds because some are "added back"
+  providedByDevScripts.forEach((dep) => remove(dep));
   bannedDeps.forEach((dep) => remove(dep));
+
   // calling add will force it to exist
   requiredDeps.forEach((dep) => add(dep));
 
@@ -126,14 +132,6 @@ module.exports = (projectPath) => {
       add(dep, version);
     }
   });
-
-  const eslintPjson = require('eslint-config-salesforce-typescript/package.json');
-  const eslintHeaderPjson = require('eslint-config-salesforce-license/package.json');
-
-  // eslint and all plugins must be installed on a local basis, regardless of if it uses a shared config.
-  // https://eslint.org/docs/user-guide/getting-started
-  Object.entries(eslintPjson.devDependencies).forEach(([name, version]) => add(name, version));
-  Object.entries(eslintHeaderPjson.devDependencies).forEach(([name, version]) => add(name, version));
 
   // update any non-devDeps to their minimum versions if devScripts specifies one
   const dependencies = pjson.get('dependencies');
