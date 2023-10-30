@@ -1,3 +1,12 @@
+## [5.12.3](https://github.com/forcedotcom/dev-scripts/compare/5.12.2...5.12.3) (2023-10-30)
+
+
+### Bug Fixes
+
+* **deps:** bump node types to 18 ([2072ffb](https://github.com/forcedotcom/dev-scripts/commit/2072ffb2578fb1957770825fd44cc3261841097c))
+
+
+
 ## [5.12.2](https://github.com/forcedotcom/dev-scripts/compare/5.12.1...5.12.2) (2023-10-26)
 
 
