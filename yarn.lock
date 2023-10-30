@@ -1518,10 +1518,10 @@ eslint-config-salesforce-license@^0.2.0:
   resolved "https://registry.npmjs.org/eslint-config-salesforce-license/-/eslint-config-salesforce-license-0.2.0.tgz#323193f1aa15dd33fbf108d25fc1210afc11065e"
   integrity sha512-DJdBvgj82Erum82YMe+YvG/o6ukna3UA++lRl0HSTldj0VlBl3Q8hzCp97nRXZHra6JH1I912yievZzklXDw6w==
 
-eslint-config-salesforce-typescript@^2.0.1-beta.0:
-  version "2.0.1-beta.0"
-  resolved "https://registry.npmjs.org/eslint-config-salesforce-typescript/-/eslint-config-salesforce-typescript-2.0.1-beta.0.tgz#c52763b6c045371d1884446e36b57a7140ecf98e"
-  integrity sha512-XnZa2FrH4TLbkdQ/NGaFBITZfobyIh7LZPdSMqeeDtTfp/HXuzk6P+zkcYeqxABIoat6ZYYdAAu7eANMp2JiIw==
+eslint-config-salesforce-typescript@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.npmjs.org/eslint-config-salesforce-typescript/-/eslint-config-salesforce-typescript-3.0.1.tgz#dd278345e344c03c5c7c4c5121c2b5b6f8de01b8"
+  integrity sha512-8ivDGo6yBHEVk3+J1cLIiHfT3BP3JAbBnx3BlDQ3z5IYftAJ6LGemPANp3vWD6Wx3YKkYiVaIRmmB9uScneKhQ==
   dependencies:
     "@typescript-eslint/eslint-plugin" "^5.62.0"
     "@typescript-eslint/parser" "^5.62.0"
@@ -1530,7 +1530,7 @@ eslint-config-salesforce-typescript@^2.0.1-beta.0:
     eslint-config-salesforce "^2.0.2"
     eslint-config-salesforce-license "^0.2.0"
     eslint-plugin-header "^3.1.1"
-    eslint-plugin-import "^2.28.1"
+    eslint-plugin-import "^2.29.0"
     eslint-plugin-jsdoc "^43.0.5"
     eslint-plugin-unicorn "^48.0.1"
 
@@ -1560,7 +1560,7 @@ eslint-plugin-header@^3.1.1:
   resolved "https://registry.npmjs.org/eslint-plugin-header/-/eslint-plugin-header-3.1.1.tgz#6ce512432d57675265fac47292b50d1eff11acd6"
   integrity sha512-9vlKxuJ4qf793CmeeSrZUvVClw6amtpghq3CuWcB5cUNnWHQhgcqy5eF8oVKFk1G3Y/CbchGfEaw3wiIJaNmVg==
 
-eslint-plugin-import@^2.28.1:
+eslint-plugin-import@^2.29.0:
   version "2.29.0"
   resolved "https://registry.npmjs.org/eslint-plugin-import/-/eslint-plugin-import-2.29.0.tgz#8133232e4329ee344f2f612885ac3073b0b7e155"
   integrity sha512-QPOO5NO6Odv5lpoTkddtutccQjysJuFxoPS7fAHO+9m9udNHvTCPSAMW9zGAYj8lAIdr40I8yPCdUYrncXtrwg==
