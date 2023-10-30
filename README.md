@@ -44,6 +44,33 @@ To configure what this generates and controls, create a `.sfdevrc` file. Look at
 
 ## Config File Notes
 
+By default, devScripts will try to keep your package.json aligned with its standards.
+
+For example, devScripts will remove dependencies that it provides. If you want to keep yours, you'd add it in to the `sf-dev-rc`. Imagine you need to be on a higher or lower version of mocha that devScripts provides:
+
+```json
+{
+  "devDepOverrides": ["mocha", "@types/mocha"]
+}
+```
+
+And it maintains the `scripts` and `wireit` properties. Imagine you want a different lint step in wireit, and a different test step:
+
+```json
+{
+  "scripts": {
+    "test": "yarn test:nuts"
+  },
+  "wireit": {
+    "lint": {
+      "command": "eslint src test --color",
+      "files": ["src/**/*.ts", "test/**/*.ts", "messages/**", "**/.eslint*", "**/tsconfig.json"],
+      "output": []
+    }
+  }
+}
+```
+
 ### tsconfig
 
 The `include` section has to live in the repository's tsconfig file until there is a way to specify a base. We plan to remove this section when https://github.com/Microsoft/TypeScript/issues/25430 is fixed

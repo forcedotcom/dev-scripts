@@ -1,7 +1,6 @@
 {
   "title": "JSON schema for .sfdevrc.json config for @salesforce/dev-scripts",
   "$schema": "http://json-schema.org/draft-04/schema#",
-
   "type": "object",
   "additionalProperties": false,
   "properties": {
@@ -13,7 +12,9 @@
     "scripts": {
       "description": "The scripts to add to the package.json",
       "type": "object",
-      "additionalProperties": { "type": "string" },
+      "additionalProperties": {
+        "type": "string"
+      },
       "properties": {
         "clean": {
           "description": "script used to clean a project",
@@ -87,6 +88,14 @@
           "default": "**/*.test.ts"
         }
       }
+    },
+    "wireit": {
+      "description": "Overrides for the wireit section of package.json.  Store changes here to prevent sf-install from setting them back to the default",
+      "type": "object"
+    },
+    "devDepOverrides": {
+      "description": "dev-scripts contains most dev dependencies.  Add names of dependencies that you want it to leave the way your package.json has them",
+      "type": "array"
     }
   }
 }

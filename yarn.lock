@@ -371,15 +371,6 @@
     esquery "^1.5.0"
     jsdoc-type-pratt-parser "~4.0.0"
 
-"@es-joy/jsdoccomment@~0.40.1":
-  version "0.40.1"
-  resolved "https://registry.npmjs.org/@es-joy/jsdoccomment/-/jsdoccomment-0.40.1.tgz#13acd77fb372ed1c83b7355edd865a3b370c9ec4"
-  integrity sha512-YORCdZSusAlBrFpZ77pJjc5r1bQs5caPWtAu+WWmiSo+8XaUzseapVrfAtiRFbQWnrBxxLLEwF6f6ZG/UgCQCg==
-  dependencies:
-    comment-parser "1.4.0"
-    esquery "^1.5.0"
-    jsdoc-type-pratt-parser "~4.0.0"
-
 "@eslint-community/eslint-utils@^4.2.0", "@eslint-community/eslint-utils@^4.4.0":
   version "4.4.0"
   resolved "https://registry.npmjs.org/@eslint-community/eslint-utils/-/eslint-utils-4.4.0.tgz#a23514e8fb9af1269d5f7788aa556798d61c6b59"
@@ -631,10 +622,10 @@
   resolved "https://registry.npmjs.org/@types/semver/-/semver-7.5.4.tgz#0a41252ad431c473158b22f9bfb9a63df7541cff"
   integrity sha512-MMzuxN3GdFwskAnb6fz0orFvhfqi752yjaXylr0Rp4oDg5H0Zn1IuyRhDVvYOwAXoJirx2xuS16I3WjxnAIHiQ==
 
-"@types/sinon@10.0.11":
-  version "10.0.11"
-  resolved "https://registry.npmjs.org/@types/sinon/-/sinon-10.0.11.tgz#8245827b05d3fc57a6601bd35aee1f7ad330fc42"
-  integrity sha512-dmZsHlBsKUtBpHriNjlK0ndlvEh8dcb9uV9Afsbt89QIyydpC7NcR+nWlAhASfy3GHnxTl4FX/aKE7XZUt/B4g==
+"@types/sinon@^10.0.20":
+  version "10.0.20"
+  resolved "https://registry.npmjs.org/@types/sinon/-/sinon-10.0.20.tgz#f1585debf4c0d99f9938f4111e5479fb74865146"
+  integrity sha512-2APKKruFNCAZgx3daAyACGzWuJ028VVCUDk6o2rw/Z4PXT0ogwdV4KUegW0MwVs0Zu59auPXbbuBJHF12Sx1Eg==
   dependencies:
     "@types/sinonjs__fake-timers" "*"
 
@@ -1190,11 +1181,6 @@ comment-parser@1.3.1:
   resolved "https://registry.npmjs.org/comment-parser/-/comment-parser-1.3.1.tgz#3d7ea3adaf9345594aedee6563f422348f165c1b"
   integrity sha512-B52sN2VNghyq5ofvUsqZjmk6YkihBX5vMSChmSK9v4ShjKf3Vk5Xcmgpw4o+iIgtrnM/u5FiMpz9VKb8lpBveA==
 
-comment-parser@1.4.0:
-  version "1.4.0"
-  resolved "https://registry.npmjs.org/comment-parser/-/comment-parser-1.4.0.tgz#0f8c560f59698193854f12884c20c0e39a26d32c"
-  integrity sha512-QLyTNiZ2KDOibvFPlZ6ZngVsZ/0gYnE6uTXi5aoDg8ed3AkJAz4sEje3Y8a29hQ1s6A99MZXe47fLAXQ1rTqaw==
-
 commondir@^1.0.1:
   version "1.0.1"
   resolved "https://registry.npmjs.org/commondir/-/commondir-1.0.1.tgz#ddd800da0c66127393cca5950ea968a3aaf1253b"
@@ -1522,7 +1508,7 @@ escape-string-regexp@^1.0.5:
   resolved "https://registry.npmjs.org/escape-string-regexp/-/escape-string-regexp-1.0.5.tgz#1b61c0562190a8dff6ae3bb2cf0200ca130b86d4"
   integrity sha512-vbRorB5FUQWvla16U8R/qgaFIya2qGzwDrNmCZuYKrbdSUMG6I1ZCGQRefkRVhuOkIGVne7BQ35DSfo1qvJqFg==
 
-eslint-config-prettier@^8.10.0, eslint-config-prettier@^8.8.0:
+eslint-config-prettier@^8.10.0:
   version "8.10.0"
   resolved "https://registry.npmjs.org/eslint-config-prettier/-/eslint-config-prettier-8.10.0.tgz#3a06a662130807e2502fc3ff8b4143d8a0658e11"
   integrity sha512-SM8AMJdeQqRYT9O9zguiruQZaN7+z+E4eAP9oiLNGKMtomwaB1E9dcgUD6ZAn/eQAb52USbvezbiljfZUhbJcg==
@@ -1532,21 +1518,23 @@ eslint-config-salesforce-license@^0.2.0:
   resolved "https://registry.npmjs.org/eslint-config-salesforce-license/-/eslint-config-salesforce-license-0.2.0.tgz#323193f1aa15dd33fbf108d25fc1210afc11065e"
   integrity sha512-DJdBvgj82Erum82YMe+YvG/o6ukna3UA++lRl0HSTldj0VlBl3Q8hzCp97nRXZHra6JH1I912yievZzklXDw6w==
 
-eslint-config-salesforce-typescript@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.npmjs.org/eslint-config-salesforce-typescript/-/eslint-config-salesforce-typescript-2.0.0.tgz#df6cd54c7d5254158e0c175a8a3526d3f9510b56"
-  integrity sha512-1gq4ChEamP3VaDXoMJdEUX92fOdNMjX9/xOfByOO5AsQJnakRE/P4LWQrw5QqQQGWU8YnnM/OADFI9otD002aQ==
+eslint-config-salesforce-typescript@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.npmjs.org/eslint-config-salesforce-typescript/-/eslint-config-salesforce-typescript-3.0.1.tgz#dd278345e344c03c5c7c4c5121c2b5b6f8de01b8"
+  integrity sha512-8ivDGo6yBHEVk3+J1cLIiHfT3BP3JAbBnx3BlDQ3z5IYftAJ6LGemPANp3vWD6Wx3YKkYiVaIRmmB9uScneKhQ==
   dependencies:
     "@typescript-eslint/eslint-plugin" "^5.62.0"
     "@typescript-eslint/parser" "^5.62.0"
+    eslint "^8.52.0"
     eslint-config-prettier "^8.10.0"
     eslint-config-salesforce "^2.0.2"
     eslint-config-salesforce-license "^0.2.0"
-    eslint-plugin-import "^2.28.1"
+    eslint-plugin-header "^3.1.1"
+    eslint-plugin-import "^2.29.0"
     eslint-plugin-jsdoc "^43.0.5"
     eslint-plugin-unicorn "^48.0.1"
 
-eslint-config-salesforce@^2.0.1, eslint-config-salesforce@^2.0.2:
+eslint-config-salesforce@^2.0.2:
   version "2.0.2"
   resolved "https://registry.npmjs.org/eslint-config-salesforce/-/eslint-config-salesforce-2.0.2.tgz#38eb2d8eb2824c66967ed9b45bc92082eba2f225"
   integrity sha512-3jbrI+QFu/KaQbPYIBxItB3okqUtA4EBCGiR6s2kcUMIZBLBBGAURW0k62f9WAv1EagR3eUoO0m9ru7LTj2F5Q==
@@ -1572,7 +1560,7 @@ eslint-plugin-header@^3.1.1:
   resolved "https://registry.npmjs.org/eslint-plugin-header/-/eslint-plugin-header-3.1.1.tgz#6ce512432d57675265fac47292b50d1eff11acd6"
   integrity sha512-9vlKxuJ4qf793CmeeSrZUvVClw6amtpghq3CuWcB5cUNnWHQhgcqy5eF8oVKFk1G3Y/CbchGfEaw3wiIJaNmVg==
 
-eslint-plugin-import@^2.27.5, eslint-plugin-import@^2.28.1:
+eslint-plugin-import@^2.29.0:
   version "2.29.0"
   resolved "https://registry.npmjs.org/eslint-plugin-import/-/eslint-plugin-import-2.29.0.tgz#8133232e4329ee344f2f612885ac3073b0b7e155"
   integrity sha512-QPOO5NO6Odv5lpoTkddtutccQjysJuFxoPS7fAHO+9m9udNHvTCPSAMW9zGAYj8lAIdr40I8yPCdUYrncXtrwg==
@@ -1608,26 +1596,6 @@ eslint-plugin-jsdoc@^43.0.5:
     esquery "^1.5.0"
     semver "^7.5.0"
     spdx-expression-parse "^3.0.1"
-
-eslint-plugin-jsdoc@^46.8.2:
-  version "46.8.2"
-  resolved "https://registry.npmjs.org/eslint-plugin-jsdoc/-/eslint-plugin-jsdoc-46.8.2.tgz#3e6b1c93e91e38fe01874d45da121b56393c54a5"
-  integrity sha512-5TSnD018f3tUJNne4s4gDWQflbsgOycIKEUBoCLn6XtBMgNHxQFmV8vVxUtiPxAQq8lrX85OaSG/2gnctxw9uQ==
-  dependencies:
-    "@es-joy/jsdoccomment" "~0.40.1"
-    are-docs-informative "^0.0.2"
-    comment-parser "1.4.0"
-    debug "^4.3.4"
-    escape-string-regexp "^4.0.0"
-    esquery "^1.5.0"
-    is-builtin-module "^3.2.1"
-    semver "^7.5.4"
-    spdx-expression-parse "^3.0.1"
-
-eslint-plugin-prefer-arrow@^1.2.1:
-  version "1.2.3"
-  resolved "https://registry.npmjs.org/eslint-plugin-prefer-arrow/-/eslint-plugin-prefer-arrow-1.2.3.tgz#e7fbb3fa4cd84ff1015b9c51ad86550e55041041"
-  integrity sha512-J9I5PKCOJretVuiZRGvPQxCbllxGAV/viI20JO3LYblAodofBxyMnZAJ+WGeClHgANnSJberTNoFWWjrWKBuXQ==
 
 eslint-plugin-unicorn@^48.0.1:
   version "48.0.1"
@@ -3206,10 +3174,10 @@ prelude-ls@^1.2.1:
   resolved "https://registry.npmjs.org/prelude-ls/-/prelude-ls-1.2.1.tgz#debc6489d7a6e6b0e7611888cec880337d316396"
   integrity sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==
 
-prettier@^2.7.1:
-  version "2.7.1"
-  resolved "https://registry.npmjs.org/prettier/-/prettier-2.7.1.tgz#e235806850d057f97bb08368a4f7d899f7760c64"
-  integrity sha512-ujppO+MkdPqoVINuDFDRLClm7D78qbDt0/NR+wp5FqEZOoTNAjPHWj17QRhu7geIHJfcNhRk1XVQmF8Bp3ye+g==
+prettier@^2.8.8:
+  version "2.8.8"
+  resolved "https://registry.npmjs.org/prettier/-/prettier-2.8.8.tgz#e8c5d7e98a4305ffe3de2e1fc4aca1a71c28b1da"
+  integrity sha512-tdN8qQGvNjw4CHbY+XXk0JgCXn9QiF21a55rBe5LJAU+kDyC4WQn4+awm2Xfk2lQMk5fKup9XgzTZtGkjBdP9Q==
 
 pretty-quick@^3.1.0:
   version "3.1.3"

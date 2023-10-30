@@ -137,8 +137,9 @@ const resolveConfig = (path) => {
 
   // Allow users to override certain scripts
   const config = Object.assign({}, defaults, configFromFile, {
-    scripts: Object.assign({}, defaults.scripts || {}, configFromFile.scripts || {}),
-    wireit: Object.assign({}, defaults.wireit || {}, configFromFile.wireit || {}),
+    scripts: Object.assign({}, defaults.scripts ?? {}, configFromFile.scripts ?? {}),
+    wireit: Object.assign({}, defaults.wireit ?? {}, configFromFile.wireit ?? {}),
+    devDepOverrides: configFromFile.devDepOverrides ?? [],
   });
 
   let excludeScripts = config['exclude-scripts'] || [];
