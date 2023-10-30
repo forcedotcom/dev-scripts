@@ -82,7 +82,7 @@ module.exports = (projectPath) => {
   const eslintConfigSfTsPjson = require('eslint-config-salesforce-typescript/package.json');
 
   /** devDeps that *should* be in every repo dev-scripts touches.  */
-  const requiredDeps = [].concat(scripts.format ? ['prettier', '@salesforce/prettier-config'] : []);
+  const requiredDeps = [];
 
   /** These packages are provided to orgs via devScripts.  They should not be in the pjson of the consumer
    * If you don't like the devScripts version, you can specify your own in sf-dev-rc.json in the dependencies section.
@@ -95,6 +95,7 @@ module.exports = (projectPath) => {
     'typedoc',
     'husky',
     'pretty-quick',
+    'prettier',
     'nyc',
     'ts-node',
     'mocha',
@@ -105,11 +106,12 @@ module.exports = (projectPath) => {
     '@types/mocha',
     '@types/node',
     '@types/sinon',
+    '@salesforce/dev-config',
+    '@salesforce/prettier-config',
     // this repo manages all things eslint.  Its dependencies are in dev-scripts and therefore should be omitted
     'eslint-config-salesforce-typescript',
-    ...Object.keys(eslintConfigSfTsPjson.devDependencies),
-
-    // leave these along if the project has them
+    ...Object.keys(eslintConfigSfTsPjson.dependencies),
+    // leave these alone if the project has them
   ].filter((dep) => !new Set(config.devDepOverrides).has(dep));
   /**
    * We don't want these in any repo.  This is a good way to clean up things en masse
