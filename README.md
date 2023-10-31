@@ -46,7 +46,7 @@ To configure what this generates and controls, create a `.sfdevrc` file. Look at
 
 By default, devScripts will try to keep your package.json aligned with its standards.
 
-For example, devScripts will remove dependencies that it provides. If you want to keep yours, you'd add it in to the `sf-dev-rc`. Imagine you need to be on a higher or lower version of mocha that devScripts provides:
+For example, devScripts will remove dependencies that it provides. If you want to keep yours, you'd add it in to the `sfdevrc`. Imagine you need to be on a higher or lower version of mocha that devScripts provides:
 
 ```json
 {

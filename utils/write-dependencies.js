@@ -97,7 +97,6 @@ module.exports = (projectPath) => {
     'pretty-quick',
     'prettier',
     'nyc',
-    'ts-node',
     'mocha',
     'sinon',
     'chai',
