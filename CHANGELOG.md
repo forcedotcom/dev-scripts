@@ -1,3 +1,12 @@
+## [6.0.2](https://github.com/forcedotcom/dev-scripts/compare/6.0.1...6.0.2) (2023-10-31)
+
+
+### Bug Fixes
+
+* **deps:** bump mocha/tsnode ([331535c](https://github.com/forcedotcom/dev-scripts/commit/331535c35dab88254e93d88114f52781523af286))
+
+
+
 ## [6.0.1](https://github.com/forcedotcom/dev-scripts/compare/5.12.3...6.0.1) (2023-10-30)
 
 
