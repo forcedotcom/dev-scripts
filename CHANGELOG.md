@@ -1,3 +1,12 @@
+## [6.0.3](https://github.com/forcedotcom/dev-scripts/compare/6.0.2...6.0.3) (2023-10-31)
+
+
+### Bug Fixes
+
+* keep ts-node ([81b6093](https://github.com/forcedotcom/dev-scripts/commit/81b6093d025f0a07ca54cbe1af23fa90c85309aa))
+
+
+
 ## [6.0.2](https://github.com/forcedotcom/dev-scripts/compare/6.0.1...6.0.2) (2023-10-31)
 
 
