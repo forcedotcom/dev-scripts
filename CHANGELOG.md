@@ -1,3 +1,7 @@
+## [6.0.4](https://github.com/forcedotcom/dev-scripts/compare/6.0.3...6.0.4) (2023-11-12)
+
+
+
 ## [6.0.3](https://github.com/forcedotcom/dev-scripts/compare/6.0.2...6.0.3) (2023-10-31)
 
 
