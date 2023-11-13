@@ -15,6 +15,10 @@ const PackageJson = require('./package-json');
 const FILES_PATH = join(__dirname, '..', 'files');
 
 const FILE_NAME_LICENSE = 'LICENSE.txt';
+// https://github.com/salesforce/oss-template/blob/main/CODE_OF_CONDUCT.md
+const FILE_NAME_CODE_OF_CONDUCT = 'CODE_OF_CONDUCT.md';
+// https://github.com/salesforce/oss-template/blob/main/SECURITY.mdq
+const FILE_NAME_SECURITY = 'SECURITY.md';
 const FILE_NAME_GITIGNORE = 'gitignore';
 const FILE_NAME_MOCHARC = 'mocharc.json';
 
@@ -92,6 +96,20 @@ function writeMocharcJson(targetDir) {
   return copyFile(mocharcSourcePath, gitignoreTargetPath);
 }
 
+function writeSecurityFile(targetDir) {
+  const securitySourcePath = join(FILES_PATH, FILE_NAME_SECURITY);
+  const securityTargetPath = join(targetDir, FILE_NAME_SECURITY);
+
+  return copyFile(securitySourcePath, securityTargetPath);
+}
+
+function writeCodeOfConductFile(targetDir) {
+  const codeOfConductSourcePath = join(FILES_PATH, FILE_NAME_CODE_OF_CONDUCT);
+  const codeOfConductTargetPath = join(targetDir, FILE_NAME_CODE_OF_CONDUCT);
+
+  return copyFile(codeOfConductSourcePath, codeOfConductTargetPath);
+}
+
 function replaceInFile(filePath, replaceFn) {
   const contents = readFileSync(filePath, 'utf8');
   const newContents = replaceFn(contents);
@@ -110,6 +128,8 @@ module.exports = (packageRoot = require('./package-path')) => {
   let removed = [];
 
   added.push(writeLicenseFile(packageRoot));
+  added.push(writeSecurityFile(packageRoot));
+  added.push(writeCodeOfConductFile(packageRoot));
   added.push(writeGitignore(packageRoot));
   added.push(writeMocharcJson(packageRoot));
 
