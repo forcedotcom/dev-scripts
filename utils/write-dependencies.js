@@ -15,16 +15,16 @@ const { resolveConfig } = require('./sf-config');
  */
 const nonPjsonDependencyMinimums = new Map([
   ['@salesforce/sf-plugins-core', '^3.1.20'],
-  ['@salesforce/core', '^5.2.0'],
-  ['@salesforce/kit', '^3.0.9'],
-  ['@salesforce/ts-types', '^2.0.6'],
+  ['@salesforce/core', '^6.1.0'],
+  ['@salesforce/kit', '^3.0.15'],
+  ['@salesforce/ts-types', '^2.0.9'],
   ['@oclif/core', '^2.15.0'],
   ['@salesforce/cli-plugins-testkit', '^4.2.9'],
   ['@salesforce/source-deploy-retrieve', '^9.7.2'],
   ['@salesforce/source-tracking', '^4.2.10'],
   ['@salesforce/plugin-command-reference', '^3.0.25'],
   ['@oclif/plugin-command-snapshot', '^4.0.2'],
-  ['eslint-plugin-sf-plugin', '^1.15.6'],
+  ['eslint-plugin-sf-plugin', '^1.16.15'],
   ['oclif', '^3.16.0'],
 ]);
 
