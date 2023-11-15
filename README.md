@@ -74,3 +74,13 @@ And it maintains the `scripts` and `wireit` properties. Imagine you want a diffe
 ### tsconfig
 
 The `include` section has to live in the repository's tsconfig file until there is a way to specify a base. We plan to remove this section when https://github.com/Microsoft/TypeScript/issues/25430 is fixed
+
+### Release
+
+DevScripts has an action you can run which will run the devScripts action in lots of repos (they check for an update, and then bump the version, do an install, etc.)
+
+This runs automatically after devScripts releases.
+
+You need to maintain the list of repos here: https://github.com/forcedotcom/dev-scripts/blob/361bc49a6694fdd9c772031ac583e8a80f139a83/.github/workflows/cross-repo-bump.yml#L17
+
+You can see the in-progress PRs using https://github.com/pulls?q=is%3Aopen+is%3Apr+archived%3Afalse+%22refactor%3A+devScripts+update%22
