@@ -11,8 +11,12 @@ on:
 jobs:
   bump:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        repo:
+          - salesforcecli/plugin-org
     steps:
       - name:
-        run: gh workflow run devScripts.yml --repo salesforcecli/plugin-user
+        run: gh workflow run devScripts.yml --repo ${{ matrix.repo}}
         env:
           GH_TOKEN: ${{ secrets.SVC_CLI_BOT_GITHUB_TOKEN }}
