@@ -1,3 +1,12 @@
+# [7.1.0](https://github.com/forcedotcom/dev-scripts/compare/6.0.4...7.1.0) (2023-11-15)
+
+
+### Features
+
+* core6 and core6-based libs ([92642cb](https://github.com/forcedotcom/dev-scripts/commit/92642cba27174e1517e76a4f7a4d7509465f2e95))
+
+
+
 ## [6.0.4](https://github.com/forcedotcom/dev-scripts/compare/6.0.3...6.0.4) (2023-11-12)
 
 
