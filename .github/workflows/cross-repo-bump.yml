@@ -14,7 +14,26 @@ jobs:
     strategy:
       matrix:
         repo:
+          - salesforcecli/plugin-auth
+          - salesforcecli/plugin-community
+          - salesforcecli/plugin-custom-metadata
+          - salesforcecli/plugin-data
+          - salesforcecli/plugin-env
+          - salesforcecli/plugin-deploy-retrieve
+          - salesforcecli/plugin-info
+          - salesforcecli/plugin-limits
+          - salesforcecli/plugin-marketplace
           - salesforcecli/plugin-org
+          - salesforcecli/plugin-packaging
+          #   - salesforcecli/plugin-release-management
+          - salesforcecli/plugin-schema
+          - salesforcecli/plugin-settings
+          - salesforcecli/plugin-signups
+          - salesforcecli/plugin-source
+          - salesforcecli/plugin-sobject
+          - salesforcecli/plugin-telemetry
+          - salesforcecli/plugin-trust
+          - salesforcecli/plugin-user
     steps:
       - name:
         run: gh workflow run devScripts.yml --repo ${{ matrix.repo}}
