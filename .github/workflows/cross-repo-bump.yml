@@ -1,0 +1,18 @@
+name: cross-repo-bump
+
+on:
+  workflow_run:
+    workflows:
+      - publish
+    types:
+      - completed
+  workflow_dispatch:
+
+jobs:
+  bump:
+    runs-on: ubuntu-latest
+    steps:
+      - name:
+        run: gh workflow run devScripts.yml --repo salesforcecli/plugin-user
+        env:
+          GH_TOKEN: ${{ secrets.SVC_CLI_BOT_GITHUB_TOKEN }}
