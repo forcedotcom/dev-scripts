@@ -1,3 +1,12 @@
+## [7.1.1](https://github.com/forcedotcom/dev-scripts/compare/7.1.0...7.1.1) (2023-11-16)
+
+
+### Bug Fixes
+
+* **deps:** fixed core for configFile sync locks ([#252](https://github.com/forcedotcom/dev-scripts/issues/252)) ([badbd1b](https://github.com/forcedotcom/dev-scripts/commit/badbd1bfda4d51ab63488fa377318f8e634c3ffc))
+
+
+
 # [7.1.0](https://github.com/forcedotcom/dev-scripts/compare/6.0.4...7.1.0) (2023-11-15)
 
 
