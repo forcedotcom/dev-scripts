@@ -47,6 +47,12 @@ const PACKAGE_DEFAULTS = {
       files: ['src/**/*.ts', 'test/**/*.ts', 'messages/**', '**/.eslint*', '**/tsconfig.json'],
       output: [],
     },
+    'link-check': {
+      command:
+        'linkinator "./!(CHANGELOG).md" "messages/**/*.md" --markdown --retry --directory-listing --verbosity error',
+      files: ['./*.md', './!(CHANGELOG).md', 'messages/**/*.md'],
+      output: [],
+    },
     // compiles all test files, including NUTs
     'test:compile': {
       command: 'tsc -p "./test" --pretty',
@@ -54,7 +60,7 @@ const PACKAGE_DEFAULTS = {
       output: [],
     },
     test: {
-      dependencies: ['test:only', 'test:compile'],
+      dependencies: ['test:only', 'test:compile', 'link-check'],
     },
     'test:only': {
       command: 'nyc mocha "test/**/*.test.ts"',
@@ -122,6 +128,7 @@ const resolveConfig = (path) => {
           'test:deprecation-policy',
           'lint',
           'test:json-schema',
+          'link-check',
         ],
       },
     },
