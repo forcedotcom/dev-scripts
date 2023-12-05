@@ -1,3 +1,15 @@
+# [8.0.0](https://github.com/forcedotcom/dev-scripts/compare/7.1.1...8.0.0) (2023-12-05)
+
+
+* feat!: removes sf-ci-docs (#260) ([e6119ab](https://github.com/forcedotcom/dev-scripts/commit/e6119abe48ffb1edae171c142490ceb64fe8ba64)), closes [#260](https://github.com/forcedotcom/dev-scripts/issues/260)
+
+
+### BREAKING CHANGES
+
+* The `sf-ci-docs` script has been removed.
+
+
+
 ## [7.1.1](https://github.com/forcedotcom/dev-scripts/compare/7.1.0...7.1.1) (2023-11-16)
 
 
