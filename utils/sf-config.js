@@ -24,6 +24,7 @@ const PACKAGE_DEFAULTS = {
     test: 'wireit',
     'test:compile': undefined,
     'test:only': 'wireit',
+    'link-check': 'wireit',
     lint: 'wireit',
     prepack: 'sf-prepack',
   },
@@ -47,6 +48,13 @@ const PACKAGE_DEFAULTS = {
       files: ['src/**/*.ts', 'test/**/*.ts', 'messages/**', '**/.eslint*', '**/tsconfig.json'],
       output: [],
     },
+    'link-check': {
+      command:
+        // eslint-disable-next-line max-len
+        'node -e "process.exit(process.env.CI ? 0 : 1)" || linkinator "**/*.md" --skip "CHANGELOG.md|node_modules|test/|confluence.internal.salesforce.com|%s" --markdown --retry --directory-listing --verbosity error',
+      files: ['./*.md', './!(CHANGELOG).md', 'messages/**/*.md'],
+      output: [],
+    },
     // compiles all test files, including NUTs
     'test:compile': {
       command: 'tsc -p "./test" --pretty',
@@ -54,7 +62,7 @@ const PACKAGE_DEFAULTS = {
       output: [],
     },
     test: {
-      dependencies: ['test:only', 'test:compile'],
+      dependencies: ['test:only', 'test:compile', 'link-check'],
     },
     'test:only': {
       command: 'nyc mocha "test/**/*.test.ts"',
@@ -122,6 +130,7 @@ const resolveConfig = (path) => {
           'test:deprecation-policy',
           'lint',
           'test:json-schema',
+          'link-check',
         ],
       },
     },
