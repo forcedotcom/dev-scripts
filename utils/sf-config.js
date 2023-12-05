@@ -51,7 +51,7 @@ const PACKAGE_DEFAULTS = {
     'link-check': {
       command:
         // eslint-disable-next-line max-len
-        'node -e "process.exit(process.env.SKIP_LINK_CHECK ? 0 : 1)" || linkinator "**/*.md" --skip "CHANGELOG.md|node_modules|test/|confluence.internal.salesforce.com|%s" --markdown --retry --directory-listing --verbosity error',
+        'node -e "process.exit(process.env.CI ? 0 : 1)" || linkinator "**/*.md" --skip "CHANGELOG.md|node_modules|test/|confluence.internal.salesforce.com|%s" --markdown --retry --directory-listing --verbosity error',
       files: ['./*.md', './!(CHANGELOG).md', 'messages/**/*.md'],
       output: [],
     },
