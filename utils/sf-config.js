@@ -24,6 +24,7 @@ const PACKAGE_DEFAULTS = {
     test: 'wireit',
     'test:compile': undefined,
     'test:only': 'wireit',
+    'link-check': 'wireit',
     lint: 'wireit',
     prepack: 'sf-prepack',
   },
@@ -49,7 +50,8 @@ const PACKAGE_DEFAULTS = {
     },
     'link-check': {
       command:
-        'linkinator "./!(CHANGELOG).md" "messages/**/*.md" --markdown --retry --directory-listing --verbosity error',
+        // eslint-disable-next-line max-len
+        'node -e "process.exit(process.env.SKIP_LINK_CHECK ? 0 : 1)" || linkinator "**/*.md" --skip "CHANGELOG.md|node_modules|test/|confluence.internal.salesforce.com|%s" --markdown --retry --directory-listing --verbosity error',
       files: ['./*.md', './!(CHANGELOG).md', 'messages/**/*.md'],
       output: [],
     },
