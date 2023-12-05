@@ -1,10 +1,9 @@
 {
   "name": "@salesforce/dev-scripts",
-  "version": "7.1.1",
+  "version": "8.0.0",
   "description": "Standardize package.json scripts and config files for Salesforce projects.",
   "repository": "forcedotcom/dev-scripts",
   "bin": {
-    "sf-ci-docs": "bin/sf-ci-docs.js",
     "sf-clean": "bin/sf-clean.js",
     "sf-docs": "bin/sf-docs.js",
     "sf-install": "bin/sf-install.js",
