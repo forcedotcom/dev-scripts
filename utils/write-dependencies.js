@@ -66,7 +66,10 @@ module.exports = (projectPath) => {
       );
     }
     // If the dependency min version has been met, ignore it.
-    if (!devDependencies[name] || !meetsMinimumVersion(devDependencies[name], version)) {
+    if (
+      !devDependencies[name] ||
+      (!meetsMinimumVersion(devDependencies[name], version) && !config.devDepOverrides.includes(name))
+    ) {
       devDependencies[name] = version;
       added.push(name);
     }
