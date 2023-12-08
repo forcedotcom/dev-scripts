@@ -93,7 +93,8 @@ const resolveConfig = (path) => {
 
   // if path is undefined/null, assume we're executing from a plugin root
   const usesJsBinScripts = existsSync(join(path ?? process.cwd(), 'bin', 'dev.js'));
-  const dev = usesJsBinScripts ? 'ts-node "./bin/dev.js"' : '"./bin/dev"';
+  const loader = 'node --loader ts-node/esm --no-warnings=ExperimentalWarning';
+  const dev = usesJsBinScripts ? `${loader} "./bin/dev.js"` : '"./bin/dev"';
   const pluginDefaults = {
     scripts: {
       ...PACKAGE_DEFAULTS.scripts,
