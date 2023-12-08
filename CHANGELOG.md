@@ -1,3 +1,17 @@
+# [8.1.0](https://github.com/forcedotcom/dev-scripts/compare/8.0.0...8.1.0) (2023-12-08)
+
+
+### Bug Fixes
+
+* use node versus ts-node to run scripts ([7c37ad0](https://github.com/forcedotcom/dev-scripts/commit/7c37ad00fb2c3d9b949926ea772d8601c8326f9c))
+
+
+### Features
+
+* check links via linkinator ([#255](https://github.com/forcedotcom/dev-scripts/issues/255)) ([5c5a1b4](https://github.com/forcedotcom/dev-scripts/commit/5c5a1b49b81e5b11b4876450776cdb90cc1d175f))
+
+
+
 # [8.0.0](https://github.com/forcedotcom/dev-scripts/compare/7.1.1...8.0.0) (2023-12-05)
 
 
