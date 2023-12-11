@@ -1,3 +1,12 @@
+## [8.1.1](https://github.com/forcedotcom/dev-scripts/compare/8.1.0...8.1.1) (2023-12-11)
+
+
+### Bug Fixes
+
+* **deps:** bump ts-node ([#265](https://github.com/forcedotcom/dev-scripts/issues/265)) ([d9fcfd2](https://github.com/forcedotcom/dev-scripts/commit/d9fcfd287a491a73449ea2a3ed01758fa29bf3b7))
+
+
+
 # [8.1.0](https://github.com/forcedotcom/dev-scripts/compare/8.0.0...8.1.0) (2023-12-08)
 
 
