@@ -14,6 +14,7 @@ jobs:
     strategy:
       matrix:
         repo:
+          - salesforcecli/plugin-apex
           - salesforcecli/plugin-auth
           - salesforcecli/plugin-community
           - salesforcecli/plugin-custom-metadata
@@ -33,6 +34,7 @@ jobs:
           - salesforcecli/plugin-source
           - salesforcecli/plugin-sobject
           - salesforcecli/plugin-telemetry
+          - salesforcecli/plugin-templates
           - salesforcecli/plugin-trust
           - salesforcecli/plugin-user
     steps:
