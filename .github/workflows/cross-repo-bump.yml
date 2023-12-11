@@ -18,6 +18,7 @@ jobs:
           - salesforcecli/plugin-community
           - salesforcecli/plugin-custom-metadata
           - salesforcecli/plugin-data
+          - salesforcecli/plugin-dev
           - salesforcecli/plugin-env
           - salesforcecli/plugin-deploy-retrieve
           - salesforcecli/plugin-info
