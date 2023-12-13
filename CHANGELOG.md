@@ -1,3 +1,12 @@
+## [8.1.2](https://github.com/forcedotcom/dev-scripts/compare/8.1.1...8.1.2) (2023-12-13)
+
+
+### Bug Fixes
+
+* **deps:** core bump ([#268](https://github.com/forcedotcom/dev-scripts/issues/268)) ([2eec79a](https://github.com/forcedotcom/dev-scripts/commit/2eec79ac4abcce78eeea0185c8a7107f304db243))
+
+
+
 ## [8.1.1](https://github.com/forcedotcom/dev-scripts/compare/8.1.0...8.1.1) (2023-12-11)
 
 
