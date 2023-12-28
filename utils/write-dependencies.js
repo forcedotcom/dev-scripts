@@ -15,7 +15,7 @@ const { resolveConfig } = require('./sf-config');
  */
 const nonPjsonDependencyMinimums = new Map([
   ['@salesforce/sf-plugins-core', '^5.0.1'],
-  ['@salesforce/core', '^6.4.0'],
+  ['@salesforce/core', '^6.4.2'],
   ['@salesforce/kit', '^3.0.15'],
   ['@salesforce/ts-types', '^2.0.9'],
   ['@oclif/core', '^2.15.0'],
@@ -24,7 +24,7 @@ const nonPjsonDependencyMinimums = new Map([
   ['@salesforce/source-tracking', '^5.0.0'],
   ['@salesforce/plugin-command-reference', '^3.0.25'],
   ['@oclif/plugin-command-snapshot', '^4.0.2'],
-  ['eslint-plugin-sf-plugin', '^1.16.15'],
+  ['eslint-plugin-sf-plugin', '^1.17.0'],
   ['@salesforce/telemetry', '^5.0.0'],
   ['oclif', '^3.16.0'],
 ]);
