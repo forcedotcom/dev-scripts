@@ -1,3 +1,12 @@
+## [8.1.3](https://github.com/forcedotcom/dev-scripts/compare/8.1.2...8.1.3) (2023-12-28)
+
+
+### Bug Fixes
+
+* **deps:** bump eslint plugin min ([#273](https://github.com/forcedotcom/dev-scripts/issues/273)) ([da89117](https://github.com/forcedotcom/dev-scripts/commit/da891173454879f0511014b591b6e6bcc1ff24fd))
+
+
+
 ## [8.1.2](https://github.com/forcedotcom/dev-scripts/compare/8.1.1...8.1.2) (2023-12-13)
 
 
