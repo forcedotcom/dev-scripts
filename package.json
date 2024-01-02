@@ -41,7 +41,7 @@
     "chai": "^4.3.10",
     "chalk": "^4.0.0",
     "cosmiconfig": "^7.0.0",
-    "eslint-config-salesforce-typescript": "^3.0.5",
+    "eslint-config-salesforce-typescript": "^3.0.20",
     "husky": "^7.0.4",
     "linkinator": "^6.0.3",
     "mocha": "^10.2.0",
