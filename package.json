@@ -43,7 +43,7 @@
     "cosmiconfig": "^7.0.0",
     "eslint-config-salesforce-typescript": "^3.0.5",
     "husky": "^7.0.4",
-    "linkinator": "^6.0.2",
+    "linkinator": "^6.0.3",
     "mocha": "^10.2.0",
     "nyc": "^15.1.0",
     "prettier": "^2.8.8",
