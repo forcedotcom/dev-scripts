@@ -1,3 +1,12 @@
+# [8.2.0](https://github.com/forcedotcom/dev-scripts/compare/8.1.3...8.2.0) (2024-01-02)
+
+
+### Features
+
+* allow mydomain examples in docs ([4aedb96](https://github.com/forcedotcom/dev-scripts/commit/4aedb96412ed25a01b98184d102263717d634706))
+
+
+
 ## [8.1.3](https://github.com/forcedotcom/dev-scripts/compare/8.1.2...8.1.3) (2023-12-28)
 
 
