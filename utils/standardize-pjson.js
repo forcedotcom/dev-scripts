@@ -11,6 +11,7 @@ const { resolveConfig } = require('./sf-config');
 const { semverIsLessThan } = require('./semver');
 
 const PackageJson = require('./package-json');
+const { isPlugin } = require('./project-type');
 
 module.exports = (packageRoot = require('./package-path')) => {
   const config = resolveConfig(packageRoot);
@@ -22,6 +23,9 @@ module.exports = (packageRoot = require('./package-path')) => {
     pjson.actions.push(`updating license`);
   }
 
+  if (isPlugin(packageRoot)) {
+    pjson.contents.oclif.topicSeparator = ' ';
+  }
   // GENERATE SCRIPTS
   const scriptList = Object.entries(config.scripts);
   const wireitList = Object.entries(config.wireit);
