@@ -1,3 +1,12 @@
+# [8.3.0](https://github.com/forcedotcom/dev-scripts/compare/8.2.0...8.3.0) (2024-01-12)
+
+
+### Features
+
+* plugins have space as oclif.topicSeparator ([2dd90ba](https://github.com/forcedotcom/dev-scripts/commit/2dd90ba388d42e35485ab37a803aea1ea4e96665))
+
+
+
 # [8.2.0](https://github.com/forcedotcom/dev-scripts/compare/8.1.3...8.2.0) (2024-01-02)
 
 
