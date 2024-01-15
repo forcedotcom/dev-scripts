@@ -2723,10 +2723,10 @@ lines-and-columns@^1.1.6:
   resolved "https://registry.npmjs.org/lines-and-columns/-/lines-and-columns-1.2.4.tgz#eca284f75d2965079309dc0ad9255abb2ebc1632"
   integrity sha512-7ylylesZQ/PV29jhEDl3Ufjo6ZX7gCqJr5F7PKrqc93v7fzSymt1BpwEU8nAUXs8qzzvqhbjhK5QZg6Mt/HkBg==
 
-linkinator@^6.0.3:
-  version "6.0.3"
-  resolved "https://registry.npmjs.org/linkinator/-/linkinator-6.0.3.tgz#552965bafb37a8747858b2c02a70b3c148b68909"
-  integrity sha512-QAcefOkkumXa5NciVhICPkSR5SMk6LFISe/FIX8vvPdLHLUqdXU06Dq/nuOPA5V89iv2gV9FDufYA7adxIcvOw==
+linkinator@^6.0.4:
+  version "6.0.4"
+  resolved "https://registry.npmjs.org/linkinator/-/linkinator-6.0.4.tgz#2a4a9f76732b0f8968abf35ed09d57a3a8be3427"
+  integrity sha512-gxZ9ePUBeoaCk29p+2gAwrRIVnKOqAV8ZVCEM8N7MvpwbccDBQiKjXFyS6nQx56K1CCZLboan2i5iJfpWCsnSQ==
   dependencies:
     chalk "^5.0.0"
     escape-html "^1.0.3"
@@ -2735,7 +2735,7 @@ linkinator@^6.0.3:
     htmlparser2 "^9.0.0"
     marked "^10.0.0"
     meow "^13.0.0"
-    mime "^3.0.0"
+    mime "^4.0.0"
     server-destroy "^1.0.1"
     srcset "^5.0.0"
 
@@ -2922,10 +2922,10 @@ micromatch@^4.0.4:
     braces "^3.0.2"
     picomatch "^2.3.1"
 
-mime@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.npmjs.org/mime/-/mime-3.0.0.tgz#b374550dca3a0c18443b0c950a6a58f1931cf7a7"
-  integrity sha512-jSCU7/VB1loIWBZe14aEYHU/+1UMEHoaO7qxCOVJOw9GgH72VAWppxNcjU+x9a2k3GSIBXNKxXQFqRvvZ7vr3A==
+mime@^4.0.0:
+  version "4.0.1"
+  resolved "https://registry.npmjs.org/mime/-/mime-4.0.1.tgz#ad7563d1bfe30253ad97dedfae2b1009d01b9470"
+  integrity sha512-5lZ5tyrIfliMXzFtkYyekWbtRXObT9OWa8IwQ5uxTBDHucNNwniRqo0yInflj+iYi5CBa6qxadGzGarDfuEOxA==
 
 mimic-fn@^2.1.0:
   version "2.1.0"
