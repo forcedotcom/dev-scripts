@@ -13,6 +13,8 @@ const { semverIsLessThan } = require('./semver');
 const PackageJson = require('./package-json');
 const { isPlugin } = require('./project-type');
 
+const PLUGIN_FILES = ['/messages', '/oclif.manifest.json', '/oclif.lock', '/npm-shrinkwrap.json'];
+
 module.exports = (packageRoot = require('./package-path')) => {
   const config = resolveConfig(packageRoot);
   const pjson = new PackageJson(packageRoot);
@@ -25,6 +27,7 @@ module.exports = (packageRoot = require('./package-path')) => {
 
   if (isPlugin(packageRoot)) {
     pjson.contents.oclif.topicSeparator = ' ';
+    pjson.contents.files = [...new Set([...pjson.contents.files, ...PLUGIN_FILES])].sort();
   }
   // GENERATE SCRIPTS
   const scriptList = Object.entries(config.scripts);

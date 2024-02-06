@@ -147,6 +147,15 @@ module.exports = (projectPath) => {
     }
   });
 
+  // Check to see if these deps are used by yarn scripts. If not, remove them.
+  const possiblyUnnecessaryDeps = ['shx'];
+
+  possiblyUnnecessaryDeps.forEach((dep) => {
+    if (!Object.values(scripts).some((script) => script?.includes(dep))) {
+      remove(dep);
+    }
+  });
+
   if (added.length > 0) {
     pjson.actions.push(`added/updated devDependencies ${added.join(', ')}`);
   }

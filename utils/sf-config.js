@@ -98,6 +98,8 @@ const resolveConfig = (path) => {
   const pluginDefaults = {
     scripts: {
       ...PACKAGE_DEFAULTS.scripts,
+      'clean:lib': undefined,
+      postpack: 'sf-clean',
       // wireit scripts don't need an entry in pjson scripts.
       // remove these from scripts and let wireit handle them (just repeat running yarn test)
       // https://github.com/google/wireit/blob/main/CHANGELOG.md#094---2023-01-30
