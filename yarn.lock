@@ -3669,10 +3669,10 @@ shelljs@^0.8.5:
     interpret "^1.0.0"
     rechoir "^0.6.2"
 
-shiki@^0.14.1:
-  version "0.14.5"
-  resolved "https://registry.npmjs.org/shiki/-/shiki-0.14.5.tgz#375dd214e57eccb04f0daf35a32aa615861deb93"
-  integrity sha512-1gCAYOcmCFONmErGTrS1fjzJLA7MGZmKzrBNX7apqSwhyITJg2O102uFzXUeBxNnEkDA9vHIKLyeKq0V083vIw==
+shiki@^0.14.7:
+  version "0.14.7"
+  resolved "https://registry.npmjs.org/shiki/-/shiki-0.14.7.tgz#c3c9e1853e9737845f1d2ef81b31bcfb07056d4e"
+  integrity sha512-dNPAPrxSc87ua2sKJ3H5dQ/6ZaY8RNnaAqK+t0eG7p0Soi2ydiqbGOTaZCqaYvA/uZYfS1LJnemt3Q+mSfcPCg==
   dependencies:
     ansi-sequence-parser "^1.1.0"
     jsonc-parser "^3.2.0"
@@ -4072,15 +4072,15 @@ typedoc-plugin-missing-exports@0.23.0:
   resolved "https://registry.npmjs.org/typedoc-plugin-missing-exports/-/typedoc-plugin-missing-exports-0.23.0.tgz#076df6ffce4d84e8097be009b7c62a17d58477a5"
   integrity sha512-9smahDSsFRno9ZwoEshQDuIYMHWGB1E6LUud5qMxR2wNZ0T4DlZz0QjoK3HzXtX34mUpTH0dYtt7NQUK4D6B6Q==
 
-typedoc@^0.25.3:
-  version "0.25.3"
-  resolved "https://registry.npmjs.org/typedoc/-/typedoc-0.25.3.tgz#53c6d668e1001b3d488e9a750fcdfb05433554c0"
-  integrity sha512-Ow8Bo7uY1Lwy7GTmphRIMEo6IOZ+yYUyrc8n5KXIZg1svpqhZSWgni2ZrDhe+wLosFS8yswowUzljTAV/3jmWw==
+typedoc@^0.25.8:
+  version "0.25.8"
+  resolved "https://registry.npmjs.org/typedoc/-/typedoc-0.25.8.tgz#7d0e1bf12d23bf1c459fd4893c82cb855911ff12"
+  integrity sha512-mh8oLW66nwmeB9uTa0Bdcjfis+48bAjSH3uqdzSuSawfduROQLlXw//WSNZLYDdhmMVB7YcYZicq6e8T0d271A==
   dependencies:
     lunr "^2.3.9"
     marked "^4.3.0"
     minimatch "^9.0.3"
-    shiki "^0.14.1"
+    shiki "^0.14.7"
 
 "typescript@^4.6.4 || ^5.0.0":
   version "5.0.4"
