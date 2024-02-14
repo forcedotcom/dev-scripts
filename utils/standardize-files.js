@@ -11,12 +11,26 @@ const log = require('./log');
 const exists = require('./exists');
 const { resolveConfig } = require('./sf-config');
 const PackageJson = require('./package-json');
+const { isPlugin } = require('./project-type');
 
 const FILES_PATH = join(__dirname, '..', 'files');
 
 const FILE_NAME_LICENSE = 'LICENSE.txt';
 const FILE_NAME_GITIGNORE = 'gitignore';
 const FILE_NAME_MOCHARC = 'mocharc.json';
+
+// We don't copy over the .gitignore file since plugins/libraries might have their own
+// unique additions to the file. So in order to programmatically add entries, we need to
+// read the existing .gitignore file and append these entries to it in case they don't exist.
+const IGNORES = [
+  { pattern: 'node_modules', section: 'CLEAN ALL' },
+  { pattern: '.eslintcache', section: 'CLEAN ALL' },
+  { pattern: '.wireit', section: 'CLEAN ALL' },
+  { pattern: '*.tsbuildinfo', section: 'CLEAN ALL' },
+  { pattern: 'npm-shrinkwrap.json', section: 'CLEAN', plugin: true },
+  { pattern: 'oclif.manifest.json', section: 'CLEAN', plugin: true },
+  { pattern: 'oclif.lock', section: 'CLEAN', plugin: true },
+];
 
 function isDifferent(sourcePath, targetPath) {
   try {
@@ -65,20 +79,68 @@ function writeGitignore(targetDir) {
   const copied = copyFile(gitignoreSourcePath, gitignoreTargetPath);
 
   if (!copied) {
+    const isAPlugin = isPlugin(targetDir);
+    const relevantPatterns = IGNORES.filter((entry) => !entry.plugin || (entry.plugin && isAPlugin));
     let original = readFileSync(gitignoreTargetPath, 'utf-8');
-    if (!original.includes('# -- CLEAN')) {
+
+    const segments = original
+      // Segments are defined by "# --" in the gitignore
+      .split('# --')
+      // Turn each segment into list of valid gitignore lines
+      .map((segment) => segment.split('\n'))
+      // Maps segment name to list of valid gitignore lines
+      .reduce((map, segment) => {
+        const segmentName = (segment.shift() || '').trim();
+        if (['CLEAN', 'CLEAN ALL'].includes(segmentName)) {
+          map[segmentName] = segment;
+        }
+        return map;
+      }, {});
+
+    let needsWrite = false;
+    if (Object.keys(segments).length === 0) {
+      // project doesn't have any #-- CLEAN or #-- CLEAN ALL segments
+      // add any missing entries to the end of the file
       log(`The .gitignore doesn't contain any clean entries. See ${gitignoreSourcePath} for examples.`);
-    } else {
-      // Add the default clean-all entries if they don't exist.
-      let needsWrite = false;
-      for (const entry of ['.wireit', '.eslintcache', '*.tsbuildinfo']) {
-        if (!original.includes(entry)) {
-          original = original.replace('# -- CLEAN ALL', `# -- CLEAN ALL\n${entry}`);
+
+      const toAdd = [];
+      for (const { pattern } of relevantPatterns) {
+        if (!original.includes(pattern)) {
           needsWrite = true;
+          toAdd.push(pattern);
         }
       }
+
       if (needsWrite) {
-        writeFileSync(gitignoreTargetPath, original);
+        writeFileSync(gitignoreTargetPath, `${original}\n${toAdd.join('\n')}`);
+        return gitignoreTargetPath;
+      }
+    } else {
+      // project has #-- CLEAN or #-- CLEAN ALL segments
+      // add any missing entries to the end of the segment
+      const updatedSegments = Object.fromEntries(Object.keys(segments).map((section) => [section, []]));
+      for (const { pattern, section } of relevantPatterns) {
+        if (!original.includes(pattern)) {
+          needsWrite = true;
+          updatedSegments[section].push(pattern);
+        } else if (!segments[section].includes(pattern)) {
+          // the pattern is in the file, but not in the correct section
+          needsWrite = true;
+          original = original.replace(pattern, '');
+          updatedSegments[section].push(pattern);
+        }
+      }
+
+      if (needsWrite) {
+        for (const [section, lines] of Object.entries(updatedSegments)) {
+          if (lines.length === 0) continue;
+          original = original.replace(
+            `# -- ${section}\n${segments[section].join('\n')}`,
+            `# -- ${section}\n${[...segments[section], ...lines, '\n'].join('\n')}`
+          );
+        }
+        writeFileSync(gitignoreTargetPath, original.trimEnd() + '\n');
+        return gitignoreTargetPath;
       }
     }
   }
