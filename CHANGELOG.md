@@ -1,3 +1,12 @@
+# [8.4.0](https://github.com/forcedotcom/dev-scripts/compare/8.3.0...8.4.0) (2024-02-14)
+
+
+### Features
+
+* run shrinkwrap during sf-prepack ([fe6cedd](https://github.com/forcedotcom/dev-scripts/commit/fe6cedd15411e727fac30c895e30ec62d76a877d))
+
+
+
 # [8.3.0](https://github.com/forcedotcom/dev-scripts/compare/8.2.0...8.3.0) (2024-01-12)
 
 
