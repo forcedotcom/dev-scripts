@@ -1,3 +1,12 @@
+## [8.4.1](https://github.com/forcedotcom/dev-scripts/compare/8.4.0...8.4.1) (2024-02-26)
+
+
+### Bug Fixes
+
+* add --ignore-signing-artifacts flag to sf-clean ([#304](https://github.com/forcedotcom/dev-scripts/issues/304)) ([2e6a9ba](https://github.com/forcedotcom/dev-scripts/commit/2e6a9ba0878bfd50c7fa5836761bb0f373b87c3e))
+
+
+
 # [8.4.0](https://github.com/forcedotcom/dev-scripts/compare/8.3.0...8.4.0) (2024-02-14)
 
 
