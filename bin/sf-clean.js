@@ -12,7 +12,9 @@ const shell = require('../utils/shelljs');
 const log = require('../utils/log');
 const loadRootPath = require('../utils/load-root-path');
 
-const cleanAll = process.argv[2] === 'all';
+const argv = process.argv.slice(2);
+const cleanAll = argv.includes('all');
+const ignoreSigningArtifacts = argv.includes('--ignore-signing-artifacts');
 
 let toClean = ['lib'];
 let toCleanAll = ['node_modules'];
@@ -55,6 +57,10 @@ if (gitignorePath) {
 // Add defaults for clean all
 if (cleanAll) {
   toClean = [...toClean, ...toCleanAll];
+}
+
+if (ignoreSigningArtifacts) {
+  toClean = toClean.filter((item) => !item.endsWith('.tgz') && !item.endsWith('.sig'));
 }
 
 log(`rm -rf ${toClean}`);
