@@ -81,7 +81,8 @@ function writeGitignore(targetDir) {
   if (!copied) {
     const isAPlugin = isPlugin(targetDir);
     const relevantPatterns = IGNORES.filter((entry) => !entry.plugin || (entry.plugin && isAPlugin));
-    let original = readFileSync(gitignoreTargetPath, 'utf-8');
+    // eslint-disable-next-line no-control-regex
+    let original = readFileSync(gitignoreTargetPath, 'utf-8').replace(new RegExp('\r\n', 'g'), '\n');
 
     const segments = original
       // Segments are defined by "# --" in the gitignore
