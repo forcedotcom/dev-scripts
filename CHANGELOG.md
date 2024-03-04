@@ -1,3 +1,7 @@
+## [8.4.2](https://github.com/forcedotcom/dev-scripts/compare/8.4.1...8.4.2) (2024-03-04)
+
+
+
 ## [8.4.1](https://github.com/forcedotcom/dev-scripts/compare/8.4.0...8.4.1) (2024-02-26)
 
 
