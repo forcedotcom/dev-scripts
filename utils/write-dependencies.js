@@ -14,7 +14,7 @@ const { resolveConfig } = require('./sf-config');
  * But, if the target repo has the dep, we want to make sure it meets the minimum version.
  */
 const nonPjsonDependencyMinimums = new Map([
-  ['@salesforce/sf-plugins-core', '^5.0.1'],
+  ['@salesforce/sf-plugins-core', '^8'],
   ['@salesforce/core', '^6.4.2'],
   ['@salesforce/kit', '^3.0.15'],
   ['@salesforce/ts-types', '^2.0.9'],
