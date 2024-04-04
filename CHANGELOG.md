@@ -1,3 +1,12 @@
+## [8.4.3](https://github.com/forcedotcom/dev-scripts/compare/8.4.2...8.4.3) (2024-04-04)
+
+
+### Bug Fixes
+
+* eslint-config bumps, a few others ([a5c6b27](https://github.com/forcedotcom/dev-scripts/commit/a5c6b27707d098cda54f4d80090fe8d035a541d2))
+
+
+
 ## [8.4.2](https://github.com/forcedotcom/dev-scripts/compare/8.4.1...8.4.2) (2024-03-04)
 
 
