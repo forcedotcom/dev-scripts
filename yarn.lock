@@ -1570,10 +1570,10 @@ eslint-config-salesforce-license@^0.2.0:
   resolved "https://registry.npmjs.org/eslint-config-salesforce-license/-/eslint-config-salesforce-license-0.2.0.tgz#323193f1aa15dd33fbf108d25fc1210afc11065e"
   integrity sha512-DJdBvgj82Erum82YMe+YvG/o6ukna3UA++lRl0HSTldj0VlBl3Q8hzCp97nRXZHra6JH1I912yievZzklXDw6w==
 
-eslint-config-salesforce-typescript@^3.2.12:
-  version "3.2.12"
-  resolved "https://registry.npmjs.org/eslint-config-salesforce-typescript/-/eslint-config-salesforce-typescript-3.2.12.tgz#be87ce5ab9a846ac577c1aa7441fc63c6a675d40"
-  integrity sha512-dCXU2V7DE8woGtfEZyxD9hSX3F+ZS/26nS6oG963I7/p9aeA1S6apPR1v3kV7o9VDR86ry1OIFbvK//1oDcz/w==
+eslint-config-salesforce-typescript@^3.3.0:
+  version "3.3.0"
+  resolved "https://registry.npmjs.org/eslint-config-salesforce-typescript/-/eslint-config-salesforce-typescript-3.3.0.tgz#308acead1909665a92e9d32895c592ec4c9ee87a"
+  integrity sha512-83+zp2Y2h9oz9D3UksjNGCw+xWD7ylIiAJZ58vUbBD10l8FRUMNyn+RDCKn0xCQz7xed5/LcmgUE4T7roe+HBw==
   dependencies:
     "@typescript-eslint/eslint-plugin" "^6.21.0"
     "@typescript-eslint/parser" "^6.21.0"
