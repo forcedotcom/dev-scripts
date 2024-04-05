@@ -1,3 +1,12 @@
+# [8.5.0](https://github.com/forcedotcom/dev-scripts/compare/8.4.4...8.5.0) (2024-04-05)
+
+
+### Features
+
+* eslint likes types not interfaces ([#319](https://github.com/forcedotcom/dev-scripts/issues/319)) ([a60cf73](https://github.com/forcedotcom/dev-scripts/commit/a60cf73aa53a5242ac4025a32dfa2d6f822cefdf))
+
+
+
 ## [8.4.4](https://github.com/forcedotcom/dev-scripts/compare/8.4.3...8.4.4) (2024-04-05)
 
 
