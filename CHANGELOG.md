@@ -1,3 +1,12 @@
+## [8.4.4](https://github.com/forcedotcom/dev-scripts/compare/8.4.3...8.4.4) (2024-04-05)
+
+
+### Bug Fixes
+
+* bump chai types and cosmic ([#318](https://github.com/forcedotcom/dev-scripts/issues/318)) ([bdcdab6](https://github.com/forcedotcom/dev-scripts/commit/bdcdab63f795d2daab4404a9f2b1ee2555abc301))
+
+
+
 ## [8.4.3](https://github.com/forcedotcom/dev-scripts/compare/8.4.2...8.4.3) (2024-04-04)
 
 
