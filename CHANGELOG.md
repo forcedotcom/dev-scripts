@@ -1,3 +1,15 @@
+# [9.0.0](https://github.com/forcedotcom/dev-scripts/compare/8.5.0...9.0.0) (2024-04-10)
+
+
+* feat!: core7 bumps (#322) ([2c9d41a](https://github.com/forcedotcom/dev-scripts/commit/2c9d41a7dd27b0460142e2a1d32810928394fc7d)), closes [#322](https://github.com/forcedotcom/dev-scripts/issues/322)
+
+
+### BREAKING CHANGES
+
+* all the libraries with core7 and jsforce-node
+
+
+
 # [8.5.0](https://github.com/forcedotcom/dev-scripts/compare/8.4.4...8.5.0) (2024-04-05)
 
 
