@@ -14,18 +14,18 @@ const { resolveConfig } = require('./sf-config');
  * But, if the target repo has the dep, we want to make sure it meets the minimum version.
  */
 const nonPjsonDependencyMinimums = new Map([
-  ['@salesforce/sf-plugins-core', '^5.0.1'],
-  ['@salesforce/core', '^6.4.2'],
-  ['@salesforce/kit', '^3.0.15'],
+  ['@salesforce/sf-plugins-core', '^9.0.0'],
+  ['@salesforce/core', '^7.0.1'],
+  ['@salesforce/kit', '^3.1.0'],
   ['@salesforce/ts-types', '^2.0.9'],
-  ['@oclif/core', '^2.15.0'],
-  ['@salesforce/cli-plugins-testkit', '^4.2.9'],
-  ['@salesforce/source-deploy-retrieve', '^10.0.0'],
-  ['@salesforce/source-tracking', '^5.0.0'],
+  ['@oclif/core', '^3.26.2'],
+  ['@salesforce/cli-plugins-testkit', '^5.2.0'],
+  ['@salesforce/source-deploy-retrieve', '^11.0.0'],
+  ['@salesforce/source-tracking', '^6.0.0'],
   ['@salesforce/plugin-command-reference', '^3.0.25'],
   ['@oclif/plugin-command-snapshot', '^4.0.2'],
-  ['eslint-plugin-sf-plugin', '^1.17.0'],
-  ['@salesforce/telemetry', '^5.0.0'],
+  ['eslint-plugin-sf-plugin', '^1.18.0'],
+  ['@salesforce/telemetry', '^6.0.0'],
   ['oclif', '^3.16.0'],
 ]);
 
