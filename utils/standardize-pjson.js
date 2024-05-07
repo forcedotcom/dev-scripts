@@ -11,9 +11,11 @@ const { resolveConfig } = require('./sf-config');
 const { semverIsLessThan } = require('./semver');
 
 const PackageJson = require('./package-json');
-const { isPlugin } = require('./project-type');
+const { isPlugin, isJitPlugin } = require('./project-type');
 
-const PLUGIN_FILES = ['/messages', '/oclif.manifest.json', '/oclif.lock', '/npm-shrinkwrap.json'];
+const PLUGIN_FILES = ['/messages', '/oclif.manifest.json'];
+const PLUGIN_FILES_BLOCK_LIST = ['/oclif.lock', '/npm-shrinkwrap.json'];
+const JIT_PLUGIN_FILES = ['/messages', '/oclif.manifest.json', '/oclif.lock', '/npm-shrinkwrap.json'];
 
 module.exports = (packageRoot = require('./package-path')) => {
   const config = resolveConfig(packageRoot);
@@ -27,8 +29,15 @@ module.exports = (packageRoot = require('./package-path')) => {
 
   if (isPlugin(packageRoot)) {
     pjson.contents.oclif.topicSeparator = ' ';
-    pjson.contents.files = [...new Set([...pjson.contents.files, ...PLUGIN_FILES])].sort();
+    pjson.contents.files = [
+      ...new Set([...pjson.contents.files.filter((f) => !PLUGIN_FILES_BLOCK_LIST.includes(f)), ...PLUGIN_FILES]),
+    ].sort();
   }
+
+  if (isJitPlugin(packageRoot)) {
+    pjson.contents.files = [...new Set([...pjson.contents.files, ...JIT_PLUGIN_FILES])].sort();
+  }
+
   // GENERATE SCRIPTS
   const scriptList = Object.entries(config.scripts);
   const wireitList = Object.entries(config.wireit);

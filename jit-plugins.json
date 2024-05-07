@@ -1,0 +1,11 @@
+[
+  "@salesforce/plugin-custom-metadata",
+  "@salesforce/plugin-community",
+  "@salesforce/plugin-dev",
+  "@salesforce/plugin-devops-center",
+  "@salesforce/plugin-env",
+  "@salesforce/plugin-functions",
+  "@salesforce/plugin-signups",
+  "@salesforce/sfdx-plugin-lwc-test",
+  "@salesforce/sfdx-scanner"
+]
