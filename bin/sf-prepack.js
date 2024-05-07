@@ -8,17 +8,19 @@
 
 const chalk = require('chalk');
 const shell = require('../utils/shelljs');
-const { isPlugin, isJitPlugin } = require('../utils/project-type');
+const { determineProjectType } = require('../utils/project-type');
 const packageRoot = require('../utils/package-path');
 const { semverIsLessThan } = require('../utils/semver');
 
 shell.exec('yarn build');
 
-if (isPlugin(packageRoot)) {
+const projectType = determineProjectType(packageRoot);
+
+if (projectType !== 'other') {
   if (shell.which('oclif')) {
     shell.exec('oclif manifest');
 
-    if (isJitPlugin(packageRoot)) {
+    if (projectType !== 'core-plugin') {
       const version = shell.exec('oclif --version', { silent: true }).stdout.trim().replace('oclif/', '').split(' ')[0];
       if (semverIsLessThan(version, '3.14.0')) {
         // eslint-disable-next-line no-console

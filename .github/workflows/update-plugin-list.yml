@@ -1,4 +1,4 @@
-name: update-jit-list
+name: update-plugin-list
 
 on:
   workflow_dispatch:
@@ -7,7 +7,7 @@ on:
     - cron: '0 14 * * 3'
 
 jobs:
-  update-jit-list:
+  update-plugin-list:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -17,6 +17,7 @@ jobs:
         with:
           node-version: lts/*
       - run: |
+          npm view @salesforce/cli oclif.plugins --json | jq  '[.[] | select(contains("@salesforce"))]' > core-plugins.json
           npm view @salesforce/cli oclif.jitPlugins --json | jq keys > jit-plugins.json
       - uses: salesforcecli/github-workflows/.github/actions/getGithubUserInfo@main
         id: github-user-info
@@ -30,7 +31,7 @@ jobs:
       - run: |
           if [[ -n $(git status --short) ]]; then
             git add -A
-            git commit -m "fix: update jit-plugins.json"
+            git commit -m "fix: update plugin lists"
             git push
           else
             echo "Already up to date"

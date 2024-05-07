@@ -8,43 +8,54 @@
 const { join } = require('path');
 const { readFileSync } = require('fs');
 
-const IS_PLUGIN_CACHE = new Map();
-
 exports.isPlugin = function (packageRoot) {
-  if (IS_PLUGIN_CACHE.has(packageRoot)) {
-    return IS_PLUGIN_CACHE.get(packageRoot);
+  return exports.determineProjectType(packageRoot) !== 'other';
+};
+
+const CACHE = new Map();
+/**
+ * Determine project type.
+ *
+ * @param {string} packageRoot The root of the package.
+ * @returns {PackageType} The type of the package.
+ *
+ * PackageType = 'plugin' | 'core-plugin' | 'jit-plugin' | 'other'
+ */
+exports.determineProjectType = function (packageRoot) {
+  if (CACHE.has(packageRoot)) {
+    return CACHE.get(packageRoot);
   }
 
   let isPlugin = false;
+  let pjson;
   try {
-    const contents = JSON.parse(readFileSync(join(packageRoot, 'package.json'), 'utf-8'));
-    isPlugin = contents && !!contents.oclif;
+    pjson = JSON.parse(readFileSync(join(packageRoot, 'package.json'), 'utf-8'));
+    isPlugin = pjson && !!pjson.oclif;
   } catch (err) {
     /* do nothing */
   }
 
-  IS_PLUGIN_CACHE.set(packageRoot, isPlugin);
-  return isPlugin;
-};
-
-const IS_JIT_PLUGIN_CACHE = new Map();
-
-exports.isJitPlugin = function (packageRoot) {
-  if (IS_JIT_PLUGIN_CACHE.has(packageRoot)) {
-    return IS_JIT_PLUGIN_CACHE.get(packageRoot);
+  if (!isPlugin) {
+    CACHE.set(packageRoot, 'other');
+    return 'other';
   }
 
-  let isJitPlugin = false;
-  try {
-    const jitPluginsList = readFileSync(join(__dirname, '..', 'jit-plugins.json'), 'utf-8');
-    const jitPlugins = JSON.parse(jitPluginsList);
-
-    const contents = JSON.parse(readFileSync(join(packageRoot, 'package.json'), 'utf-8'));
-    isJitPlugin = contents && !!contents.oclif && jitPlugins.includes(contents.name);
-  } catch {
-    /* do nothing */
+  const corePluginsList = readFileSync(join(__dirname, '..', 'core-plugins.json'), 'utf-8');
+  const corePlugins = JSON.parse(corePluginsList);
+  const isCorePlugin = pjson && !!pjson.oclif && corePlugins.includes(pjson.name);
+  if (isCorePlugin) {
+    CACHE.set(packageRoot, 'core-plugin');
+    return 'core-plugin';
   }
 
-  IS_JIT_PLUGIN_CACHE.set(packageRoot, isJitPlugin);
-  return isJitPlugin;
+  const jitPluginsList = readFileSync(join(__dirname, '..', 'jit-plugins.json'), 'utf-8');
+  const jitPlugins = JSON.parse(jitPluginsList);
+  const isJitPlugin = pjson && !!pjson.oclif && jitPlugins.includes(pjson.name);
+  if (isJitPlugin) {
+    CACHE.set(packageRoot, 'jit-plugin');
+    return 'jit-plugin';
+  }
+
+  CACHE.set(packageRoot, 'plugin');
+  return 'plugin';
 };
