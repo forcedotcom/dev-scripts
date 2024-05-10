@@ -8,28 +8,33 @@
 
 const chalk = require('chalk');
 const shell = require('../utils/shelljs');
-const { isPlugin } = require('../utils/project-type');
+const { determineProjectType } = require('../utils/project-type');
 const packageRoot = require('../utils/package-path');
 const { semverIsLessThan } = require('../utils/semver');
 
 shell.exec('yarn build');
 
-if (isPlugin(packageRoot)) {
-  if (shell.which('oclif')) {
-    shell.exec('oclif manifest .');
-    const version = shell.exec('oclif --version', { silent: true }).stdout.trim().replace('oclif/', '').split(' ')[0];
-    if (semverIsLessThan(version, '3.14.0')) {
-      // eslint-disable-next-line no-console
-      console.log(
-        chalk.yellow('Warning:'),
-        // eslint-disable-next-line max-len
-        `oclif version ${version} is less than 3.14.0. Please upgrade to 3.14.0 or higher to generate oclif.lock file.`
-      );
-    } else {
-      shell.exec('oclif lock');
-    }
+const projectType = determineProjectType(packageRoot);
 
-    shell.exec('npm shrinkwrap');
+if (projectType !== 'other') {
+  if (shell.which('oclif')) {
+    shell.exec('oclif manifest');
+
+    if (projectType !== 'core-plugin') {
+      const version = shell.exec('oclif --version', { silent: true }).stdout.trim().replace('oclif/', '').split(' ')[0];
+      if (semverIsLessThan(version, '3.14.0')) {
+        // eslint-disable-next-line no-console
+        console.log(
+          chalk.yellow('Warning:'),
+          // eslint-disable-next-line max-len
+          `oclif version ${version} is less than 3.14.0. Please upgrade to 3.14.0 or higher to generate oclif.lock file.`
+        );
+      } else {
+        shell.exec('oclif lock');
+      }
+
+      shell.exec('npm shrinkwrap');
+    }
   } else if (shell.which('oclif-dev')) {
     // eslint-disable-next-line no-console
     console.log(chalk.yellow('Warning:'), 'oclif-dev is deprecated. Please use oclif instead.');

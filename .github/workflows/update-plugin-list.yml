@@ -1,0 +1,38 @@
+name: update-plugin-list
+
+on:
+  workflow_dispatch:
+  schedule:
+    # Run every Wednesday at 14:00 UTC
+    - cron: '0 14 * * 3'
+
+jobs:
+  update-plugin-list:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.SVC_CLI_BOT_GITHUB_TOKEN }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+      - run: |
+          npm view @salesforce/cli oclif.plugins --json | jq  '[.[] | select(contains("@salesforce"))]' > core-plugins.json
+          npm view @salesforce/cli oclif.jitPlugins --json | jq keys > jit-plugins.json
+      - uses: salesforcecli/github-workflows/.github/actions/getGithubUserInfo@main
+        id: github-user-info
+        with:
+          SVC_CLI_BOT_GITHUB_TOKEN: ${{ secrets.SVC_CLI_BOT_GITHUB_TOKEN }}
+      - uses: salesforcecli/github-workflows/.github/actions/gitConfig@main
+        with:
+          username: ${{ steps.github-user-info.outputs.username }}
+          email: ${{ steps.github-user-info.outputs.email }}
+      # Push changes if 'git status' is not empty
+      - run: |
+          if [[ -n $(git status --short) ]]; then
+            git add -A
+            git commit -m "fix: update plugin lists"
+            git push
+          else
+            echo "Already up to date"
+          fi
