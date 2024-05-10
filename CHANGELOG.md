@@ -1,3 +1,12 @@
+# [9.1.0](https://github.com/forcedotcom/dev-scripts/compare/9.0.0...9.1.0) (2024-05-10)
+
+
+### Features
+
+* only generate lockfiles for jit plugins ([#325](https://github.com/forcedotcom/dev-scripts/issues/325)) ([462e6fa](https://github.com/forcedotcom/dev-scripts/commit/462e6fa79dedb6d86e644a1e95d8fd32512aa34f))
+
+
+
 # [9.0.0](https://github.com/forcedotcom/dev-scripts/compare/8.5.0...9.0.0) (2024-04-10)
 
 
