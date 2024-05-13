@@ -27,7 +27,9 @@
     "bin",
     "utils",
     "files",
-    "sfdevrc.schema.json"
+    "sfdevrc.schema.json",
+    "core-plugins.json",
+    "jit-plugins.json"
   ],
   "dependencies": {
     "@commitlint/cli": "^17.1.2",
