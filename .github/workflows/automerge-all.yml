@@ -14,10 +14,12 @@ jobs:
     strategy:
       matrix:
         repo:
+          - salesforcecli/plugin-apex
           - salesforcecli/plugin-auth
           - salesforcecli/plugin-community
           - salesforcecli/plugin-custom-metadata
           - salesforcecli/plugin-data
+          - salesforcecli/plugin-dev
           - salesforcecli/plugin-env
           - salesforcecli/plugin-deploy-retrieve
           - salesforcecli/plugin-info
@@ -32,8 +34,10 @@ jobs:
           - salesforcecli/plugin-source
           - salesforcecli/plugin-sobject
           - salesforcecli/plugin-telemetry
+          - salesforcecli/plugin-templates
           - salesforcecli/plugin-trust
           - salesforcecli/plugin-user
+          - salesforcecli/sf-plugins-core
     steps:
       - name:
         run: gh workflow run automerge.yml --repo ${{ matrix.repo}}
