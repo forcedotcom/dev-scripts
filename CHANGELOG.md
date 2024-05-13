@@ -1,3 +1,12 @@
+## [9.1.1](https://github.com/forcedotcom/dev-scripts/compare/9.1.0...9.1.1) (2024-05-13)
+
+
+### Bug Fixes
+
+* publish plugin lists ([0569fe8](https://github.com/forcedotcom/dev-scripts/commit/0569fe8275c21276f29f4b8e6163db41bcea23ba))
+
+
+
 # [9.1.0](https://github.com/forcedotcom/dev-scripts/compare/9.0.0...9.1.0) (2024-05-10)
 
 
