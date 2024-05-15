@@ -1,6 +1,6 @@
 [
-  "@salesforce/plugin-custom-metadata",
   "@salesforce/plugin-community",
+  "@salesforce/plugin-custom-metadata",
   "@salesforce/plugin-dev",
   "@salesforce/plugin-devops-center",
   "@salesforce/plugin-env",
