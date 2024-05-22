@@ -8,6 +8,7 @@
 
 const { readFileSync } = require('fs');
 const { join } = require('path');
+const { EOL } = require('node:os');
 const shell = require('../utils/shelljs');
 const log = require('../utils/log');
 const loadRootPath = require('../utils/load-root-path');
@@ -28,7 +29,7 @@ if (gitignorePath) {
     // Segments are defined by "# --" in the gitignore
     .split('# --')
     // Turn each segment into list of valid gitignore lines
-    .map((segment) => segment.split('\n').filter((line) => line && !line.startsWith('#')))
+    .map((segment) => segment.split(EOL).filter((line) => line && !line.startsWith('#')))
     // Maps segment name to list of valid gitignore lines
     .reduce((map, segment) => {
       const segmentName = (segment.shift() || '').trim();
