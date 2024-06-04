@@ -6,7 +6,6 @@
  */
 
 const { join } = require('path');
-const { EOL } = require('node:os');
 const { readFileSync, unlinkSync, copyFileSync, writeFileSync } = require('fs');
 const log = require('./log');
 const exists = require('./exists');
@@ -84,11 +83,13 @@ function writeGitignore(targetDir) {
     const relevantPatterns = IGNORES.filter((entry) => !entry.plugin || (entry.plugin && isAPlugin));
     let original = readFileSync(gitignoreTargetPath, 'utf-8');
 
+    const originalEOL = original.includes('\r\n') ? '\r\n' : '\n';
+
     const segments = original
       // Segments are defined by "# --" in the gitignore
       .split('# --')
       // Turn each segment into list of valid gitignore lines
-      .map((segment) => segment.split(EOL))
+      .map((segment) => segment.split(originalEOL))
       // Maps segment name to list of valid gitignore lines
       .reduce((map, segment) => {
         const segmentName = (segment.shift() || '').trim();
@@ -113,7 +114,7 @@ function writeGitignore(targetDir) {
       }
 
       if (needsWrite) {
-        writeFileSync(gitignoreTargetPath, `${original}${EOL}${toAdd.join(EOL)}`);
+        writeFileSync(gitignoreTargetPath, `${original}${originalEOL}${toAdd.join(originalEOL)}`);
         return gitignoreTargetPath;
       }
     } else {
@@ -136,11 +137,11 @@ function writeGitignore(targetDir) {
         for (const [section, lines] of Object.entries(updatedSegments)) {
           if (lines.length === 0) continue;
           original = original.replace(
-            `# -- ${section}${EOL}${segments[section].join(EOL)}`,
-            `# -- ${section}${EOL}${[...segments[section], ...lines, EOL].join(EOL)}`
+            `# -- ${section}${originalEOL}${segments[section].join(originalEOL)}`,
+            `# -- ${section}${originalEOL}${[...segments[section], ...lines, originalEOL].join(originalEOL)}`
           );
         }
-        writeFileSync(gitignoreTargetPath, original.trimEnd() + EOL);
+        writeFileSync(gitignoreTargetPath, original.trimEnd() + originalEOL);
         return gitignoreTargetPath;
       }
     }
