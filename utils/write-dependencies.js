@@ -26,7 +26,7 @@ const nonPjsonDependencyMinimums = new Map([
   ['@oclif/plugin-command-snapshot', '^4.0.2'],
   ['eslint-plugin-sf-plugin', '^1.18.0'],
   ['@salesforce/telemetry', '^6.0.0'],
-  ['oclif', '^3.16.0'],
+  ['oclif', '^4'],
 ]);
 
 const getVersionNum = (ver) => (ver.startsWith('^') || ver.startsWith('~') ? ver.slice(1) : ver);
