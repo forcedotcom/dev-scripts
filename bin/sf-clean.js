@@ -8,7 +8,6 @@
 
 const { readFileSync } = require('fs');
 const { join } = require('path');
-const { EOL } = require('node:os');
 const shell = require('../utils/shelljs');
 const log = require('../utils/log');
 const loadRootPath = require('../utils/load-root-path');
@@ -25,11 +24,21 @@ const gitignorePath = loadRootPath('.gitignore');
 if (gitignorePath) {
   const VALID_SEGMENTS = ['CLEAN', 'CLEAN ALL'];
   const gitignore = readFileSync(join(gitignorePath, '.gitignore'), 'utf8');
+
+  // respect the file EOL (`CRLF` or `LF`).
+  //
+  // we can't use node's `os.EOL` because that assumes:
+  //   * unix only uses `CL`
+  //   * win only uses `CRLF`
+  //
+  // when all 4 scenarios are completely valid
+  const originalEOL = gitignore.includes('\r\n') ? '\r\n' : '\n';
+
   const segments = gitignore
     // Segments are defined by "# --" in the gitignore
     .split('# --')
     // Turn each segment into list of valid gitignore lines
-    .map((segment) => segment.split(EOL).filter((line) => line && !line.startsWith('#')))
+    .map((segment) => segment.split(originalEOL).filter((line) => line && !line.startsWith('#')))
     // Maps segment name to list of valid gitignore lines
     .reduce((map, segment) => {
       const segmentName = (segment.shift() || '').trim();

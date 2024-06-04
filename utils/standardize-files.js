@@ -83,6 +83,13 @@ function writeGitignore(targetDir) {
     const relevantPatterns = IGNORES.filter((entry) => !entry.plugin || (entry.plugin && isAPlugin));
     let original = readFileSync(gitignoreTargetPath, 'utf-8');
 
+    // respect the file EOL (`CRLF` or `LF`).
+    //
+    // we can't use node's `os.EOL` because that assumes:
+    //   * unix only uses `CL`
+    //   * win only uses `CRLF`
+    //
+    // when all 4 scenarios are completely valid
     const originalEOL = original.includes('\r\n') ? '\r\n' : '\n';
 
     const segments = original
