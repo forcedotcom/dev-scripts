@@ -1,3 +1,34 @@
+## [9.1.3](https://github.com/forcedotcom/dev-scripts/compare/9.1.3-dev.2...9.1.3) (2024-06-05)
+
+
+
+## [9.1.3-dev.2](https://github.com/forcedotcom/dev-scripts/compare/9.1.3-dev.1...9.1.3-dev.2) (2024-06-04)
+
+
+### Bug Fixes
+
+* sf-clean too ([9200779](https://github.com/forcedotcom/dev-scripts/commit/9200779a914a39a001b2f50b1441fd208795cdae))
+
+
+
+## [9.1.3-dev.1](https://github.com/forcedotcom/dev-scripts/compare/9.1.3-dev.0...9.1.3-dev.1) (2024-06-04)
+
+
+### Bug Fixes
+
+* respect current line ending in file ([473c075](https://github.com/forcedotcom/dev-scripts/commit/473c0754d6f3528d11189a816362394292ee521d))
+
+
+
+## [9.1.3-dev.0](https://github.com/forcedotcom/dev-scripts/compare/9.1.2...9.1.3-dev.0) (2024-05-22)
+
+
+### Bug Fixes
+
+* normalize line endings ([871461a](https://github.com/forcedotcom/dev-scripts/commit/871461a515813fdbfc9c9f175c7d10aaf507a0ee))
+
+
+
 ## [9.1.2](https://github.com/forcedotcom/dev-scripts/compare/9.1.1...9.1.2) (2024-05-15)
 
 
