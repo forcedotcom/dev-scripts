@@ -1,3 +1,12 @@
+## [10.1.1](https://github.com/forcedotcom/dev-scripts/compare/10.1.0...10.1.1) (2024-06-17)
+
+
+### Bug Fixes
+
+* no prettier on messages ([f4ead06](https://github.com/forcedotcom/dev-scripts/commit/f4ead06a2c0045b932080e932a315fc389909fcf))
+
+
+
 # [10.1.0](https://github.com/forcedotcom/dev-scripts/compare/9.1.3...10.1.0) (2024-06-05)
 
 
