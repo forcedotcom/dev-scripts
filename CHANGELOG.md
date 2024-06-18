@@ -1,3 +1,12 @@
+# [10.2.0](https://github.com/forcedotcom/dev-scripts/compare/10.1.1...10.2.0) (2024-06-18)
+
+
+### Features
+
+* bump to new major version of sf-plugins-core ([#339](https://github.com/forcedotcom/dev-scripts/issues/339)) ([aee2513](https://github.com/forcedotcom/dev-scripts/commit/aee2513b83d805d57e8a1283e453d26e113994d4))
+
+
+
 ## [10.1.1](https://github.com/forcedotcom/dev-scripts/compare/10.1.0...10.1.1) (2024-06-17)
 
 
