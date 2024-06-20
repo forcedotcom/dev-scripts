@@ -526,10 +526,10 @@
   resolved "https://registry.npmjs.org/@pkgjs/parseargs/-/parseargs-0.11.0.tgz#a77ea742fab25775145434eb1d2328cf5013ac33"
   integrity sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg==
 
-"@salesforce/dev-config@^4.1.0":
-  version "4.1.0"
-  resolved "https://registry.npmjs.org/@salesforce/dev-config/-/dev-config-4.1.0.tgz#e529576466d074e7a5f1441236510fef123da01e"
-  integrity sha512-2iDDepiIwjXHS5IVY7pwv8jMo4xWosJ7p/UTj+lllpB/gnJiYLhjJPE4Z3FCGFKyvfg5jGaimCd8Ca6bLGsCQA==
+"@salesforce/dev-config@^4.2.0":
+  version "4.2.0"
+  resolved "https://registry.npmjs.org/@salesforce/dev-config/-/dev-config-4.2.0.tgz#65a59b95aeb4f5512435770da43cba780aa0cfc7"
+  integrity sha512-ahmHPhUslKhIe6qCaZTmMmHZrTXRhUcoMXVimEJaDPxTw2q3Dloq/lehWZdhLsRQCDKscP0WPIOdKulIgZJFBg==
 
 "@salesforce/prettier-config@^0.0.3":
   version "0.0.3"
