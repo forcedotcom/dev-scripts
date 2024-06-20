@@ -1,3 +1,12 @@
+## [10.2.2](https://github.com/forcedotcom/dev-scripts/compare/10.2.1...10.2.2) (2024-06-20)
+
+
+### Bug Fixes
+
+* bump cmd-ref ([#341](https://github.com/forcedotcom/dev-scripts/issues/341)) ([fa97b57](https://github.com/forcedotcom/dev-scripts/commit/fa97b571b8444221110dbe6fabe45c0ea9bc60c0))
+
+
+
 ## [10.2.1](https://github.com/forcedotcom/dev-scripts/compare/10.2.0...10.2.1) (2024-06-20)
 
 
