@@ -1,3 +1,7 @@
+## [10.2.1](https://github.com/forcedotcom/dev-scripts/compare/10.2.0...10.2.1) (2024-06-20)
+
+
+
 # [10.2.0](https://github.com/forcedotcom/dev-scripts/compare/10.1.1...10.2.0) (2024-06-18)
 
 
