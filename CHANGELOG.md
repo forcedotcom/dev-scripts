@@ -1,3 +1,12 @@
+## [10.2.3](https://github.com/forcedotcom/dev-scripts/compare/10.2.2...10.2.3) (2024-07-23)
+
+
+### Bug Fixes
+
+* **deps:** bump mocha and @types/mocha ([#352](https://github.com/forcedotcom/dev-scripts/issues/352)) ([ae5f610](https://github.com/forcedotcom/dev-scripts/commit/ae5f610bd81bc00e34914772f2fcdd7a5c1c4bc9))
+
+
+
 ## [10.2.2](https://github.com/forcedotcom/dev-scripts/compare/10.2.1...10.2.2) (2024-06-20)
 
 
