@@ -1,3 +1,12 @@
+## [10.2.4](https://github.com/forcedotcom/dev-scripts/compare/10.2.3...10.2.4) (2024-07-23)
+
+
+### Bug Fixes
+
+* **deps:** bump braces from 3.0.2 to 3.0.3 ([#334](https://github.com/forcedotcom/dev-scripts/issues/334)) ([5a098f2](https://github.com/forcedotcom/dev-scripts/commit/5a098f2f591228717c31b8791755b82fb359d48c))
+
+
+
 ## [10.2.3](https://github.com/forcedotcom/dev-scripts/compare/10.2.2...10.2.3) (2024-07-23)
 
 
