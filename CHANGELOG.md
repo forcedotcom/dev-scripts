@@ -1,3 +1,12 @@
+## [10.2.8](https://github.com/forcedotcom/dev-scripts/compare/10.2.7...10.2.8) (2024-07-29)
+
+
+### Bug Fixes
+
+* raise deps ([#356](https://github.com/forcedotcom/dev-scripts/issues/356)) ([6203ee2](https://github.com/forcedotcom/dev-scripts/commit/6203ee223318f2b06873b9dedc3cfbf4c8626a90))
+
+
+
 ## [10.2.7](https://github.com/forcedotcom/dev-scripts/compare/10.2.6...10.2.7) (2024-07-29)
 
 
