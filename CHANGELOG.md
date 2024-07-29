@@ -1,3 +1,12 @@
+## [10.2.5](https://github.com/forcedotcom/dev-scripts/compare/10.2.4...10.2.5) (2024-07-29)
+
+
+### Bug Fixes
+
+* bump dev-config ([#353](https://github.com/forcedotcom/dev-scripts/issues/353)) ([42b2941](https://github.com/forcedotcom/dev-scripts/commit/42b2941dc9e6214203684e0ed37e47ad89fefb81))
+
+
+
 ## [10.2.4](https://github.com/forcedotcom/dev-scripts/compare/10.2.3...10.2.4) (2024-07-23)
 
 
