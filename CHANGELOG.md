@@ -1,3 +1,12 @@
+## [10.2.6](https://github.com/forcedotcom/dev-scripts/compare/10.2.5...10.2.6) (2024-07-29)
+
+
+### Bug Fixes
+
+* dev-config bump for typedoc options update ([#354](https://github.com/forcedotcom/dev-scripts/issues/354)) ([cac2ee7](https://github.com/forcedotcom/dev-scripts/commit/cac2ee726abca4af50ec8f6637049a5a2c51bb84))
+
+
+
 ## [10.2.5](https://github.com/forcedotcom/dev-scripts/compare/10.2.4...10.2.5) (2024-07-29)
 
 
