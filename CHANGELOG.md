@@ -1,3 +1,12 @@
+## [10.2.7](https://github.com/forcedotcom/dev-scripts/compare/10.2.6...10.2.7) (2024-07-29)
+
+
+### Bug Fixes
+
+* **deps:** typedoc plugin for v0.26 support ([#355](https://github.com/forcedotcom/dev-scripts/issues/355)) ([18f109f](https://github.com/forcedotcom/dev-scripts/commit/18f109f69f4c01e12abde10a9e1128e5ffb1fdbf))
+
+
+
 ## [10.2.6](https://github.com/forcedotcom/dev-scripts/compare/10.2.5...10.2.6) (2024-07-29)
 
 
