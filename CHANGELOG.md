@@ -1,3 +1,12 @@
+## [10.2.9](https://github.com/forcedotcom/dev-scripts/compare/10.2.8...10.2.9) (2024-07-30)
+
+
+### Bug Fixes
+
+* **deps:** bump-nyc-and-eslint-config ([#360](https://github.com/forcedotcom/dev-scripts/issues/360)) ([2c81ff3](https://github.com/forcedotcom/dev-scripts/commit/2c81ff373384ebc1c7e2418c6145aaf6dcdf3ad2))
+
+
+
 ## [10.2.8](https://github.com/forcedotcom/dev-scripts/compare/10.2.7...10.2.8) (2024-07-29)
 
 
