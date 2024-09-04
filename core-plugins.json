@@ -1,5 +1,6 @@
 [
   "@salesforce/plugin-apex",
+  "@salesforce/plugin-api",
   "@salesforce/plugin-auth",
   "@salesforce/plugin-data",
   "@salesforce/plugin-deploy-retrieve",
