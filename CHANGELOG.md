@@ -1,3 +1,12 @@
+## [10.2.10](https://github.com/forcedotcom/dev-scripts/compare/10.2.9...10.2.10) (2024-09-04)
+
+
+### Bug Fixes
+
+* update plugin lists ([2dbe955](https://github.com/forcedotcom/dev-scripts/commit/2dbe955b0d201b74b5f85cbcb49e1f89be24228c))
+
+
+
 ## [10.2.9](https://github.com/forcedotcom/dev-scripts/compare/10.2.8...10.2.9) (2024-07-30)
 
 
