@@ -12,7 +12,6 @@
   "@salesforce/plugin-schema",
   "@salesforce/plugin-settings",
   "@salesforce/plugin-sobject",
-  "@salesforce/plugin-source",
   "@salesforce/plugin-telemetry",
   "@salesforce/plugin-templates",
   "@salesforce/plugin-trust",
