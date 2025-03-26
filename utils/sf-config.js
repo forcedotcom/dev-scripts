@@ -80,6 +80,7 @@ const PACKAGE_DEFAULTS = {
 // Path to resolved config object.
 const resolvedConfigs = {};
 
+// eslint-disable-next-line complexity
 const resolveConfig = (path) => {
   if (path && resolvedConfigs[path]) {
     return resolvedConfigs[path];
@@ -145,6 +146,11 @@ const resolveConfig = (path) => {
 
   if (configFromFile.test?.testsPath) {
     defaults.wireit['test:only'].command = `nyc mocha "${configFromFile.test.testsPath}"`;
+  }
+
+  // If a custom license exists in the config file, don't add the fix-license script
+  if (!configFromFile.license) {
+    defaults.scripts['fix-license'] = 'eslint src test --fix --rule "header/header: [2]"';
   }
 
   // Allow users to override certain scripts

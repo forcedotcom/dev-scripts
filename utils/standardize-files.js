@@ -180,7 +180,23 @@ module.exports = (packageRoot = require('./package-path')) => {
   let added = [];
   let removed = [];
 
-  added.push(writeLicenseFile(packageRoot));
+  // If the repo has a license specified in the '.sfdevrc' config, we don't want to override it
+  if (!config.license) {
+    added.push(writeLicenseFile(packageRoot));
+
+    // Replace the old README License badge with the new one
+    const readmeTargetPath = join(packageRoot, 'README.md');
+    // https://regex101.com/r/j7JZFW/1
+    const oldLicenseRegex = /\[!\[License\]\(https:\/\/img\.shields\.io\/badge\/License.*?\.svg\)\]\(.*?\)/gi;
+    const newLicenseBadge =
+      '[![License](https://img.shields.io/badge/License-Apache--2.0-blue.svg)](https://opensource.org/license/apache-2-0)'; // eslint-disable-line max-len
+
+    if (exists(readmeTargetPath)) {
+      replaceInFile(readmeTargetPath, (contents) => contents.replace(oldLicenseRegex, newLicenseBadge));
+      added.push(readmeTargetPath);
+    }
+  }
+
   added.push(writeGitignore(packageRoot));
   added.push(writeMocharcJson(packageRoot));
 
