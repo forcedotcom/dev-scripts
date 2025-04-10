@@ -1,3 +1,12 @@
+## [11.0.1](https://github.com/forcedotcom/dev-scripts/compare/10.2.12...11.0.1) (2025-04-10)
+
+
+### Bug Fixes
+
+* major bump failed ([149eb1e](https://github.com/forcedotcom/dev-scripts/commit/149eb1ee73b63cc4a12cc2ae43868da37c254818))
+
+
+
 ## [10.2.12](https://github.com/forcedotcom/dev-scripts/compare/10.2.11...10.2.12) (2025-02-27)
 
 
