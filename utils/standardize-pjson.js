@@ -22,9 +22,15 @@ module.exports = (packageRoot = require('./package-path')) => {
   const pjson = new PackageJson(packageRoot);
 
   const license = pjson.get('license');
-  if (license !== (config.license || 'BSD-3-Clause')) {
-    pjson.contents.license = 'BSD-3-Clause';
-    pjson.actions.push(`updating license`);
+
+  if (config.license && license !== config.license) {
+    pjson.contents.license = config.license;
+    pjson.actions.push(`updating license to ${config.license} to match config`);
+  }
+
+  if (!config.license && license !== 'Apache-2.0') {
+    pjson.contents.license = 'Apache-2.0';
+    pjson.actions.push(`updating license to Apache-2.0. Add a 'license' to your '.sfdevrc' to skip this.`);
   }
 
   const type = determineProjectType(packageRoot);
