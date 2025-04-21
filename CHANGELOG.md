@@ -1,3 +1,12 @@
+## [11.0.2](https://github.com/forcedotcom/dev-scripts/compare/11.0.1...11.0.2) (2025-04-21)
+
+
+### Bug Fixes
+
+* bump wireit for new cache ([5c41ed8](https://github.com/forcedotcom/dev-scripts/commit/5c41ed868de17d6aae6d0b83982052c4cdb45a78))
+
+
+
 ## [11.0.1](https://github.com/forcedotcom/dev-scripts/compare/10.2.12...11.0.1) (2025-04-10)
 
 
