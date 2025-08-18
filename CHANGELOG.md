@@ -1,3 +1,12 @@
+## [11.0.3](https://github.com/forcedotcom/dev-scripts/compare/11.0.2...11.0.3) (2025-08-18)
+
+
+### Bug Fixes
+
+* bump node types ([041dfde](https://github.com/forcedotcom/dev-scripts/commit/041dfde7cfcd4f8d9241285bab1ad248dac4ed25))
+
+
+
 ## [11.0.2](https://github.com/forcedotcom/dev-scripts/compare/11.0.1...11.0.2) (2025-04-21)
 
 
