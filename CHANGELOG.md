@@ -1,3 +1,21 @@
+## [11.0.4](https://github.com/forcedotcom/dev-scripts/compare/11.0.4-dev.0...11.0.4) (2025-08-29)
+
+
+### Bug Fixes
+
+* bump eslint lib ([f189cdd](https://github.com/forcedotcom/dev-scripts/commit/f189cdd08a347a53be0d0d3b69ef5e30fa476bda))
+
+
+
+## [11.0.4-dev.0](https://github.com/forcedotcom/dev-scripts/compare/11.0.3...11.0.4-dev.0) (2025-08-28)
+
+
+### Bug Fixes
+
+* oss-templates and apache 2.0 ([3c46a02](https://github.com/forcedotcom/dev-scripts/commit/3c46a0200334b2f6f2fd6839df65506f9f60d62d))
+
+
+
 ## [11.0.3](https://github.com/forcedotcom/dev-scripts/compare/11.0.2...11.0.3) (2025-08-18)
 
 
