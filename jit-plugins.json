@@ -1,11 +1,10 @@
 [
+  "@salesforce/code-analyzer",
   "@salesforce/plugin-community",
   "@salesforce/plugin-custom-metadata",
   "@salesforce/plugin-dev",
   "@salesforce/plugin-devops-center",
-  "@salesforce/plugin-env",
-  "@salesforce/plugin-functions",
+  "@salesforce/plugin-flow",
   "@salesforce/plugin-signups",
-  "@salesforce/sfdx-plugin-lwc-test",
-  "@salesforce/sfdx-scanner"
+  "@salesforce/sfdx-plugin-lwc-test"
 ]

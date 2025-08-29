@@ -1,6 +1,6 @@
 {
   "name": "@salesforce/dev-scripts",
-  "version": "11.0.3",
+  "version": "11.0.4-dev.0",
   "description": "Standardize package.json scripts and config files for Salesforce projects.",
   "repository": "forcedotcom/dev-scripts",
   "bin": {
@@ -15,6 +15,7 @@
     "lint": "eslint \"{files,test,utils,bin}/**/*.js\"",
     "clean": "bin/sf-clean.js",
     "clean-all": "bin/sf-clean.js all",
+    "fix-license": "eslint utils files/*.cjs test --fix --rule \"header/header: [2]\"",
     "test": "nyc mocha test/**/*.test.js",
     "prepare": "husky install"
   },
@@ -22,7 +23,7 @@
     "sfdx"
   ],
   "author": "Platform CLI",
-  "license": "BSD-3-Clause",
+  "license": "Apache-2.0",
   "files": [
     "bin",
     "utils",
@@ -43,7 +44,7 @@
     "chai": "^4.3.10",
     "chalk": "^4.0.0",
     "cosmiconfig": "^8.3.6",
-    "eslint-config-salesforce-typescript": "^3.4.0",
+    "eslint-config-salesforce-typescript": "4.0.1",
     "husky": "^7.0.4",
     "linkinator": "^6.1.1",
     "mocha": "^10.7.0",
