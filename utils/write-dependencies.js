@@ -90,7 +90,7 @@ module.exports = (projectPath) => {
   const scripts = config.scripts;
 
   /** devDeps that *should* be in every repo dev-scripts touches.  */
-  const requiredDeps = [];
+  const requiredDeps = ['eslint'];
 
   /** These packages are provided to orgs via devScripts.  They should not be in the pjson of the consumer
    * If you don't like the devScripts version, you can specify your own in sf-dev-rc.json in the dependencies section.
