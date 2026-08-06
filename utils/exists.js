@@ -20,7 +20,7 @@ module.exports = (path) => {
   try {
     accessSync(path);
     return true;
-  } catch (err) {
+  } catch {
     /* do nothing */
   }
   return false;

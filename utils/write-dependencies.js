@@ -70,7 +70,6 @@ module.exports = (projectPath) => {
     version = version ?? devScriptsVersion(name);
     if (!version) {
       throw new Error(
-        // eslint-disable-next-line max-len
         `Version empty for ${name}. Make sure it is in the devDependencies in dev-scripts since it is being added to the actual projects devDependencies.`
       );
     }
@@ -89,7 +88,6 @@ module.exports = (projectPath) => {
   };
 
   const scripts = config.scripts;
-  const eslintConfigSfTsPjson = require('eslint-config-salesforce-typescript/package.json');
 
   /** devDeps that *should* be in every repo dev-scripts touches.  */
   const requiredDeps = [];
@@ -119,15 +117,31 @@ module.exports = (projectPath) => {
     '@salesforce/prettier-config',
     // this repo manages all things eslint.  Its dependencies are in dev-scripts and therefore should be omitted
     'eslint-config-salesforce-typescript',
-    ...Object.keys(eslintConfigSfTsPjson.dependencies),
+    '@typescript-eslint/eslint-plugin',
+    '@typescript-eslint/parser',
+    'typescript-eslint',
+    '@eslint/js',
+    'eslint-config-prettier',
+    'eslint-plugin-header',
+    '@tony.ganchev/eslint-plugin-header',
+    'eslint-plugin-import',
+    'eslint-plugin-import-x',
+    'eslint-plugin-jsdoc',
+    'eslint-plugin-unicorn',
+    'globals',
     // leave these alone if the project has them
   ].filter((dep) => !new Set(config.devDepOverrides).has(dep));
   /**
    * We don't want these in any repo.  This is a good way to clean up things en masse
    */
-  const bannedDeps = ['cz-conventional-changelog', 'lint-staged', 'tslint', 'eslint-plugin-prettier'].concat(
-    scripts.format ? [] : ['prettier', '@salesforce/prettier-config']
-  );
+  const bannedDeps = [
+    'cz-conventional-changelog',
+    'lint-staged',
+    'tslint',
+    'eslint-plugin-prettier',
+    'eslint-plugin-import',
+    'eslint-plugin-header',
+  ].concat(scripts.format ? [] : ['prettier', '@salesforce/prettier-config']);
 
   // removes go before adds because some are "added back"
   providedByDevScripts.forEach((dep) => remove(dep));

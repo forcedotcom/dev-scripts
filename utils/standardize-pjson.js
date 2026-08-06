@@ -64,7 +64,7 @@ module.exports = (packageRoot = require('./package-path')) => {
     const scriptsChanged = [];
 
     const scripts = pjson.get('scripts');
-    // eslint-disable-next-line prefer-const
+
     for (let [scriptName, scriptCommand] of scriptList) {
       if (scripts[scriptName] !== scriptCommand) {
         scripts[scriptName] = scriptCommand;
@@ -97,7 +97,7 @@ module.exports = (packageRoot = require('./package-path')) => {
       pjson.actions.push('updating node engine');
       pjson.contents.engines.node = engineVersion;
     }
-  } catch (err) {
+  } catch {
     // Don't control for non typescript projects.
   }
 
