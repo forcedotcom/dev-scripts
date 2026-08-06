@@ -28,10 +28,17 @@
     "bin",
     "utils",
     "files",
+    "sfEslintConfig.mjs",
+    "sfEslintConfig-strict.mjs",
     "sfdevrc.schema.json",
     "core-plugins.json",
     "jit-plugins.json"
   ],
+  "exports": {
+    "./sfEslintConfig": "./sfEslintConfig.mjs",
+    "./sfEslintConfig-strict": "./sfEslintConfig-strict.mjs",
+    "./package.json": "./package.json"
+  },
   "dependencies": {
     "@commitlint/cli": "^17.8.1",
     "@commitlint/config-conventional": "^17.8.1",
