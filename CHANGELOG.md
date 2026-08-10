@@ -1,3 +1,39 @@
+# [13.0.0](https://github.com/forcedotcom/dev-scripts/compare/12.0.1-es10.0...13.0.0) (2026-08-10)
+
+
+
+## [12.0.1-es10.0](https://github.com/forcedotcom/dev-scripts/compare/11.0.4...12.0.1-es10.0) (2026-08-06)
+
+
+### Bug Fixes
+
+* glob ignores for nested JS files and add eslint as required dep ([ac676cf](https://github.com/forcedotcom/dev-scripts/commit/ac676cfce39fc304ee787a9ece7d04fb6beeb67c))
+* remove deprecated rules and relax test overrides ([cd008f9](https://github.com/forcedotcom/dev-scripts/commit/cd008f91718cd8c9c21ae25221a9cd8a6678981e))
+* update header rule to match Apache 2.0 license format ([dc862f9](https://github.com/forcedotcom/dev-scripts/commit/dc862f9a2204f9acab4ff3f0c049a83ba1f6654e))
+
+
+* feat!: upgrade to ESLint 10 ([689243e](https://github.com/forcedotcom/dev-scripts/commit/689243e5695f3ca5b45f8b07aa2ae64153b6c8eb))
+
+
+### BREAKING CHANGES
+
+* ESLint 9 -> 10.4+
+
+- eslint-plugin-import -> eslint-plugin-import-x
+- eslint-plugin-header -> @tony.ganchev/eslint-plugin-header
+- eslint-plugin-jsdoc ^50 -> ^63
+- eslint-plugin-unicorn ^56 -> ^72
+- typescript-eslint ^8.0 -> ^8.65
+- @eslint/js ^9 -> ^10
+- Remove deprecated ts-eslint formatting rules
+- Delete legacy eslintrc.cjs config files
+- standardize-files.js removes .eslintignore/.eslintrc.json
+- write-dependencies.js bans replaced plugins
+- Fix pre-existing lint errors
+- Version bump to 12.0.0
+
+
+
 ## [11.0.4](https://github.com/forcedotcom/dev-scripts/compare/11.0.4-dev.0...11.0.4) (2025-08-29)
 
 
