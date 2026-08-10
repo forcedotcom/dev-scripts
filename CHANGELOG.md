@@ -1,3 +1,12 @@
+## [13.0.1](https://github.com/forcedotcom/dev-scripts/compare/13.0.0...13.0.1) (2026-08-10)
+
+
+### Bug Fixes
+
+* drop premature TypeScript 6 range from typescript dependency ([e81af0e](https://github.com/forcedotcom/dev-scripts/commit/e81af0e3629903c849067fcdceb4a0eb9d3a39d5))
+
+
+
 # [13.0.0](https://github.com/forcedotcom/dev-scripts/compare/12.0.1-es10.0...13.0.0) (2026-08-10)
 
 
