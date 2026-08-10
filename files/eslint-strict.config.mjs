@@ -1,1 +1,1 @@
-export { default } from '@salesforce/dev-scripts/sfEslintConfig-strict';
+export { default } from 'eslint-config-salesforce-typescript';

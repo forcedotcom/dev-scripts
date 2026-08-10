@@ -42,7 +42,6 @@
   "dependencies": {
     "@commitlint/cli": "^17.8.1",
     "@commitlint/config-conventional": "^17.8.1",
-    "@eslint/js": "^10.0.0",
     "@salesforce/dev-config": "^4.3.3",
     "@salesforce/prettier-config": "^0.0.4",
     "@types/chai": "^4.3.17",
@@ -52,11 +51,10 @@
     "chai": "^4.5.0",
     "chalk": "^4.0.0",
     "cosmiconfig": "^8.3.6",
-    "eslint-config-prettier": "^10.1.5",
+    "@eslint/js": "^10.0.0",
     "@tony.ganchev/eslint-plugin-header": "^3.4.4",
-    "eslint-plugin-import-x": "^4.17.1",
-    "eslint-plugin-jsdoc": "^63.3.2",
-    "eslint-plugin-unicorn": "^72.0.0",
+    "eslint-config-prettier": "^10.1.5",
+    "eslint-config-salesforce-typescript": "^6.0.0",
     "globals": "^15.14.0",
     "husky": "^7.0.4",
     "linkinator": "^6.3.0",
@@ -71,7 +69,6 @@
     "typedoc": "^0.26.11",
     "typedoc-plugin-missing-exports": "^3.1.0",
     "typescript": "^5.5.4 || ^6",
-    "typescript-eslint": "^8.65.0",
     "wireit": "^0.14.13"
   },
   "publishConfig": {
