@@ -1,6 +1,6 @@
 {
   "name": "@salesforce/dev-scripts",
-  "version": "11.0.4",
+  "version": "12.0.0",
   "description": "Standardize package.json scripts and config files for Salesforce projects.",
   "repository": "forcedotcom/dev-scripts",
   "bin": {
@@ -15,7 +15,7 @@
     "lint": "eslint \"{files,test,utils,bin}/**/*.js\"",
     "clean": "bin/sf-clean.js",
     "clean-all": "bin/sf-clean.js all",
-    "fix-license": "eslint utils files/*.cjs test --fix --rule \"header/header: [2]\"",
+    "fix-license": "eslint utils files/*.mjs test --fix --rule \"header/header: [2]\"",
     "test": "nyc mocha test/**/*.test.js",
     "prepare": "husky install"
   },
@@ -28,42 +28,56 @@
     "bin",
     "utils",
     "files",
+    "sfEslintConfig.mjs",
+    "sfEslintConfig-strict.mjs",
     "sfdevrc.schema.json",
     "core-plugins.json",
     "jit-plugins.json"
   ],
+  "exports": {
+    "./sfEslintConfig": "./sfEslintConfig.mjs",
+    "./sfEslintConfig-strict": "./sfEslintConfig-strict.mjs",
+    "./package.json": "./package.json"
+  },
   "dependencies": {
     "@commitlint/cli": "^17.8.1",
     "@commitlint/config-conventional": "^17.8.1",
     "@salesforce/dev-config": "^4.3.3",
-    "@salesforce/prettier-config": "^0.0.3",
-    "@types/chai": "^4.3.14",
+    "@salesforce/prettier-config": "^0.0.4",
+    "@types/chai": "^4.3.17",
     "@types/mocha": "^10.0.10",
     "@types/node": "^18",
     "@types/sinon": "^10.0.20",
-    "chai": "^4.3.10",
+    "chai": "^4.5.0",
     "chalk": "^4.0.0",
     "cosmiconfig": "^8.3.6",
-    "eslint-config-salesforce-typescript": "4.0.1",
+    "@eslint/js": "^10.0.0",
+    "@tony.ganchev/eslint-plugin-header": "^3.4.4",
+    "eslint-config-prettier": "^10.1.5",
+    "eslint-config-salesforce-typescript": "^6.0.0",
+    "globals": "^15.14.0",
     "husky": "^7.0.4",
-    "linkinator": "^6.1.2",
+    "linkinator": "^6.3.0",
     "mocha": "^10.8.2",
-    "nyc": "^17.0.0",
+    "nyc": "^17.1.0",
     "prettier": "^2.8.8",
     "pretty-quick": "^3.3.1",
     "shelljs": "^0.10.0",
     "sinon": "10.0.0",
     "source-map-support": "^0.5.21",
     "ts-node": "^10.9.2",
-    "typedoc": "^0.26.5",
+    "typedoc": "^0.26.11",
     "typedoc-plugin-missing-exports": "^3.1.0",
-    "typescript": "^5.5.4",
+    "typescript": "^5.5.4 || ^6",
     "wireit": "^0.14.13"
   },
   "publishConfig": {
     "access": "public"
   },
   "devDependencies": {
-    "eslint": "^8.57.1"
+    "eslint": "^10.4.0"
+  },
+  "overrides": {
+    "browserslist": "4.24.0"
   }
 }

@@ -50,7 +50,7 @@ function isDifferent(sourcePath, targetPath) {
     const targetFile = readFileSync(targetPath, 'utf8').replace(new RegExp('\r\n', 'g'), '\n');
 
     return sourceFile !== targetFile;
-  } catch (error) {
+  } catch {
     /* do nothing */
   }
   return true;
@@ -180,7 +180,6 @@ function replaceInFile(filePath, replaceFn) {
   }
 }
 
-// eslint-disable-next-line complexity
 module.exports = (packageRoot = require('./package-path')) => {
   const config = resolveConfig(packageRoot);
   const testPath = join(packageRoot, 'test');
@@ -198,7 +197,7 @@ module.exports = (packageRoot = require('./package-path')) => {
     // https://regex101.com/r/j7JZFW/1
     const oldLicenseRegex = /\[!\[License\]\(https:\/\/img\.shields\.io\/badge\/License.*?\.svg\)\]\(.*?\)/gi;
     const newLicenseBadge =
-      '[![License](https://img.shields.io/badge/License-Apache--2.0-blue.svg)](https://opensource.org/license/apache-2-0)'; // eslint-disable-line max-len
+      '[![License](https://img.shields.io/badge/License-Apache--2.0-blue.svg)](https://opensource.org/license/apache-2-0)';
 
     if (exists(readmeTargetPath)) {
       replaceInFile(readmeTargetPath, (contents) => contents.replace(oldLicenseRegex, newLicenseBadge));
@@ -230,33 +229,38 @@ module.exports = (packageRoot = require('./package-path')) => {
     const lintConfig = config.lint || {};
     const strict = config.strict || lintConfig.strict;
 
-    const eslintJsTargetPath = join(packageRoot, '.eslintrc.js');
-    // if .eslintrc.js exists, copy it to .eslintrc.cjs and remove .eslintrc.js
-    if (exists(eslintJsTargetPath)) {
-      replaceInFile(eslintJsTargetPath, (contents) => contents.replace(/eslintrc.js/, 'eslintrc.cjs'));
-      added.push(copyFile(eslintJsTargetPath, eslintJsTargetPath.replace('.js', '.cjs'), strict));
-      unlinkSync(eslintJsTargetPath);
-      removed.push(eslintJsTargetPath);
+    // Remove legacy eslint config files (eslintrc, eslintignore — flat config replaces all of these)
+    const legacyConfigs = [
+      join(packageRoot, '.eslintrc.js'),
+      join(packageRoot, '.eslintrc.cjs'),
+      join(packageRoot, '.eslintrc.json'),
+      join(packageRoot, '.eslintignore'),
+    ];
+    for (const legacyPath of legacyConfigs) {
+      if (exists(legacyPath)) {
+        unlinkSync(legacyPath);
+        removed.push(legacyPath);
+      }
     }
-
-    const eslintSourcePath = join(FILES_PATH, strict ? 'eslintrc-strict.cjs' : 'eslintrc.cjs');
-    const eslintTargetPath = join(packageRoot, '.eslintrc.cjs');
-    added.push(copyFile(eslintSourcePath, eslintTargetPath, strict));
 
     if (exists(testPath)) {
-      const eslintJsTestTargetPath = join(testPath, '.eslintrc.js');
-      // if .eslintrc.js exists, copy it to .eslintrc.cjs and remove .eslintrc.js
-      if (exists(eslintJsTestTargetPath)) {
-        replaceInFile(eslintJsTestTargetPath, (contents) => contents.replace(/eslintrc.js/, 'eslintrc.cjs'));
-        added.push(copyFile(eslintJsTestTargetPath, eslintJsTestTargetPath.replace('.js', '.cjs'), strict));
-        unlinkSync(eslintJsTestTargetPath);
-        removed.push(eslintJsTestTargetPath);
+      const legacyTestConfigs = [
+        join(testPath, '.eslintrc.js'),
+        join(testPath, '.eslintrc.cjs'),
+        join(testPath, '.eslintrc.json'),
+      ];
+      for (const legacyPath of legacyTestConfigs) {
+        if (exists(legacyPath)) {
+          unlinkSync(legacyPath);
+          removed.push(legacyPath);
+        }
       }
-
-      const eslintTestSourcePath = join(FILES_PATH, strict ? 'eslintrc-test-strict.cjs' : 'eslintrc-test.cjs');
-      const eslintTestTargetPath = join(testPath, '.eslintrc.cjs');
-      added.push(copyFile(eslintTestSourcePath, eslintTestTargetPath, strict));
     }
+
+    // Copy flat config (eslint.config.mjs) — test config is included in the main file
+    const eslintSourcePath = join(FILES_PATH, strict ? 'eslint-strict.config.mjs' : 'eslint.config.mjs');
+    const eslintTargetPath = join(packageRoot, 'eslint.config.mjs');
+    added.push(copyFile(eslintSourcePath, eslintTargetPath, strict));
 
     // We don't use tslint anymore.
     const tslintPath = join(packageRoot, 'tslint.json');

@@ -19,13 +19,12 @@ const { join } = require('path');
 const shell = require('../utils/shelljs');
 const packageRoot = require('../utils/package-path');
 
-// eslint-disable-next-line import/order
 let options = require('@salesforce/dev-config/typedoc');
 
 try {
   const definedOptions = require(`${packageRoot}/typedoc`);
   options = Object.assign(options, definedOptions);
-} catch (err) {
+} catch {
   /* do nothing */
 }
 

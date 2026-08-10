@@ -34,11 +34,11 @@ shell.exec = function (command, ...args) {
   if (options.passthrough) {
     command = `${command} ${process.argv.slice(2).join(' ')}`;
   }
-  // eslint-disable-next-line no-console
+
   console.error(chalk.blue(command));
   try {
     return origExec.call(shell, command, ...args);
-  } catch (err) {
+  } catch {
     // Setting -e will throw an error. We are already displaying the command
     // output above which has information on the problem, so don't show the
     // node specific error thrown by shelljs. This is much cleaner output.

@@ -38,7 +38,7 @@ function initializeHusky() {
     if (err.code === 'ENOENT') {
       const errorHeader = chalk.red('ERROR: ');
       const errorMsg = ".husky folder wasn't found, try running `yarn husky install` to finish the install";
-      // eslint-disable-next-line no-console
+
       console.error(chalk.bold(`\n${errorHeader}${errorMsg}\n`));
       process.exit(1);
     }

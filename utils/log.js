@@ -24,6 +24,6 @@ module.exports = (msg, indent) => {
     msg = chalk.bold(msg);
   }
   msg = `${prefix}${msg}`;
-  // eslint-disable-next-line no-console
+
   console.warn(chalk.dim.yellow(msg));
 };

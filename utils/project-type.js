@@ -40,7 +40,7 @@ exports.determineProjectType = function (packageRoot) {
   try {
     pjson = JSON.parse(readFileSync(join(packageRoot, 'package.json'), 'utf-8'));
     isPlugin = pjson && !!pjson.oclif;
-  } catch (err) {
+  } catch {
     /* do nothing */
   }
 

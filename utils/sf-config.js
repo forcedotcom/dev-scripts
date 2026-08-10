@@ -54,12 +54,11 @@ const PACKAGE_DEFAULTS = {
     },
     lint: {
       command: 'eslint src test --color --cache --cache-location .eslintcache',
-      files: ['src/**/*.ts', 'test/**/*.ts', 'messages/**', '**/.eslint*', '**/tsconfig.json'],
+      files: ['src/**/*.ts', 'test/**/*.ts', 'messages/**', '**/eslint.config.*', '**/.eslint*', '**/tsconfig.json'],
       output: [],
     },
     'link-check': {
       command:
-        // eslint-disable-next-line max-len
         'node -e "process.exit(process.env.CI ? 0 : 1)" || linkinator "**/*.md" --skip "CHANGELOG.md|node_modules|test/|confluence.internal.salesforce.com|my.salesforce.com|localhost|%s" --markdown --retry --directory-listing --verbosity error',
       files: ['./*.md', './!(CHANGELOG).md', 'messages/**/*.md'],
       output: [],
@@ -89,7 +88,6 @@ const PACKAGE_DEFAULTS = {
 // Path to resolved config object.
 const resolvedConfigs = {};
 
-// eslint-disable-next-line complexity
 const resolveConfig = (path) => {
   if (path && resolvedConfigs[path]) {
     return resolvedConfigs[path];

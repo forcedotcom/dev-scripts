@@ -30,10 +30,9 @@ module.exports = (fileName, cwd) => {
       accessSync(path);
       projectRootPath = currentPath;
     } catch (err) {
-      // Pop one off
       currentPath = dirname(currentPath);
       if (currentPath === '/') {
-        throw new Error(`${fileName} root not found`);
+        throw new Error(`${fileName} root not found`, { cause: err });
       }
     }
   }
