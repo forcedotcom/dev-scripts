@@ -1,3 +1,12 @@
+## [13.0.2](https://github.com/forcedotcom/dev-scripts/compare/13.0.1...13.0.2) (2026-08-11)
+
+
+### Bug Fixes
+
+* make @types/* packages required deps instead of provided @W-23474629@ ([6b47290](https://github.com/forcedotcom/dev-scripts/commit/6b47290fd58254573d05a6d314bcf99f9a4b76ef))
+
+
+
 ## [13.0.1](https://github.com/forcedotcom/dev-scripts/compare/13.0.0...13.0.1) (2026-08-10)
 
 
