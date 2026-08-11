@@ -90,7 +90,7 @@ module.exports = (projectPath) => {
   const scripts = config.scripts;
 
   /** devDeps that *should* be in every repo dev-scripts touches.  */
-  const requiredDeps = ['eslint', 'eslint-config-salesforce-typescript'];
+  const requiredDeps = ['eslint', 'eslint-config-salesforce-typescript', '@types/chai', '@types/mocha', '@types/node', '@types/sinon'];
 
   /** These packages are provided to orgs via devScripts.  They should not be in the pjson of the consumer
    * If you don't like the devScripts version, you can specify your own in sf-dev-rc.json in the dependencies section.
@@ -109,10 +109,6 @@ module.exports = (projectPath) => {
     'sinon',
     'chai',
     'wireit',
-    '@types/chai',
-    '@types/mocha',
-    '@types/node',
-    '@types/sinon',
     '@salesforce/dev-config',
     '@salesforce/prettier-config',
     // these eslint plugins are provided by eslint-config-salesforce-typescript and should be omitted from consumers
