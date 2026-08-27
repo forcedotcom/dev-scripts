@@ -1,3 +1,15 @@
+# [14.0.0](https://github.com/forcedotcom/dev-scripts/compare/13.0.2...14.0.0) (2026-08-27)
+
+
+* feat!: upgrade to TypeScript v6 ([503c259](https://github.com/forcedotcom/dev-scripts/commit/503c259f55a97e08e8b68f4567edeb57e8cfa8ef))
+
+
+### BREAKING CHANGES
+
+* consumers must be on a TypeScript v6-compatible toolchain
+
+
+
 ## [13.0.2](https://github.com/forcedotcom/dev-scripts/compare/13.0.1...13.0.2) (2026-08-11)
 
 
