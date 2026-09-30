@@ -36,9 +36,9 @@ const IGNORES = [
   { pattern: '.eslintcache', section: 'CLEAN ALL' },
   { pattern: '.wireit', section: 'CLEAN ALL' },
   { pattern: '*.tsbuildinfo', section: 'CLEAN ALL' },
-  { pattern: 'npm-shrinkwrap.json', section: 'CLEAN', plugin: true },
+  { pattern: 'npm-shrinkwrap.json', section: 'CLEAN' },
   { pattern: 'oclif.manifest.json', section: 'CLEAN', plugin: true },
-  { pattern: 'oclif.lock', section: 'CLEAN', plugin: true },
+  { pattern: 'oclif.lock', section: 'CLEAN' },
 ];
 
 function isDifferent(sourcePath, targetPath) {

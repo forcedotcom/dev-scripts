@@ -24,7 +24,7 @@ const { determineProjectType } = require('./project-type');
 
 const PLUGIN_FILES = ['/messages', '/oclif.manifest.json'];
 const CORE_PLUGIN_FILES_BLOCK_LIST = ['/oclif.lock', '/npm-shrinkwrap.json'];
-const JIT_PLUGIN_FILES = ['/messages', '/oclif.manifest.json', '/oclif.lock', '/npm-shrinkwrap.json'];
+const JIT_PLUGIN_FILES = ['/messages', '/oclif.manifest.json'];
 
 module.exports = (packageRoot = require('./package-path')) => {
   const config = resolveConfig(packageRoot);
