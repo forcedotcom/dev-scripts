@@ -1,3 +1,15 @@
+# [15.0.0](https://github.com/forcedotcom/dev-scripts/compare/14.0.0...15.0.0) (2026-10-02)
+
+
+* feat!: stop generating npm-shrinkwrap.json and oclif.lock files in sf-prepack ([df7ab3b](https://github.com/forcedotcom/dev-scripts/commit/df7ab3b30c454afe03541bcddfa312080b1aa9e9))
+
+
+### BREAKING CHANGES
+
+* sf-prepack will no longer generate npm-shrinkwrap.json or oclif.lock files
+
+
+
 # [14.0.0](https://github.com/forcedotcom/dev-scripts/compare/13.0.2...14.0.0) (2026-08-27)
 
 
