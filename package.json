@@ -75,7 +75,7 @@
     "access": "public"
   },
   "devDependencies": {
-    "eslint": "^10.4.0"
+    "eslint": "^10.11.0"
   },
   "overrides": {
     "browserslist": "4.24.0"
