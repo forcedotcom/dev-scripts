@@ -1204,15 +1204,10 @@ balanced-match@^4.0.2:
   resolved "https://registry.npmjs.org/balanced-match/-/balanced-match-4.0.4.tgz#bfb10662feed8196a2c62e7c68e17720c274179a"
   integrity sha512-BLrgEcRTwX2o6gGxGOCNyMvGSp35YofuYzw9h1IMTRmKqttAZZVU67bdb9Pr2vUHA8+j3i2tJfjO6C6+4myGTA==
 
-baseline-browser-mapping@^2.10.38:
-  version "2.10.38"
-  resolved "https://registry.npmjs.org/baseline-browser-mapping/-/baseline-browser-mapping-2.10.38.tgz#c84d093c4bf7325c5053c279d90f153c66526042"
-  integrity sha512-31/02mVB4yuQU6adKk5SlY6m+mxDwUq5KZkyYgnLrrKl7TEm1+3PyDtDBz2kOv/wxZz41GHsvV1A/u6RmiyBvw==
-
-baseline-browser-mapping@^2.10.44:
-  version "2.11.12"
-  resolved "https://registry.npmjs.org/baseline-browser-mapping/-/baseline-browser-mapping-2.11.12.tgz#42ac48770bf73d292f60ce8ba4dc5e7ebb242ec3"
-  integrity sha512-r7WnVImvVCeFpf2DOXfy41aPWzeNg3H/A2X4dKmy1QL0MSyyk/e7z8ihJ3N6Nn2PsdhkVlqnEfnUE4a05P2aTA==
+baseline-browser-mapping@^2.10.38, baseline-browser-mapping@^2.10.44:
+  version "2.11.22"
+  resolved "https://registry.npmjs.org/baseline-browser-mapping/-/baseline-browser-mapping-2.11.22.tgz#d8b612f54517d8b3a31734623779e5ab8c5ff0b9"
+  integrity sha512-pWc4w51fBFd7mav43/zKRC+RI6f4yfzQoVlfvE8dECePyfkn1bzLp01Fj0QACcyCZyFhiEMyD2qScfKRWgWibA==
 
 binary-extensions@^2.0.0:
   version "2.2.0"
