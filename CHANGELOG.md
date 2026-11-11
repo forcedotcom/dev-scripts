@@ -1,3 +1,7 @@
+## [15.0.1](https://github.com/forcedotcom/dev-scripts/compare/15.0.0...15.0.1) (2026-11-11)
+
+
+
 # [15.0.0](https://github.com/forcedotcom/dev-scripts/compare/14.0.0...15.0.0) (2026-10-02)
 
 
